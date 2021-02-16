@@ -3,7 +3,7 @@ name: Build and deploy prod
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
 
 env:
   IMAGE: docker.pkg.github.com/${{ github.repository }}/familie-ef-blankett:${{ github.sha }}
