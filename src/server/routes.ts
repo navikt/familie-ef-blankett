@@ -14,7 +14,8 @@ router.get('/status', (_, res) => {
 });
 
 const lesMockFil = () => {
-  return fs.readFileSync('./src/server/mock/dummydata.json', 'UTF-8');
+  const fileString = fs.readFileSync('./src/server/mock/dummydata.json', 'UTF-8');
+  return JSON.parse(fileString);
 };
 
 router.post('/html', async (req: Request, res: Response) => {
