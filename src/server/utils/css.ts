@@ -47,4 +47,6 @@ export default `
   .block{
     white-space: pre-wrap
   }
+  
+  
 `;

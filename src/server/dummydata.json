@@ -1,0 +1,246 @@
+{
+  "inngangsvilkår": {
+    "vurderinger": [
+      {
+        "id": "3c656c8b-7d07-4a98-b8c0-6f5c1f0bd63b",
+        "behandlingId": "d95d0dfb-a87b-4136-83f8-f3e594c3c576",
+        "resultat": "OPPFYLT",
+        "vilkårType": "LOVLIG_OPPHOLD",
+        "barnId": null,
+        "begrunnelse": "En kort begrunnelse her.",
+        "unntak": "ARBEID_NORSK_ARBEIDSGIVER",
+        "endretAv": "Z994119",
+        "endretTid": "2021-02-16T13:17:46.208",
+        "delvilkårsvurderinger": [
+          {
+            "type": "BOR_OG_OPPHOLDER_SEG_I_NORGE",
+            "resultat": "IKKE_OPPFYLT",
+            "årsak": null,
+            "begrunnelse": null
+          }
+        ]
+      },
+      {
+        "id": "21b0b7ae-4945-4536-8b59-17e1de4c3091",
+        "behandlingId": "d95d0dfb-a87b-4136-83f8-f3e594c3c576",
+        "resultat": "OPPFYLT",
+        "vilkårType": "FORUTGÅENDE_MEDLEMSKAP",
+        "barnId": null,
+        "begrunnelse": "En ekstra lang lang lang lang lang lang lang lang lang lang lang lang lang lang lang lang lang lang lang lang  begrunnelse her",
+        "unntak": "ANDRE_FORELDER_MEDLEM_SISTE_5_ÅR",
+        "endretAv": "Z994119",
+        "endretTid": "2021-02-16T13:18:04.833",
+        "delvilkårsvurderinger": [
+          {
+            "type": "FEM_ÅRS_MEDLEMSKAP",
+            "resultat": "IKKE_OPPFYLT",
+            "årsak": null,
+            "begrunnelse": null
+          }
+        ]
+      },
+      {
+        "id": "1db0750a-47b4-4611-ac83-a58469f8cea8",
+        "behandlingId": "d95d0dfb-a87b-4136-83f8-f3e594c3c576",
+        "resultat": "OPPFYLT",
+        "vilkårType": "SIVILSTAND",
+        "barnId": null,
+        "begrunnelse": "Tralalala",
+        "unntak": null,
+        "endretAv": "Z994119",
+        "endretTid": "2021-02-16T13:18:13.065",
+        "delvilkårsvurderinger": [
+          {
+            "type": "DOKUMENTERT_EKTESKAP",
+            "resultat": "IKKE_AKTUELL",
+            "årsak": null,
+            "begrunnelse": null
+          },
+          {
+            "type": "DOKUMENTERT_SEPARASJON_ELLER_SKILSMISSE",
+            "resultat": "IKKE_AKTUELL",
+            "årsak": null,
+            "begrunnelse": null
+          },
+          {
+            "type": "SAMLIVSBRUDD_LIKESTILT_MED_SEPARASJON",
+            "resultat": "IKKE_AKTUELL",
+            "årsak": null,
+            "begrunnelse": null
+          },
+          {
+            "type": "SAMSVAR_DATO_SEPARASJON_OG_FRAFLYTTING",
+            "resultat": "IKKE_AKTUELL",
+            "årsak": null,
+            "begrunnelse": null
+          },
+          {
+            "type": "KRAV_SIVILSTAND",
+            "resultat": "OPPFYLT",
+            "årsak": null,
+            "begrunnelse": null
+          }
+        ]
+      },
+      {
+        "id": "24547186-0c33-4514-b963-a158c20b0abb",
+        "behandlingId": "d95d0dfb-a87b-4136-83f8-f3e594c3c576",
+        "resultat": "OPPFYLT",
+        "vilkårType": "SAMLIV",
+        "barnId": null,
+        "begrunnelse": null,
+        "unntak": null,
+        "endretAv": "Z994119",
+        "endretTid": "2021-02-16T13:18:23.708",
+        "delvilkårsvurderinger": [
+          {
+            "type": "LEVER_IKKE_MED_ANNEN_FORELDER",
+            "resultat": "OPPFYLT",
+            "årsak": null,
+            "begrunnelse": null
+          },
+          {
+            "type": "LEVER_IKKE_I_EKTESKAPLIGNENDE_FORHOLD",
+            "resultat": "OPPFYLT",
+            "årsak": null,
+            "begrunnelse": "Ok"
+          }
+        ]
+      },
+      {
+        "id": "8171a5ed-53ab-47bb-bda0-e142bffc4138",
+        "behandlingId": "d95d0dfb-a87b-4136-83f8-f3e594c3c576",
+        "resultat": "IKKE_VURDERT",
+        "vilkårType": "ALENEOMSORG",
+        "barnId": "95c7e41c-a34a-483c-a4d2-e156032f9287",
+        "begrunnelse": null,
+        "unntak": null,
+        "endretAv": "Z994315",
+        "endretTid": "2021-02-16T15:50:18.426",
+        "delvilkårsvurderinger": [
+          {
+            "type": "SKRIFTLIG_AVTALE_OM_DELT_BOSTED",
+            "resultat": "IKKE_OPPFYLT",
+            "årsak": null,
+            "begrunnelse": "Ok"
+          },
+          {
+            "type": "NÆRE_BOFORHOLD",
+            "resultat": "IKKE_OPPFYLT",
+            "årsak": "SAMME_HUS_OG_FLERE_ENN_4_BOENHETER_MEN_VURDERT_NÆRT",
+            "begrunnelse": "Samme bygning"
+          },
+          {
+            "type": "MER_AV_DAGLIG_OMSORG",
+            "resultat": "OPPFYLT",
+            "årsak": null,
+            "begrunnelse": "Ok"
+          }
+        ]
+      }
+    ],
+    "grunnlag": {
+      "medlemskap": {
+        "søknadsgrunnlag": {
+          "bosattNorgeSisteÅrene": true,
+          "oppholderDuDegINorge": true,
+          "utenlandsopphold": []
+        },
+        "registergrunnlag": {
+          "nåværendeStatsborgerskap": [
+            "NORGE"
+          ],
+          "statsborgerskap": [
+            {
+              "land": "NORGE",
+              "gyldigFraOgMedDato": "1990-07-22",
+              "gyldigTilOgMedDato": null
+            }
+          ],
+          "oppholdstatus": [],
+          "bostedsadresse": [
+            {
+              "visningsadresse": "EKRA 57, 1550 HØLEN",
+              "type": "BOSTEDADRESSE",
+              "gyldigFraOgMed": "1990-07-22",
+              "gyldigTilOgMed": null
+            }
+          ],
+          "innflytting": [
+            {
+              "fraflyttingsland": "FIJI",
+              "dato": "1990-07-22",
+              "fraflyttingssted": null
+            }
+          ],
+          "utflytting": [],
+          "folkeregisterpersonstatus": "BOSATT",
+          "medlUnntak": {
+            "gyldigeVedtaksPerioder": []
+          }
+        }
+      },
+      "sivilstand": {
+        "søknadsgrunnlag": {
+          "samlivsbruddsdato": null,
+          "endringSamværsordningDato": null,
+          "fraflytningsdato": null,
+          "erUformeltGift": false,
+          "erUformeltSeparertEllerSkilt": false,
+          "datoSøktSeparasjon": null,
+          "søktOmSkilsmisseSeparasjon": null,
+          "årsakEnslig": "aleneFraFødsel",
+          "tidligereSamboer": null
+        },
+        "registergrunnlag": {
+          "type": "UGIFT",
+          "gyldigFraOgMed": null
+        }
+      },
+      "bosituasjon": {
+        "delerDuBolig": "borAleneMedBarnEllerGravid",
+        "samboer": null,
+        "sammenflyttingsdato": null,
+        "datoFlyttetFraHverandre": null,
+        "tidligereSamboerFortsattRegistrertPåAdresse": null
+      },
+      "barnMedSamvær": [
+        {
+          "barnId": "95c7e41c-a34a-483c-a4d2-e156032f9287",
+          "søknadsgrunnlag": {
+            "navn": "Tor Torsen",
+            "fødselsnummer": null,
+            "fødselTermindato": "2021-02-01",
+            "erBarnetFødt": true,
+            "harSammeAdresse": false,
+            "skalBoBorHosSøker": "ja",
+            "forelder": {
+              "navn": "Per Persen",
+              "fødselsnummer": null,
+              "fødselsdato": null,
+              "bosattINorge": true,
+              "land": null
+            },
+            "ikkeOppgittAnnenForelderBegrunnelse": null,
+            "spørsmålAvtaleOmDeltBosted": true,
+            "skalAnnenForelderHaSamvær": null,
+            "harDereSkriftligAvtaleOmSamvær": null,
+            "hvordanPraktiseresSamværet": null,
+            "borAnnenForelderISammeHus": "ja",
+            "borAnnenForelderISammeHusBeskrivelse": "Vi bor i samme gate.",
+            "harDereTidligereBoddSammen": true,
+            "nårFlyttetDereFraHverandre": "2021-02-02",
+            "hvorMyeErDuSammenMedAnnenForelder": "møtesIkke",
+            "beskrivSamværUtenBarn": null
+          },
+          "registergrunnlag": {
+            "navn": null,
+            "fødselsnummer": null,
+            "harSammeAdresse": null,
+            "forelder": null
+          }
+        }
+      ]
+    }
+  }
+}
