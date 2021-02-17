@@ -1,4 +1,8 @@
 {
+  "personopplysninger": {
+    "navn": "Navn Navnesen",
+    "personIdent": "12345678901"
+  },
   "inngangsvilkår": {
     "vurderinger": [
       {
@@ -155,9 +159,20 @@
               "land": "NORGE",
               "gyldigFraOgMedDato": "1990-07-22",
               "gyldigTilOgMedDato": null
+            },
+            {
+              "land": "SVERIGE",
+              "gyldigFraOgMedDato": "1978-07-22",
+              "gyldigTilOgMedDato": "1990-07-22"
             }
           ],
-          "oppholdstatus": [],
+          "oppholdstatus": [
+            {
+              "fraDato": "1990-07-22",
+              "tilDato": null,
+              "oppholdstillatelse": "MIDLERTIDIG"
+            }
+          ],
           "bostedsadresse": [
             {
               "visningsadresse": "EKRA 57, 1550 HØLEN",
@@ -173,7 +188,13 @@
               "fraflyttingssted": null
             }
           ],
-          "utflytting": [],
+          "utflytting": [
+            {
+              "fraflyttingsland": "SVERIGE",
+              "dato": "1999-07-22",
+              "fraflyttingssted": null
+            }
+          ],
           "folkeregisterpersonstatus": "BOSATT",
           "medlUnntak": {
             "gyldigeVedtaksPerioder": []

@@ -1,5 +1,13 @@
 import React from 'react';
-import { IDokumentData, IVurdering, Vilkår, VilkårGruppe } from '../../typer/dokumentApi';
+import {
+  IDokumentData,
+  IVurdering,
+  Vilkår,
+  VilkårGruppe,
+  vilkårTypeTilTekst,
+} from '../../typer/dokumentApi';
+import Vilkårsvurdering from './Vilkårsvurdering';
+import Medlemskapsgrunnlag from './Medlemskapsgrunnlag';
 
 interface DokumentProps {
   dokumentData: IDokumentData;
@@ -15,22 +23,23 @@ function gjelderDetteVilkåret(vurdering: IVurdering, vilkårgruppe: string) {
 }
 
 const Dokument = (dokumentProps: DokumentProps) => {
-  console.log(dokumentProps);
-
   return (
     <div>
       {Object.keys(VilkårGruppe).map(vilkårgruppe => {
-        const vurderingForVilkårgruppe = dokumentProps.dokumentData.inngangsvilkår.vurderinger.find(
-          vurdering => gjelderDetteVilkåret(vurdering, vilkårgruppe),
+        const vurdering = dokumentProps.dokumentData.inngangsvilkår.vurderinger.find(vurdering =>
+          gjelderDetteVilkåret(vurdering, vilkårgruppe),
         );
-        if (vurderingForVilkårgruppe === undefined) {
-          return <div>Kan ikke finne noen data for: {vilkårgruppe}</div>;
+        if (vurdering === undefined) {
+          return <div key={vilkårgruppe}>Kan ikke finne noen data for: {vilkårgruppe}</div>;
         }
+        const grunnlag = dokumentProps.dokumentData.inngangsvilkår.grunnlag;
         return (
-          <>
-            <div>Grunnlag</div>
-            <div>{vurderingForVilkårgruppe.vilkårType}</div>
-          </>
+          <div key={vurdering.id}>
+            <h2>{vilkårTypeTilTekst[vurdering.vilkårType]}</h2>
+            <Medlemskapsgrunnlag medlemskap={grunnlag.medlemskap} />
+
+            <Vilkårsvurdering vurdering={vurdering} />
+          </div>
         );
       })}
     </div>

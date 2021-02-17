@@ -1,6 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
 import { hentMiljøvariabler } from '../environment';
-import { Feil } from './Feil';
 import { logInfo } from '@navikt/familie-logging';
 
 export const genererPdf = async (html: string): Promise<ArrayBuffer> => {
@@ -17,6 +16,7 @@ export const genererPdf = async (html: string): Promise<ArrayBuffer> => {
     })
     .then((res: AxiosResponse<ArrayBuffer>) => res.data)
     .catch(error => {
-      throw new Feil(`Feil mot familie-dokument`, 500, error);
+      logInfo('Feil mot familie-dokument');
+      throw error;
     });
 };
