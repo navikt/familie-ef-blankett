@@ -6,6 +6,11 @@ Appen lager html fra data og lager pdf ved bruk av [familie-dokument](https://gi
 Konsumenter kan få returnert html eller pdf/bytearray.
 
 # Kjør server lokalt
+* Opprett `.env` og sett 
+```
+  REACT_APP_FAMILIE_DOKUMENT=http://localhost:8082
+  REACT_APP_BACKEND=http://localhost:8000
+```
 * `familie-dokument` må kjøres med DevLauncher for at pdf-generering skal fungere
 * Kjør `yarn build`
 * Kjør `yarn dev:server`
@@ -23,3 +28,23 @@ Spørsmål knyttet til koden eller prosjektet kan rettes til:
 ## For NAV-ansatte
 
 Interne henvendelser kan sendes via Slack i kanalen #team-familie.
+
+
+
+### Trigge pdf-generering lokalt
+```
+fetch("http://localhost:8000/api/dummy-pdf", {
+  "body": null,
+  "method": "POST",
+})        
+    .then(response => response.blob())
+    .then(blob => {
+        var url = window.URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = "filename.pdf";
+        document.body.appendChild(a); 
+        a.click();    
+        a.remove();           
+    });
+```

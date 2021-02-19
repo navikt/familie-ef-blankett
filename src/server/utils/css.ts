@@ -33,7 +33,7 @@ export default `
   }
 
   .tittel-og-personinfo{
-    margin-top: 200px;
+    margin-top: 20px;
   }
   
   .lenke {
@@ -47,4 +47,5 @@ export default `
   .block{
     white-space: pre-wrap
   }
+  
 `;

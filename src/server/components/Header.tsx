@@ -16,7 +16,7 @@ function Header(props: HeaderProps) {
     <div className={'header'}>
       <div className="ikon-og-dato">
         {visLogo && <NavIkon />}
-        <p>{dato[0]}</p>
+        <p>{dato}</p>
       </div>
       <div className={'tittel-og-personinfo'}>
         <h2 className="tittel">{tittel.toUpperCase()}</h2>
