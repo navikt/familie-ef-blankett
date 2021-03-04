@@ -9,7 +9,7 @@ Konsumenter kan få returnert html eller pdf/bytearray.
 * Opprett `.env` og sett 
 ```
   REACT_APP_FAMILIE_DOKUMENT=http://localhost:8082
-  REACT_APP_BACKEND=http://localhost:8000
+  REACT_APP_BACKEND=http://localhost:8033
 ```
 * `familie-dokument` må kjøres med DevLauncher for at pdf-generering skal fungere
 * Kjør `yarn build`
@@ -33,7 +33,7 @@ Interne henvendelser kan sendes via Slack i kanalen #team-familie.
 
 ### Trigge pdf-generering lokalt
 ```
-fetch("http://localhost:8000/api/dummy-pdf", {
+fetch("http://localhost:8033/api/dummy-pdf", {
   "body": null,
   "method": "POST",
 })        
