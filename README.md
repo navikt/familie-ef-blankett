@@ -32,6 +32,7 @@ Interne henvendelser kan sendes via Slack i kanalen #team-familie.
 
 
 ### Trigge pdf-generering lokalt
+Gå til localhost:8000/api/status i nettleseren og kjør følgende kommando i console:
 ```
 fetch("http://localhost:8000/api/dummy-pdf", {
   "body": null,

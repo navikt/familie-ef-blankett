@@ -30,12 +30,33 @@ export interface ISivilstandRegistergrunnlag {
 }
 
 export interface IBarnMedSamvær {
+  barnId: string;
   registergrunnlag: IBarnMedSamværRegistergrunnlag;
+  søknadsgrunnlag: IBarnMedSamværSøknadsgrunnlag;
 }
 
 export interface IBarnMedSamværRegistergrunnlag {
   navn?: string;
   fødselsnummer?: string;
+  harSammeAdresse?: boolean;
+  forelder?: IAnnenForelder;
+}
+
+export interface IBarnMedSamværSøknadsgrunnlag {
+  navn?: string;
+  fødselsnummer?: string;
+  fødselTermindato?: string;
+  erBarnetFødt: boolean;
+  harSammeAdresse?: boolean;
+  forelder?: IAnnenForelder;
+}
+
+export interface IAnnenForelder {
+  navn?: string;
+  fødselsnummer?: string;
+  fødselsdato?: string;
+  bosattINorge?: boolean;
+  land?: string;
 }
 
 export interface IMedlemskap {

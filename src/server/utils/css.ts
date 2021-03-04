@@ -48,4 +48,8 @@ export default `
     white-space: pre-wrap
   }
   
+  .delvilkår {
+    padding-bottom: 5px;
+  }
+  
 `;

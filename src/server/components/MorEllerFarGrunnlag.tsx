@@ -15,7 +15,7 @@ const MorEllerFarGrunnlag: React.FC<Props> = ({ barnMedSamvær }) => {
           return (
             <div key={index}>
               <h4>Barn</h4>
-              <div>Fødselsnummer: {barn.registergrunnlag.fødselsnummer}</div>
+              <div>Fødsels eller D-nummer: {barn.registergrunnlag.fødselsnummer}</div>
               <div>Navn: {barn.registergrunnlag.navn}</div>
             </div>
           );
