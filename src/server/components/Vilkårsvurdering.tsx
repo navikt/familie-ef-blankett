@@ -4,6 +4,7 @@ import {
   delvilkårÅrsakTilTekst,
   IVurdering,
   unntakTypeTilTekst,
+  Vilkårsresultat,
 } from '../../typer/dokumentApi';
 
 interface Props {
@@ -18,16 +19,18 @@ const Vilkårsvurdering: React.FC<Props> = ({ vurdering }) => {
       <div>Begrunnelse: {vurdering.begrunnelse}</div>
       <div>Unntak: {vurdering.unntak && unntakTypeTilTekst[vurdering.unntak]}</div>
       <h4>Delvilkår</h4>
-      {vurdering.delvilkårsvurderinger.map(delvilkår => {
-        return (
-          <div key={delvilkår.type}>
-            <div>{delvilkårTypeTilTekst[delvilkår.type]}</div>
-            <div>Resultat: {delvilkår.resultat}</div>
-            <div>Begrunnelse: {delvilkår.begrunnelse}</div>
-            <div>Årsak: {delvilkår.årsak && delvilkårÅrsakTilTekst[delvilkår.årsak]}</div>
-          </div>
-        );
-      })}
+      {vurdering.delvilkårsvurderinger
+        .filter(delvilkår => delvilkår.resultat !== Vilkårsresultat.IKKE_AKTUELL)
+        .map(delvilkår => {
+          return (
+            <div key={delvilkår.type}>
+              <div>{delvilkårTypeTilTekst[delvilkår.type]}</div>
+              <div>Resultat: {delvilkår.resultat}</div>
+              <div>Begrunnelse: {delvilkår.begrunnelse}</div>
+              <div>Årsak: {delvilkår.årsak && delvilkårÅrsakTilTekst[delvilkår.årsak]}</div>
+            </div>
+          );
+        })}
     </>
   );
 };

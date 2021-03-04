@@ -13,7 +13,29 @@ export interface IInngangsvilkår {
   grunnlag: IInngangsvilkårGrunnlag;
 }
 export interface IInngangsvilkårGrunnlag {
-  medlemskap: IMedlemskap; // Kun medlemskap for POC
+  medlemskap: IMedlemskap;
+  sivilstand: ISivilstandInngangsvilkår;
+  //bosituasjon: IBosituasjon;
+  sivilstandsplaner: ISivilstandsplaner;
+  barnMedSamvær: IBarnMedSamvær[];
+}
+
+export interface ISivilstandInngangsvilkår {
+  registergrunnlag: ISivilstandRegistergrunnlag;
+}
+
+export interface ISivilstandRegistergrunnlag {
+  type: SivilstandType;
+  gyldigFraOgMed: string;
+}
+
+export interface IBarnMedSamvær {
+  registergrunnlag: IBarnMedSamværRegistergrunnlag;
+}
+
+export interface IBarnMedSamværRegistergrunnlag {
+  navn?: string;
+  fødselsnummer?: string;
 }
 
 export interface IMedlemskap {
@@ -75,6 +97,19 @@ export interface IDelvilkår {
   begrunnelse?: string | null;
 }
 
+export enum SivilstandType {
+  UOPPGITT = 'UOPPGITT',
+  UGIFT = 'UGIFT',
+  GIFT = 'GIFT',
+  ENKE_ELLER_ENKEMANN = 'ENKE_ELLER_ENKEMANN',
+  SKILT = 'SKILT',
+  SEPARERT = 'SEPARERT',
+  REGISTRERT_PARTNER = 'REGISTRERT_PARTNER',
+  SEPARERT_PARTNER = 'SEPARERT_PARTNER',
+  SKILT_PARTNER = 'SKILT_PARTNER',
+  GJENLEVENDE_PARTNER = 'GJENLEVENDE_PARTNER',
+}
+
 export enum Vilkårsresultat {
   JA = 'JA',
   NEI = 'NEI',
@@ -94,6 +129,7 @@ export enum Vilkår {
   SIVILSTAND = 'SIVILSTAND',
   SAMLIV = 'SAMLIV',
   ALENEOMSORG = 'ALENEOMSORG',
+  MOR_ELLER_FAR = 'MOR_ELLER_FAR',
 }
 
 export interface IStatsborgerskap {
@@ -137,7 +173,8 @@ export type VilkårType =
   | Vilkår.LOVLIG_OPPHOLD
   | Vilkår.SIVILSTAND
   | Vilkår.SAMLIV
-  | Vilkår.ALENEOMSORG;
+  | Vilkår.ALENEOMSORG
+  | Vilkår.MOR_ELLER_FAR;
 
 export const vilkårTypeTilTekst: Record<VilkårType, string> = {
   FORUTGÅENDE_MEDLEMSKAP: 'Vilkår om forutgående medlemskap',
@@ -145,6 +182,7 @@ export const vilkårTypeTilTekst: Record<VilkårType, string> = {
   SIVILSTAND: 'Vilkår om sivilstand',
   SAMLIV: 'Vilkår om samliv',
   ALENEOMSORG: 'Vilkår om aleneomsorg',
+  MOR_ELLER_FAR: 'Vilkår om mor eller far',
 };
 
 // ------- DELVILKÅR
@@ -232,11 +270,12 @@ export const unntakTypeTilTekst: Record<UnntakType, string> = {
  * Når man eks legger til en vurdering til medlemskap i VurderingConfig nå så kommer den opp automatisk
  */
 export enum VilkårGruppe {
-  MEDLEMSKAP = 'MEDLEMSKAP', // TODO: Kun medlemskap i POC, resten må fikses senere
-  // LOVLIG_OPPHOLD = 'LOVLIG_OPPHOLD',
-  // SIVILSTAND = 'SIVILSTAND',
-  // SAMLIV = 'SAMLIV',
-  // ALENEOMSORG = 'ALENEOMSORG',
+  MEDLEMSKAP = 'MEDLEMSKAP',
+  LOVLIG_OPPHOLD = 'LOVLIG_OPPHOLD',
+  SIVILSTAND = 'SIVILSTAND',
+  SAMLIV = 'SAMLIV',
+  ALENEOMSORG = 'ALENEOMSORG',
+  MOR_ELLER_FAR = 'MOR_ELLER_FAR',
 }
 
 export const vilkårsresultatTypeTilTekstForDelvilkår = (
