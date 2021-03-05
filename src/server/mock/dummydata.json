@@ -6,63 +6,63 @@
   "inngangsvilkår": {
     "vurderinger": [
       {
-        "id": "3c656c8b-7d07-4a98-b8c0-6f5c1f0bd63b",
-        "behandlingId": "d95d0dfb-a87b-4136-83f8-f3e594c3c576",
+        "id": "7f445075-0620-4655-a442-a5fc3804254b",
+        "behandlingId": "33b7b31e-09df-4e71-99a1-97e53a5c898c",
         "resultat": "OPPFYLT",
-        "vilkårType": "LOVLIG_OPPHOLD",
+        "vilkårType": "MOR_ELLER_FAR",
         "barnId": null,
-        "begrunnelse": "En kort begrunnelse her.",
-        "unntak": "ARBEID_NORSK_ARBEIDSGIVER",
+        "begrunnelse": null,
+        "unntak": null,
         "endretAv": "Z994119",
-        "endretTid": "2021-02-16T13:17:46.208",
+        "endretTid": "2021-03-04T13:08:53.997",
         "delvilkårsvurderinger": [
           {
-            "type": "BOR_OG_OPPHOLDER_SEG_I_NORGE",
-            "resultat": "IKKE_OPPFYLT",
+            "type": "OMSORG_FOR_EGNE_ELLER_ADOPTERTE_BARN",
+            "resultat": "OPPFYLT",
             "årsak": null,
-            "begrunnelse": null
+            "begrunnelse": "asd"
           }
         ]
       },
       {
-        "id": "21b0b7ae-4945-4536-8b59-17e1de4c3091",
-        "behandlingId": "d95d0dfb-a87b-4136-83f8-f3e594c3c576",
+        "id": "0926e87f-94a5-46be-a29a-912caea2879b",
+        "behandlingId": "33b7b31e-09df-4e71-99a1-97e53a5c898c",
         "resultat": "OPPFYLT",
         "vilkårType": "FORUTGÅENDE_MEDLEMSKAP",
         "barnId": null,
-        "begrunnelse": "En ekstra lang lang lang lang lang lang lang lang lang lang lang lang lang lang lang lang lang lang lang lang  begrunnelse her",
-        "unntak": "ANDRE_FORELDER_MEDLEM_SISTE_5_ÅR",
+        "begrunnelse": "En begrunnelse",
+        "unntak": null,
         "endretAv": "Z994119",
-        "endretTid": "2021-02-16T13:18:04.833",
+        "endretTid": "2021-03-04T13:26:52.837",
         "delvilkårsvurderinger": [
           {
             "type": "FEM_ÅRS_MEDLEMSKAP",
-            "resultat": "IKKE_OPPFYLT",
+            "resultat": "OPPFYLT",
             "årsak": null,
             "begrunnelse": null
           }
         ]
       },
       {
-        "id": "1db0750a-47b4-4611-ac83-a58469f8cea8",
-        "behandlingId": "d95d0dfb-a87b-4136-83f8-f3e594c3c576",
+        "id": "6f14bc6a-dfe8-46f9-bb11-ac9022f14a92",
+        "behandlingId": "33b7b31e-09df-4e71-99a1-97e53a5c898c",
         "resultat": "OPPFYLT",
         "vilkårType": "SIVILSTAND",
         "barnId": null,
-        "begrunnelse": "Tralalala",
+        "begrunnelse": "Tvilsom dokumentasjon på alt",
         "unntak": null,
         "endretAv": "Z994119",
-        "endretTid": "2021-02-16T13:18:13.065",
+        "endretTid": "2021-03-04T13:27:31.299",
         "delvilkårsvurderinger": [
           {
             "type": "DOKUMENTERT_EKTESKAP",
-            "resultat": "IKKE_AKTUELL",
+            "resultat": "OPPFYLT",
             "årsak": null,
             "begrunnelse": null
           },
           {
             "type": "DOKUMENTERT_SEPARASJON_ELLER_SKILSMISSE",
-            "resultat": "IKKE_AKTUELL",
+            "resultat": "OPPFYLT",
             "årsak": null,
             "begrunnelse": null
           },
@@ -87,15 +87,34 @@
         ]
       },
       {
-        "id": "24547186-0c33-4514-b963-a158c20b0abb",
-        "behandlingId": "d95d0dfb-a87b-4136-83f8-f3e594c3c576",
+        "id": "fecbc220-096b-4cfd-892c-8087d530245e",
+        "behandlingId": "33b7b31e-09df-4e71-99a1-97e53a5c898c",
+        "resultat": "OPPFYLT",
+        "vilkårType": "LOVLIG_OPPHOLD",
+        "barnId": null,
+        "begrunnelse": "Kort opphold i Langtvekkistan",
+        "unntak": "UTENLANDSOPPHOLD_MINDRE_ENN_6_UKER",
+        "endretAv": "Z994119",
+        "endretTid": "2021-03-04T13:27:05.307",
+        "delvilkårsvurderinger": [
+          {
+            "type": "BOR_OG_OPPHOLDER_SEG_I_NORGE",
+            "resultat": "IKKE_OPPFYLT",
+            "årsak": null,
+            "begrunnelse": null
+          }
+        ]
+      },
+      {
+        "id": "f8804035-e27e-472e-8040-b8bab0d305a3",
+        "behandlingId": "33b7b31e-09df-4e71-99a1-97e53a5c898c",
         "resultat": "OPPFYLT",
         "vilkårType": "SAMLIV",
         "barnId": null,
         "begrunnelse": null,
         "unntak": null,
         "endretAv": "Z994119",
-        "endretTid": "2021-02-16T13:18:23.708",
+        "endretTid": "2021-03-04T13:27:41.991",
         "delvilkårsvurderinger": [
           {
             "type": "LEVER_IKKE_MED_ANNEN_FORELDER",
@@ -107,38 +126,69 @@
             "type": "LEVER_IKKE_I_EKTESKAPLIGNENDE_FORHOLD",
             "resultat": "OPPFYLT",
             "årsak": null,
-            "begrunnelse": "Ok"
+            "begrunnelse": "Jeppsipeppsi!"
           }
         ]
       },
       {
-        "id": "8171a5ed-53ab-47bb-bda0-e142bffc4138",
-        "behandlingId": "d95d0dfb-a87b-4136-83f8-f3e594c3c576",
-        "resultat": "IKKE_VURDERT",
+        "id": "0bee519b-5bb8-4b26-8495-f0a38b484e2d",
+        "behandlingId": "33b7b31e-09df-4e71-99a1-97e53a5c898c",
+        "resultat": "OPPFYLT",
         "vilkårType": "ALENEOMSORG",
-        "barnId": "95c7e41c-a34a-483c-a4d2-e156032f9287",
+        "barnId": "8608ec0f-a297-45f9-ae39-c649517fa6b0",
         "begrunnelse": null,
         "unntak": null,
-        "endretAv": "Z994315",
-        "endretTid": "2021-02-16T15:50:18.426",
+        "endretAv": "Z994119",
+        "endretTid": "2021-03-04T13:28:16.727",
         "delvilkårsvurderinger": [
           {
             "type": "SKRIFTLIG_AVTALE_OM_DELT_BOSTED",
-            "resultat": "IKKE_OPPFYLT",
+            "resultat": "OPPFYLT",
             "årsak": null,
-            "begrunnelse": "Ok"
+            "begrunnelse": "En lang, lang,  lang, lang,  lang, lang,  lang, lang,  lang, lang,  lang, lang,  lang, lang begrunnelse.\nIgjen, en lang, lang,  lang, lang,  lang, lang,  lang, lang,  lang, lang,  lang, lang,  lang, lang begrunnelse."
           },
           {
             "type": "NÆRE_BOFORHOLD",
-            "resultat": "IKKE_OPPFYLT",
-            "årsak": "SAMME_HUS_OG_FLERE_ENN_4_BOENHETER_MEN_VURDERT_NÆRT",
-            "begrunnelse": "Samme bygning"
+            "resultat": "OPPFYLT",
+            "årsak": null,
+            "begrunnelse": "Samme by"
           },
           {
             "type": "MER_AV_DAGLIG_OMSORG",
             "resultat": "OPPFYLT",
             "årsak": null,
-            "begrunnelse": "Ok"
+            "begrunnelse": "Absoultt"
+          }
+        ]
+      },
+      {
+        "id": "3f49e98e-6e69-4f33-a9c9-6e289a7682dd",
+        "behandlingId": "33b7b31e-09df-4e71-99a1-97e53a5c898c",
+        "resultat": "IKKE_OPPFYLT",
+        "vilkårType": "ALENEOMSORG",
+        "barnId": "3c1ee844-1b3c-44d7-8cc5-0a4576e6d08f",
+        "begrunnelse": null,
+        "unntak": null,
+        "endretAv": "Z994119",
+        "endretTid": "2021-03-04T13:28:40.547",
+        "delvilkårsvurderinger": [
+          {
+            "type": "SKRIFTLIG_AVTALE_OM_DELT_BOSTED",
+            "resultat": "OPPFYLT",
+            "årsak": null,
+            "begrunnelse": "asd"
+          },
+          {
+            "type": "NÆRE_BOFORHOLD",
+            "resultat": "IKKE_OPPFYLT",
+            "årsak": "SAMME_HUS_OG_FLERE_ENN_4_BOENHETER_MEN_VURDERT_NÆRT",
+            "begrunnelse": "Tralallaa"
+          },
+          {
+            "type": "MER_AV_DAGLIG_OMSORG",
+            "resultat": "OPPFYLT",
+            "årsak": null,
+            "begrunnelse": "kalsdjlkasjdklasjdl"
           }
         ]
       }
@@ -157,44 +207,27 @@
           "statsborgerskap": [
             {
               "land": "NORGE",
-              "gyldigFraOgMedDato": "1990-07-22",
+              "gyldigFraOgMedDato": "1987-11-14",
               "gyldigTilOgMedDato": null
-            },
-            {
-              "land": "SVERIGE",
-              "gyldigFraOgMedDato": "1978-07-22",
-              "gyldigTilOgMedDato": "1990-07-22"
             }
           ],
-          "oppholdstatus": [
-            {
-              "fraDato": "1990-07-22",
-              "tilDato": null,
-              "oppholdstillatelse": "MIDLERTIDIG"
-            }
-          ],
+          "oppholdstatus": [],
           "bostedsadresse": [
             {
-              "visningsadresse": "EKRA 57, 1550 HØLEN",
+              "visningsadresse": "SCHWENCKEGATA 47, 0484",
               "type": "BOSTEDADRESSE",
-              "gyldigFraOgMed": "1990-07-22",
+              "gyldigFraOgMed": "1987-11-14",
               "gyldigTilOgMed": null
             }
           ],
           "innflytting": [
             {
-              "fraflyttingsland": "FIJI",
-              "dato": "1990-07-22",
+              "fraflyttingsland": "MALTA",
+              "dato": "1987-11-14",
               "fraflyttingssted": null
             }
           ],
-          "utflytting": [
-            {
-              "fraflyttingsland": "SVERIGE",
-              "dato": "1999-07-22",
-              "fraflyttingssted": null
-            }
-          ],
+          "utflytting": [],
           "folkeregisterpersonstatus": "BOSATT",
           "medlUnntak": {
             "gyldigeVedtaksPerioder": []
@@ -206,8 +239,8 @@
           "samlivsbruddsdato": null,
           "endringSamværsordningDato": null,
           "fraflytningsdato": null,
-          "erUformeltGift": false,
-          "erUformeltSeparertEllerSkilt": false,
+          "erUformeltGift": true,
+          "erUformeltSeparertEllerSkilt": true,
           "datoSøktSeparasjon": null,
           "søktOmSkilsmisseSeparasjon": null,
           "årsakEnslig": "aleneFraFødsel",
@@ -227,41 +260,85 @@
       },
       "barnMedSamvær": [
         {
-          "barnId": "95c7e41c-a34a-483c-a4d2-e156032f9287",
+          "barnId": "8608ec0f-a297-45f9-ae39-c649517fa6b0",
           "søknadsgrunnlag": {
-            "navn": "Tor Torsen",
+            "id": "8608ec0f-a297-45f9-ae39-c649517fa6b0",
+            "navn": "",
             "fødselsnummer": null,
-            "fødselTermindato": "2021-02-01",
-            "erBarnetFødt": true,
-            "harSammeAdresse": false,
-            "skalBoBorHosSøker": "ja",
+            "fødselTermindato": "2021-02-27",
+            "erBarnetFødt": false,
+            "harSammeAdresse": true,
+            "skalBoBorHosSøker": null,
             "forelder": {
-              "navn": "Per Persen",
+              "navn": "TestPerson",
               "fødselsnummer": null,
               "fødselsdato": null,
               "bosattINorge": true,
               "land": null
             },
             "ikkeOppgittAnnenForelderBegrunnelse": null,
-            "spørsmålAvtaleOmDeltBosted": true,
-            "skalAnnenForelderHaSamvær": null,
+            "spørsmålAvtaleOmDeltBosted": false,
+            "skalAnnenForelderHaSamvær": "nei",
             "harDereSkriftligAvtaleOmSamvær": null,
             "hvordanPraktiseresSamværet": null,
-            "borAnnenForelderISammeHus": "ja",
-            "borAnnenForelderISammeHusBeskrivelse": "Vi bor i samme gate.",
-            "harDereTidligereBoddSammen": true,
-            "nårFlyttetDereFraHverandre": "2021-02-02",
+            "borAnnenForelderISammeHus": "nei",
+            "borAnnenForelderISammeHusBeskrivelse": null,
+            "harDereTidligereBoddSammen": false,
+            "nårFlyttetDereFraHverandre": null,
             "hvorMyeErDuSammenMedAnnenForelder": "møtesIkke",
             "beskrivSamværUtenBarn": null
           },
           "registergrunnlag": {
+            "id": "8608ec0f-a297-45f9-ae39-c649517fa6b0",
             "navn": null,
             "fødselsnummer": null,
             "harSammeAdresse": null,
             "forelder": null
           }
+        },
+        {
+          "barnId": "3c1ee844-1b3c-44d7-8cc5-0a4576e6d08f",
+          "søknadsgrunnlag": {
+            "id": "3c1ee844-1b3c-44d7-8cc5-0a4576e6d08f",
+            "navn": "TYKKMAGET TAREMEL",
+            "fødselsnummer": "03091776811",
+            "fødselTermindato": "2017-09-03",
+            "erBarnetFødt": true,
+            "harSammeAdresse": true,
+            "skalBoBorHosSøker": null,
+            "forelder": {
+              "navn": "ikke oppgitt",
+              "fødselsnummer": null,
+              "fødselsdato": null,
+              "bosattINorge": null,
+              "land": null
+            },
+            "ikkeOppgittAnnenForelderBegrunnelse": "Donor",
+            "spørsmålAvtaleOmDeltBosted": null,
+            "skalAnnenForelderHaSamvær": null,
+            "harDereSkriftligAvtaleOmSamvær": null,
+            "hvordanPraktiseresSamværet": null,
+            "borAnnenForelderISammeHus": null,
+            "borAnnenForelderISammeHusBeskrivelse": null,
+            "harDereTidligereBoddSammen": null,
+            "nårFlyttetDereFraHverandre": null,
+            "hvorMyeErDuSammenMedAnnenForelder": null,
+            "beskrivSamværUtenBarn": null
+          },
+          "registergrunnlag": {
+            "id": "3c1ee844-1b3c-44d7-8cc5-0a4576e6d08f",
+            "navn": "TYKKMAGET TAREMEL",
+            "fødselsnummer": "03091776811",
+            "harSammeAdresse": true,
+            "forelder": null
+          }
         }
-      ]
+      ],
+      "sivilstandsplaner": {
+        "harPlaner": false,
+        "fraDato": null,
+        "vordendeSamboerEktefelle": null
+      }
     }
   }
 }

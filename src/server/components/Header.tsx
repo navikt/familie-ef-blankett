@@ -23,7 +23,7 @@ function Header(props: HeaderProps) {
         <div className="kolonner">
           <div className="personinfo">
             <div>Navn: {navn}</div>
-            <div>Fødselsnummer: {fodselsnummer}</div>
+            <div>Fødsels eller D-nummer: {fodselsnummer}</div>
           </div>
         </div>
       </div>
