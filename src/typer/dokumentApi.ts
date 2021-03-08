@@ -1,5 +1,5 @@
 export interface IDokumentData {
-  inngangsvilkår: IInngangsvilkår;
+  vilkår: IVilkår;
   personopplysninger: IPersonopplysninger;
 }
 
@@ -8,19 +8,20 @@ export interface IPersonopplysninger {
   personIdent: string;
 }
 
-export interface IInngangsvilkår {
+export interface IVilkår {
   vurderinger: IVurdering[];
-  grunnlag: IInngangsvilkårGrunnlag;
+  grunnlag: IVilkårGrunnlag;
 }
-export interface IInngangsvilkårGrunnlag {
+
+export interface IVilkårGrunnlag {
   medlemskap: IMedlemskap;
-  sivilstand: ISivilstandInngangsvilkår;
+  sivilstand: ISivilstandVilkår;
   //bosituasjon: IBosituasjon;
   sivilstandsplaner: ISivilstandsplaner;
   barnMedSamvær: IBarnMedSamvær[];
 }
 
-export interface ISivilstandInngangsvilkår {
+export interface ISivilstandVilkår {
   registergrunnlag: ISivilstandRegistergrunnlag;
 }
 
