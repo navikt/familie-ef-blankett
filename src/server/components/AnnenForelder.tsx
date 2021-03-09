@@ -3,11 +3,18 @@ import React from 'react';
 
 interface AnnenForelderProps {
   annenForelder?: IAnnenForelder;
+  erRegisterOpplysning?: boolean;
 }
 
-const AnnenForelder: React.FC<AnnenForelderProps> = ({ annenForelder }) => {
+const AnnenForelder: React.FC<AnnenForelderProps> = ({
+  annenForelder,
+  erRegisterOpplysning = true,
+}) => {
   if (!annenForelder) {
-    return <div>Annen forelder ikke funnet i registeropplysninger</div>;
+    if (erRegisterOpplysning) {
+      return <div>Annen forelder ikke funnet i registeropplysninger</div>;
+    }
+    return <div>Annen forelder ikke funnet i søknadopplysninger</div>;
   }
   return (
     <div>

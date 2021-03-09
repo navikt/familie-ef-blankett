@@ -60,7 +60,7 @@ if (NODE_ENV !== 'production') {
     }
   });
 
-  router.post('/dummy-html', async (_req: Request, res: Response) => {
+  router.get('/dummy-html', async (_req: Request, res: Response) => {
     try {
       const html = await hentDokumentHtml(lesMockFil());
       res.send(html);

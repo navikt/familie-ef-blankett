@@ -152,6 +152,7 @@ export enum Vilkår {
   SAMLIV = 'SAMLIV',
   ALENEOMSORG = 'ALENEOMSORG',
   MOR_ELLER_FAR = 'MOR_ELLER_FAR',
+  NYTT_BARN_SAMME_PARTNER = 'NYTT_BARN_SAMME_PARTNER',
 }
 
 export interface IStatsborgerskap {
@@ -196,6 +197,7 @@ export type VilkårType =
   | Vilkår.SIVILSTAND
   | Vilkår.SAMLIV
   | Vilkår.ALENEOMSORG
+  | Vilkår.NYTT_BARN_SAMME_PARTNER
   | Vilkår.MOR_ELLER_FAR;
 
 export const vilkårTypeTilTekst: Record<VilkårType, string> = {
@@ -205,6 +207,7 @@ export const vilkårTypeTilTekst: Record<VilkårType, string> = {
   SAMLIV: 'Vilkår om samliv',
   ALENEOMSORG: 'Vilkår om aleneomsorg',
   MOR_ELLER_FAR: 'Vilkår om mor eller far',
+  NYTT_BARN_SAMME_PARTNER: 'Vilkår om nytt barn samme partner',
 };
 
 // ------- DELVILKÅR
@@ -223,6 +226,7 @@ export enum DelvilkårType {
   SKRIFTLIG_AVTALE_OM_DELT_BOSTED = 'SKRIFTLIG_AVTALE_OM_DELT_BOSTED',
   NÆRE_BOFORHOLD = 'NÆRE_BOFORHOLD',
   MER_AV_DAGLIG_OMSORG = 'MER_AV_DAGLIG_OMSORG',
+  HAR_FÅTT_ELLER_VENTER_NYTT_BARN_MED_SAMME_PARTNER = 'HAR_FÅTT_ELLER_VENTER_NYTT_BARN_MED_SAMME_PARTNER',
 }
 
 export const delvilkårTypeTilTekst: Record<DelvilkårType, string> = {
@@ -243,6 +247,8 @@ export const delvilkårTypeTilTekst: Record<DelvilkårType, string> = {
   SKRIFTLIG_AVTALE_OM_DELT_BOSTED: 'Har foreldrene inngått skriftlig avtale om delt bosted?',
   NÆRE_BOFORHOLD: 'Har bruker og den andre forelderen nære boforhold?',
   MER_AV_DAGLIG_OMSORG: 'Har bruker klart mer av den daglige omsorgen?',
+  HAR_FÅTT_ELLER_VENTER_NYTT_BARN_MED_SAMME_PARTNER:
+    'Har søker fått nytt barn med samme partner (født etter 01.01.2016) eller venter nytt barn med samme partner, etter at en av foreldrene tidligere har mottatt eller fortsatt mottar stønad for et annet felles barn.',
 };
 
 // ------ UNNTAK
@@ -298,6 +304,7 @@ export enum VilkårGruppe {
   SAMLIV = 'SAMLIV',
   ALENEOMSORG = 'ALENEOMSORG',
   MOR_ELLER_FAR = 'MOR_ELLER_FAR',
+  NYTT_BARN_SAMME_PARTNER = 'NYTT_BARN_SAMME_PARTNER',
 }
 
 export const vilkårsresultatTypeTilTekstForDelvilkår = (
