@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   IDokumentData,
-  IInngangsvilkårGrunnlag,
+  IVilkårGrunnlag,
   IVurdering,
   Vilkår,
   VilkårGruppe,
@@ -42,13 +42,13 @@ const Dokument = (dokumentProps: DokumentProps) => {
   return (
     <div>
       {Object.keys(VilkårGruppe).map(vilkårgruppe => {
-        const vurderinger = dokumentProps.dokumentData.inngangsvilkår.vurderinger.filter(
-          vurdering => gjelderDetteVilkåret(vurdering, vilkårgruppe),
+        const vurderinger = dokumentProps.dokumentData.vilkår.vurderinger.filter(vurdering =>
+          gjelderDetteVilkåret(vurdering, vilkårgruppe),
         );
         if (vurderinger.length === 0) {
           return <div key={vilkårgruppe}>Kan ikke finne noen data for: {vilkårgruppe}</div>;
         }
-        const grunnlag = dokumentProps.dokumentData.inngangsvilkår.grunnlag;
+        const grunnlag = dokumentProps.dokumentData.vilkår.grunnlag;
         return vurderinger.map(vurdering => {
           return (
             <div key={vurdering.id}>
@@ -65,7 +65,7 @@ const Dokument = (dokumentProps: DokumentProps) => {
 };
 
 function registergrunnlagForVilkår(
-  grunnlag: IInngangsvilkårGrunnlag,
+  grunnlag: IVilkårGrunnlag,
   vilkårgruppe: string,
   barnId?: string,
 ) {

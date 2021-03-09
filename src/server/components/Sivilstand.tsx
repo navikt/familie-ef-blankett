@@ -1,8 +1,8 @@
 import React from 'react';
-import { ISivilstandInngangsvilkår } from '../../typer/dokumentApi';
+import { ISivilstandVilkår } from '../../typer/dokumentApi';
 
 interface Props {
-  sivilstand: ISivilstandInngangsvilkår;
+  sivilstand: ISivilstandVilkår;
 }
 
 const SivilstandGrunnlag: React.FC<Props> = ({ sivilstand }) => {
