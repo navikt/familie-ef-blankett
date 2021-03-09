@@ -3,7 +3,7 @@
     "navn": "Navn Navnesen",
     "personIdent": "12345678901"
   },
-  "inngangsvilkår": {
+  "vilkår": {
     "vurderinger": [
       {
         "id": "7f445075-0620-4655-a442-a5fc3804254b",
