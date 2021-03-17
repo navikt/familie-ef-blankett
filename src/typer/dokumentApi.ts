@@ -153,6 +153,7 @@ export enum Vilkår {
   ALENEOMSORG = 'ALENEOMSORG',
   MOR_ELLER_FAR = 'MOR_ELLER_FAR',
   NYTT_BARN_SAMME_PARTNER = 'NYTT_BARN_SAMME_PARTNER',
+  SAGT_OPP_ELLER_REDUSERT = 'SAGT_OPP_ELLER_REDUSERT',
 }
 
 export interface IStatsborgerskap {
@@ -198,7 +199,8 @@ export type VilkårType =
   | Vilkår.SAMLIV
   | Vilkår.ALENEOMSORG
   | Vilkår.NYTT_BARN_SAMME_PARTNER
-  | Vilkår.MOR_ELLER_FAR;
+  | Vilkår.MOR_ELLER_FAR
+  | Vilkår.SAGT_OPP_ELLER_REDUSERT;
 
 export const vilkårTypeTilTekst: Record<VilkårType, string> = {
   FORUTGÅENDE_MEDLEMSKAP: 'Vilkår om forutgående medlemskap',
@@ -208,6 +210,7 @@ export const vilkårTypeTilTekst: Record<VilkårType, string> = {
   ALENEOMSORG: 'Vilkår om aleneomsorg',
   MOR_ELLER_FAR: 'Vilkår om mor eller far',
   NYTT_BARN_SAMME_PARTNER: 'Vilkår om nytt barn samme partner',
+  SAGT_OPP_ELLER_REDUSERT: 'Vilkår om sagt opp eller redusert stilling',
 };
 
 // ------- DELVILKÅR
@@ -227,6 +230,7 @@ export enum DelvilkårType {
   NÆRE_BOFORHOLD = 'NÆRE_BOFORHOLD',
   MER_AV_DAGLIG_OMSORG = 'MER_AV_DAGLIG_OMSORG',
   HAR_FÅTT_ELLER_VENTER_NYTT_BARN_MED_SAMME_PARTNER = 'HAR_FÅTT_ELLER_VENTER_NYTT_BARN_MED_SAMME_PARTNER',
+  SAGT_OPP_ELLER_REDUSERT = 'SAGT_OPP_ELLER_REDUSERT',
 }
 
 export const delvilkårTypeTilTekst: Record<DelvilkårType, string> = {
@@ -249,6 +253,8 @@ export const delvilkårTypeTilTekst: Record<DelvilkårType, string> = {
   MER_AV_DAGLIG_OMSORG: 'Har bruker klart mer av den daglige omsorgen?',
   HAR_FÅTT_ELLER_VENTER_NYTT_BARN_MED_SAMME_PARTNER:
     'Har søker fått nytt barn med samme partner (født etter 01.01.2016) eller venter nytt barn med samme partner, etter at en av foreldrene tidligere har mottatt eller fortsatt mottar stønad for et annet felles barn.',
+  SAGT_OPP_ELLER_REDUSERT:
+    'Har søker sagt opp jobben, tatt frivillig permisjon eller redusert arbeidstiden de siste 6 månedene før søknadstidspunktet?',
 };
 
 // ------ UNNTAK
@@ -266,6 +272,7 @@ export enum UnntakType {
   ANDRE_FORELDER_MEDLEM_MINST_5_ÅR_AVBRUDD_MINDRE_ENN_10_ÅR = 'ANDRE_FORELDER_MEDLEM_MINST_5_ÅR_AVBRUDD_MINDRE_ENN_10_ÅR',
   ANDRE_FORELDER_MEDLEM_MINST_7_ÅR_AVBRUDD_MER_ENN_10_ÅR = 'ANDRE_FORELDER_MEDLEM_MINST_7_ÅR_AVBRUDD_MER_ENN_10_ÅR',
   TOTALVURDERING_OPPFYLLER_FORSKRIFT = 'TOTALVURDERING_OPPFYLLER_FORSKRIFT',
+  RIMELIG_GRUNN_SAGT_OPP = 'RIMELIG_GRUNN_SAGT_OPP',
 }
 
 export const unntakTypeTilTekst: Record<UnntakType, string> = {
@@ -290,6 +297,8 @@ export const unntakTypeTilTekst: Record<UnntakType, string> = {
     'Ja, medlem i minst syv år etter fylte 16 år når krav fremsettes, og avbruddet er mer enn 10 år',
   TOTALVURDERING_OPPFYLLER_FORSKRIFT:
     'Ja, totalvurdering viser at forholdene går inn under forskriften om kravet om fem års forutgående medlemskap',
+  RIMELIG_GRUNN_SAGT_OPP:
+    'Hadde søker rimelig grunn til å si opp jobben eller redusere arbeidstiden?',
 };
 
 // ------ VILKÅRGRUPPE
@@ -305,6 +314,7 @@ export enum VilkårGruppe {
   ALENEOMSORG = 'ALENEOMSORG',
   MOR_ELLER_FAR = 'MOR_ELLER_FAR',
   NYTT_BARN_SAMME_PARTNER = 'NYTT_BARN_SAMME_PARTNER',
+  SAGT_OPP_ELLER_REDUSERT = 'SAGT_OPP_ELLER_REDUSERT',
 }
 
 export const vilkårsresultatTypeTilTekstForDelvilkår = (
