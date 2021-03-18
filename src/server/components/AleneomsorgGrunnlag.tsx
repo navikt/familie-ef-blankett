@@ -31,7 +31,7 @@ const bostedForBarn = (barnMedSamvær: IBarnMedSamvær) => {
 const AleneomsorgGrunnlag: React.FC<Props> = ({ barnMedSamvær, barnId }) => {
   return (
     <>
-      <h3>Grunnlag</h3>
+      <h3>Registerdata</h3>
       {barnMedSamvær
         .filter(barn => barn.barnId === barnId)
         .map((barn, index) => {

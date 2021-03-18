@@ -8,7 +8,7 @@ interface Props {
 const MorEllerFarGrunnlag: React.FC<Props> = ({ barnMedSamvær }) => {
   return (
     <>
-      <h3>Grunnlag</h3>
+      <h3>Registerdata</h3>
       {barnMedSamvær
         .filter(barn => barn.registergrunnlag.fødselsnummer)
         .map((barn, index) => {

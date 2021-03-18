@@ -8,7 +8,7 @@ interface Props {
 const SivilstandGrunnlag: React.FC<Props> = ({ sivilstand }) => {
   return (
     <>
-      <h3>Grunnlag</h3>
+      <h3>Registerdata</h3>
       <div>Sivilstatus: {sivilstand.registergrunnlag.type}</div>
       <div>Gyldig fra og med: {sivilstand.registergrunnlag.gyldigFraOgMed}</div>
     </>
