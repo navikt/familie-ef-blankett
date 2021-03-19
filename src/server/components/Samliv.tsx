@@ -3,8 +3,8 @@ import React from 'react';
 const SamlivGrunnlag = () => {
   return (
     <>
-      <h3>Grunnlag</h3>
-      <div>Ingen registergrunnlag</div>
+      <h3>Registerdata</h3>
+      <div>Ingen registerdata</div>
     </>
   );
 };

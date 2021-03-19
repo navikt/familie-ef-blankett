@@ -18,7 +18,7 @@ const Vilkårsvurdering: React.FC<Props> = ({ vurdering }) => {
       <div>Resultat: {vurdering.resultat}</div>
       {vurdering.begrunnelse && <div>Begrunnelse: {vurdering.begrunnelse}</div>}
       {vurdering.unntak && <div>Unntak: {unntakTypeTilTekst[vurdering.unntak]}</div>}
-      <h4>Delvilkår</h4>
+      <h4>Vurderinger</h4>
       {vurdering.delvilkårsvurderinger
         .filter(delvilkår => delvilkår.resultat !== Vilkårsresultat.IKKE_AKTUELL)
         .map(delvilkår => {
