@@ -15,6 +15,7 @@ import SamlivGrunnlag from './Samliv';
 import MorEllerFarGrunnlag from './MorEllerFarGrunnlag';
 import AleneomsorgGrunnlag from './AleneomsorgGrunnlag';
 import NyttBarnSammePartner from './NyttBarnSammePartner';
+import SagtOppEllerRedusertGrunnlag from './SagtOppEllerRedusertGrunnlag';
 
 interface DokumentProps {
   dokumentData: IDokumentData;
@@ -36,6 +37,8 @@ function gjelderDetteVilkåret(vurdering: IVurdering, vilkårgruppe: string) {
       return vurdering.vilkårType === Vilkår.ALENEOMSORG;
     case VilkårGruppe.NYTT_BARN_SAMME_PARTNER:
       return vurdering.vilkårType === Vilkår.NYTT_BARN_SAMME_PARTNER;
+    case VilkårGruppe.SAGT_OPP_ELLER_REDUSERT:
+      return vurdering.vilkårType === Vilkår.SAGT_OPP_ELLER_REDUSERT;
     default:
       return false;
   }
@@ -87,6 +90,8 @@ function registergrunnlagForVilkår(
       return <AleneomsorgGrunnlag barnMedSamvær={grunnlag.barnMedSamvær} barnId={barnId} />;
     case VilkårGruppe.NYTT_BARN_SAMME_PARTNER:
       return <NyttBarnSammePartner barnMedSamvær={grunnlag.barnMedSamvær} />;
+    case VilkårGruppe.SAGT_OPP_ELLER_REDUSERT:
+      return <SagtOppEllerRedusertGrunnlag />;
     default:
       return <div />;
   }
