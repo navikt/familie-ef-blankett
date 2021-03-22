@@ -208,7 +208,26 @@
             "begrunnelse": "kalsdjlkasjdklasjdl"
           }
         ]
-      }
+      },
+      {
+      "id": "c136fe87-1504-4ffd-b0d0-7079b200a80f",
+      "behandlingId": "a8735f04-c8d1-4d52-b0d5-9e35db818074",
+      "resultat": "OPPFYLT",
+      "vilkårType": "SAGT_OPP_ELLER_REDUSERT",
+      "barnId": null,
+      "begrunnelse": null,
+      "unntak": null,
+      "endretAv": "Z994481",
+      "endretTid": "2021-03-04T13:28:40.547",
+      "delvilkårsvurderinger": [
+        {
+          "type": "SAGT_OPP_ELLER_REDUSERT",
+          "resultat": "OPPFYLT",
+          "årsak": null,
+          "begrunnelse": null
+        }
+      ]
+    }
     ],
     "grunnlag": {
       "medlemskap": {
