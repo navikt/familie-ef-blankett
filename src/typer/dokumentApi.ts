@@ -372,3 +372,16 @@ export const delvilkårTypeTilTekst: Record<IRegelId, string> = {
     'Hadde søker rimelig grunn til å si opp jobben eller redusere arbeidstiden?',
   SLUTT_NODE: 'UGYLDIG DELVILKÅR',
 };
+
+export const sivilstandTilTekst: Record<SivilstandType, string> = {
+  UOPPGITT: 'Ikke oppgitt',
+  UGIFT: 'Ugift',
+  GIFT: 'Gift',
+  ENKE_ELLER_ENKEMANN: 'Enke/Enkemann',
+  SKILT: 'Skilt',
+  SKILT_PARTNER: 'Skilt partner',
+  SEPARERT: 'Separert',
+  SEPARERT_PARTNER: 'Separert partner',
+  REGISTRERT_PARTNER: 'Registrert partner',
+  GJENLEVENDE_PARTNER: 'Gjenlevende partner',
+};

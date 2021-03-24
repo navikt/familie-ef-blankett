@@ -1,5 +1,6 @@
 import React from 'react';
 import { IMedlemskap } from '../../typer/dokumentApi';
+import { formaterNullableIsoDato } from '../utils/util';
 
 interface Props {
   medlemskap: IMedlemskap;
@@ -18,9 +19,11 @@ const Medlemskapsgrunnlag: React.FC<Props> = ({ medlemskap }) => {
           : medlemskap.registergrunnlag.statsborgerskap.map((statsborgerskap, i) => {
               return (
                 <div key={i}>
-                  Fra: {statsborgerskap.gyldigFraOgMedDato || 'Ikke angitt'} | Til:{' '}
-                  {statsborgerskap.gyldigTilOgMedDato || 'Ikke angitt'} | Land:{' '}
-                  {statsborgerskap.land}
+                  Fra:{' '}
+                  {formaterNullableIsoDato(statsborgerskap.gyldigFraOgMedDato) || 'Ikke angitt'} |
+                  Til:{' '}
+                  {formaterNullableIsoDato(statsborgerskap.gyldigTilOgMedDato) || 'Ikke angitt'} |
+                  Land: {statsborgerskap.land}
                 </div>
               );
             })}
@@ -32,9 +35,9 @@ const Medlemskapsgrunnlag: React.FC<Props> = ({ medlemskap }) => {
           : medlemskap.registergrunnlag.oppholdstatus.map((oppholdstatus, i) => {
               return (
                 <div key={i}>
-                  Fra: {oppholdstatus.fraDato || 'Ikke angitt'} | Til:{' '}
-                  {oppholdstatus.tilDato || 'Ikke angitt'} | Oppholdsstatus:{' '}
-                  {oppholdstatus.oppholdstillatelse}
+                  Fra: {formaterNullableIsoDato(oppholdstatus.fraDato) || 'Ikke angitt'} | Til:{' '}
+                  {formaterNullableIsoDato(oppholdstatus.tilDato) || 'Ikke angitt'} |
+                  Oppholdsstatus: {oppholdstatus.oppholdstillatelse}
                 </div>
               );
             })}
@@ -46,7 +49,7 @@ const Medlemskapsgrunnlag: React.FC<Props> = ({ medlemskap }) => {
           : medlemskap.registergrunnlag.innflytting.map((innflytting, i) => {
               return (
                 <div key={i}>
-                  Dato: {innflytting.dato || 'Ikke angitt'} | Fra:{' '}
+                  Dato: {formaterNullableIsoDato(innflytting.dato) || 'Ikke angitt'} | Fra:{' '}
                   {innflytting.fraflyttingsland || 'Ikke angitt'}, {innflytting.fraflyttingssted}
                 </div>
               );
@@ -59,7 +62,7 @@ const Medlemskapsgrunnlag: React.FC<Props> = ({ medlemskap }) => {
           : medlemskap.registergrunnlag.utflytting.map((utflytting, i) => {
               return (
                 <div key={i}>
-                  Dato: {utflytting.dato || 'Ikke angitt'} | Til:{' '}
+                  Dato: {formaterNullableIsoDato(utflytting.dato) || 'Ikke angitt'} | Til:{' '}
                   {utflytting.tilflyttingsland || 'Ikke angitt'}, {utflytting.tilflyttingssted}
                 </div>
               );
@@ -73,9 +76,9 @@ const Medlemskapsgrunnlag: React.FC<Props> = ({ medlemskap }) => {
               (vedtaksperiode, i) => {
                 return (
                   <div key={i}>
-                    Fra: {vedtaksperiode.fraogmedDato || 'Ikke angitt'} | Til:{' '}
-                    {vedtaksperiode.tilogmedDato || 'Ikke angitt'} | Er medlem i folketrygden:{' '}
-                    {vedtaksperiode.erMedlemIFolketrygden ? 'Ja' : 'Nei'}
+                    Fra: {formaterNullableIsoDato(vedtaksperiode.fraogmedDato) || 'Ikke angitt'} |
+                    Til: {formaterNullableIsoDato(vedtaksperiode.tilogmedDato) || 'Ikke angitt'} |
+                    Er medlem i folketrygden: {vedtaksperiode.erMedlemIFolketrygden ? 'Ja' : 'Nei'}
                   </div>
                 );
               },
