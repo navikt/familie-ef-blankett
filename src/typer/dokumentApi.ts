@@ -1,7 +1,58 @@
 export interface IDokumentData {
   vilkår: IVilkår;
   personopplysninger: IPersonopplysninger;
+  vedtak: IVedtak;
 }
+
+export interface IVedtak {
+  resultatType: EBehandlingResultat;
+  periodeBegrunnelse: string;
+  inntektBegrunnelse: string;
+  perioder: IPeriode[];
+}
+
+export enum EBehandlingResultat {
+  INNVILGE = 'INNVILGE',
+  AVSLÅ = 'AVSLÅ',
+  HENLEGGE = 'HENLEGGE',
+  BEHANDLE_I_GOSYS = 'BEHANDLE_I_GOSYS',
+}
+
+export interface IPeriode {
+  periodeType: EPeriodetype;
+  aktivitet: EAktivitet;
+  datoFra: string;
+  datoTil: string;
+}
+export enum EPeriodetype {
+  PERIODE_FØR_FØDSEL = 'PERIODE_FØR_FØDSEL',
+  HOVEDPERIODE = 'HOVEDPERIODE',
+}
+export enum EAktivitet {
+  IKKE_AKTIVITETSPLIKT = 'IKKE_AKTIVITETSPLIKT',
+  BARN_UNDER_ETT_ÅR = 'BARN_UNDER_ETT_ÅR',
+  FORSØRGER_I_ARBEID = 'FORSØRGER_I_ARBEID',
+  FORSØRGER_I_UTDANNING = 'FORSØRGER_I_UTDANNING',
+  FORSØRGER_REELL_ARBEIDSSØKER = 'FORSØRGER_REELL_ARBEIDSSØKER',
+  FORSØRGER_ETABLERER_VIRKSOMHET = 'FORSØRGER_ETABLERER_VIRKSOMHET',
+  BARNET_SÆRLIG_TILSYNSKREVENDE = 'BARNET_SÆRLIG_TILSYNSKREVENDE',
+  FORSØRGER_MANGLER_TILSYNSORDNING = 'FORSØRGER_MANGLER_TILSYNSORDNING',
+  FORSØRGER_ER_SYK = 'FORSØRGER_ER_SYK',
+  BARNET_ER_SYKT = 'BARNET_ER_SYKT',
+}
+
+export const aktivitetsTypeTilTekst: Record<EAktivitet, string> = {
+  IKKE_AKTIVITETSPLIKT: 'Ikke aktivitetsplikt',
+  BARN_UNDER_ETT_ÅR: 'Barn er under 1 år',
+  FORSØRGER_I_ARBEID: 'Forsørger er i arbeid (§15-6 første ledd)',
+  FORSØRGER_I_UTDANNING: 'Forsørger er i utdanning (§15-6 første ledd)',
+  FORSØRGER_REELL_ARBEIDSSØKER: ' Forsørger er reell arbeidssøker (§15-6 første ledd)',
+  FORSØRGER_ETABLERER_VIRKSOMHET: 'Forsørger etablerer egen virksomhet (§15-6 første ledd)',
+  BARNET_SÆRLIG_TILSYNSKREVENDE: 'Barnet er særlig tilsynskrevende (§15-6 fjerde ledd)',
+  FORSØRGER_MANGLER_TILSYNSORDNING: 'Forsørger mangler tilsynsordning (§15-6 femte ledd)',
+  FORSØRGER_ER_SYK: 'Forsørger er syk (§15-6 femte ledd)',
+  BARNET_ER_SYKT: 'Barnet er sykt (§15-6 femte ledd)',
+};
 
 export interface IPersonopplysninger {
   navn: string;
