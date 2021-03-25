@@ -6,228 +6,270 @@
   "vilkår": {
     "vurderinger": [
       {
-        "id": "7f445075-0620-4655-a442-a5fc3804254b",
-        "behandlingId": "33b7b31e-09df-4e71-99a1-97e53a5c898c",
-        "resultat": "OPPFYLT",
-        "vilkårType": "MOR_ELLER_FAR",
-        "barnId": null,
-        "begrunnelse": null,
-        "unntak": null,
-        "endretAv": "Z994119",
-        "endretTid": "2021-03-04T13:08:53.997",
-        "delvilkårsvurderinger": [
-          {
-            "type": "OMSORG_FOR_EGNE_ELLER_ADOPTERTE_BARN",
-            "resultat": "OPPFYLT",
-            "årsak": null,
-            "begrunnelse": "asd"
-          }
-        ]
-      },
-      {
-        "id": "0926e87f-94a5-46be-a29a-912caea2879b",
-        "behandlingId": "33b7b31e-09df-4e71-99a1-97e53a5c898c",
-        "resultat": "OPPFYLT",
+        "id": "e771041d-01ab-4ef9-98c6-1b65f912fa8f",
+        "behandlingId": "caa2b1c3-9fa8-43d3-ad28-d8ea9cf5477a",
+        "resultat": "SKAL_IKKE_VURDERES",
         "vilkårType": "FORUTGÅENDE_MEDLEMSKAP",
         "barnId": null,
-        "begrunnelse": "En begrunnelse",
-        "unntak": null,
-        "endretAv": "Z994119",
-        "endretTid": "2021-03-04T13:26:52.837",
+        "endretAv": "Z994344",
+        "endretTid": "2021-03-24T16:13:46.343",
         "delvilkårsvurderinger": [
           {
-            "type": "FEM_ÅRS_MEDLEMSKAP",
-            "resultat": "OPPFYLT",
-            "årsak": null,
-            "begrunnelse": null
+            "resultat": "SKAL_IKKE_VURDERES",
+            "vurderinger": [
+              {
+                "regelId": "SØKER_MEDLEM_I_FOLKETRYGDEN",
+                "svar": "JA",
+                "begrunnelse": "d"
+              }
+            ]
           }
         ]
       },
       {
-        "id": "6f14bc6a-dfe8-46f9-bb11-ac9022f14a92",
-        "behandlingId": "33b7b31e-09df-4e71-99a1-97e53a5c898c",
+        "id": "951960a4-03e8-459c-ac1b-04e0945d6c23",
+        "behandlingId": "caa2b1c3-9fa8-43d3-ad28-d8ea9cf5477a",
         "resultat": "OPPFYLT",
-        "vilkårType": "SIVILSTAND",
+        "vilkårType": "NYTT_BARN_SAMME_PARTNER",
         "barnId": null,
-        "begrunnelse": "Tvilsom dokumentasjon på alt",
-        "unntak": null,
-        "endretAv": "Z994119",
-        "endretTid": "2021-03-04T13:27:31.299",
+        "endretAv": "Z994344",
+        "endretTid": "2021-03-24T16:14:02.416",
         "delvilkårsvurderinger": [
           {
-            "type": "DOKUMENTERT_EKTESKAP",
             "resultat": "OPPFYLT",
-            "årsak": null,
-            "begrunnelse": null
-          },
-          {
-            "type": "DOKUMENTERT_SEPARASJON_ELLER_SKILSMISSE",
-            "resultat": "OPPFYLT",
-            "årsak": null,
-            "begrunnelse": null
-          },
-          {
-            "type": "SAMLIVSBRUDD_LIKESTILT_MED_SEPARASJON",
-            "resultat": "IKKE_AKTUELL",
-            "årsak": null,
-            "begrunnelse": null
-          },
-          {
-            "type": "SAMSVAR_DATO_SEPARASJON_OG_FRAFLYTTING",
-            "resultat": "IKKE_AKTUELL",
-            "årsak": null,
-            "begrunnelse": null
-          },
-          {
-            "type": "KRAV_SIVILSTAND",
-            "resultat": "OPPFYLT",
-            "årsak": null,
-            "begrunnelse": null
+            "vurderinger": [
+              {
+                "regelId": "HAR_FÅTT_ELLER_VENTER_NYTT_BARN_MED_SAMME_PARTNER",
+                "svar": "NEI",
+                "begrunnelse": null
+              }
+            ]
           }
         ]
       },
       {
-        "id": "fecbc220-096b-4cfd-892c-8087d530245e",
-        "behandlingId": "33b7b31e-09df-4e71-99a1-97e53a5c898c",
+        "id": "7e580a30-6d5d-47e6-907f-361fecfa9637",
+        "behandlingId": "caa2b1c3-9fa8-43d3-ad28-d8ea9cf5477a",
         "resultat": "OPPFYLT",
-        "vilkårType": "LOVLIG_OPPHOLD",
-        "barnId": null,
-        "begrunnelse": "Kort opphold i Langtvekkistan",
-        "unntak": "UTENLANDSOPPHOLD_MINDRE_ENN_6_UKER",
-        "endretAv": "Z994119",
-        "endretTid": "2021-03-04T13:27:05.307",
+        "vilkårType": "ALENEOMSORG",
+        "barnId": "6acb3212-5ca1-49b3-b40b-116afd8cbf97",
+        "endretAv": "Z994344",
+        "endretTid": "2021-03-24T16:14:13.918",
         "delvilkårsvurderinger": [
           {
-            "type": "BOR_OG_OPPHOLDER_SEG_I_NORGE",
+            "resultat": "OPPFYLT",
+            "vurderinger": [
+              {
+                "regelId": "SKRIFTLIG_AVTALE_OM_DELT_BOSTED",
+                "svar": "NEI",
+                "begrunnelse": null
+              }
+            ]
+          },
+          {
+            "resultat": "OPPFYLT",
+            "vurderinger": [
+              {
+                "regelId": "NÆRE_BOFORHOLD",
+                "svar": "NEI",
+                "begrunnelse": "s"
+              }
+            ]
+          },
+          {
+            "resultat": "OPPFYLT",
+            "vurderinger": [
+              {
+                "regelId": "MER_AV_DAGLIG_OMSORG",
+                "svar": "JA",
+                "begrunnelse": "s"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "0819a4d1-6449-460d-9cd3-0254c2ea6fd0",
+        "behandlingId": "caa2b1c3-9fa8-43d3-ad28-d8ea9cf5477a",
+        "resultat": "IKKE_OPPFYLT",
+        "vilkårType": "ALENEOMSORG",
+        "barnId": "f00393fc-5e8b-48c1-9a6c-df84cdc9f322",
+        "endretAv": "Z994344",
+        "endretTid": "2021-03-24T16:14:25.4",
+        "delvilkårsvurderinger": [
+          {
             "resultat": "IKKE_OPPFYLT",
-            "årsak": null,
-            "begrunnelse": null
+            "vurderinger": [
+              {
+                "regelId": "SKRIFTLIG_AVTALE_OM_DELT_BOSTED",
+                "svar": "JA",
+                "begrunnelse": "s"
+              }
+            ]
+          },
+          {
+            "resultat": "IKKE_OPPFYLT",
+            "vurderinger": [
+              {
+                "regelId": "NÆRE_BOFORHOLD",
+                "svar": "SAMME_HUS_OG_FÆRRE_ENN_4_BOENHETER",
+                "begrunnelse": "s"
+              }
+            ]
+          },
+          {
+            "resultat": "OPPFYLT",
+            "vurderinger": [
+              {
+                "regelId": "MER_AV_DAGLIG_OMSORG",
+                "svar": "JA",
+                "begrunnelse": "s"
+              }
+            ]
           }
         ]
       },
       {
-        "id": "f8804035-e27e-472e-8040-b8bab0d305a3",
-        "behandlingId": "33b7b31e-09df-4e71-99a1-97e53a5c898c",
+        "id": "9269e49b-b113-4be0-ad98-222c539cd645",
+        "behandlingId": "caa2b1c3-9fa8-43d3-ad28-d8ea9cf5477a",
         "resultat": "OPPFYLT",
         "vilkårType": "SAMLIV",
         "barnId": null,
-        "begrunnelse": null,
-        "unntak": null,
-        "endretAv": "Z994119",
-        "endretTid": "2021-03-04T13:27:41.991",
+        "endretAv": "Z994344",
+        "endretTid": "2021-03-24T16:14:32.822",
         "delvilkårsvurderinger": [
           {
-            "type": "LEVER_IKKE_MED_ANNEN_FORELDER",
             "resultat": "OPPFYLT",
-            "årsak": null,
-            "begrunnelse": null
+            "vurderinger": [
+              {
+                "regelId": "LEVER_IKKE_MED_ANNEN_FORELDER",
+                "svar": "JA",
+                "begrunnelse": null
+              }
+            ]
           },
           {
-            "type": "LEVER_IKKE_I_EKTESKAPLIGNENDE_FORHOLD",
             "resultat": "OPPFYLT",
-            "årsak": null,
-            "begrunnelse": "Jeppsipeppsi!"
+            "vurderinger": [
+              {
+                "regelId": "LEVER_IKKE_I_EKTESKAPLIGNENDE_FORHOLD",
+                "svar": "JA",
+                "begrunnelse": "s"
+              }
+            ]
           }
         ]
       },
       {
-        "id": "0bee519b-5bb8-4b26-8495-f0a38b484e2d",
-        "behandlingId": "33b7b31e-09df-4e71-99a1-97e53a5c898c",
+        "id": "95098c15-3034-4c81-a558-ea468d1ef375",
+        "behandlingId": "caa2b1c3-9fa8-43d3-ad28-d8ea9cf5477a",
         "resultat": "OPPFYLT",
-        "vilkårType": "ALENEOMSORG",
-        "barnId": "8608ec0f-a297-45f9-ae39-c649517fa6b0",
-        "begrunnelse": null,
-        "unntak": null,
-        "endretAv": "Z994119",
-        "endretTid": "2021-03-04T13:28:16.727",
+        "vilkårType": "MOR_ELLER_FAR",
+        "barnId": null,
+        "endretAv": "Z994344",
+        "endretTid": "2021-03-24T16:14:41.785",
         "delvilkårsvurderinger": [
           {
-            "type": "SKRIFTLIG_AVTALE_OM_DELT_BOSTED",
             "resultat": "OPPFYLT",
-            "årsak": null,
-            "begrunnelse": "En lang, lang,  lang, lang,  lang, lang,  lang, lang,  lang, lang,  lang, lang,  lang, lang begrunnelse.\nIgjen, en lang, lang,  lang, lang,  lang, lang,  lang, lang,  lang, lang,  lang, lang,  lang, lang begrunnelse."
-          },
-          {
-            "type": "NÆRE_BOFORHOLD",
-            "resultat": "OPPFYLT",
-            "årsak": null,
-            "begrunnelse": "Samme by"
-          },
-          {
-            "type": "MER_AV_DAGLIG_OMSORG",
-            "resultat": "OPPFYLT",
-            "årsak": null,
-            "begrunnelse": "Absoultt"
+            "vurderinger": [
+              {
+                "regelId": "OMSORG_FOR_EGNE_ELLER_ADOPTERTE_BARN",
+                "svar": "JA",
+                "begrunnelse": null
+              }
+            ]
           }
         ]
       },
       {
-        "id": "f5d07f22-446f-4327-b1a3-487dfabf929e",
-        "behandlingId": "25a2e2e2-d55f-49b1-a18a-5062124adb9c",
-        "resultat": "IKKE_VURDERT",
-        "vilkårType": "NYTT_BARN_SAMME_PARTNER",
-        "barnId": "43257004-d92f-4e1d-b8dc-00e609e75509",
-        "begrunnelse": null,
-        "unntak": null,
+        "id": "2625b2c2-14d1-4e95-afd7-917f212d0d60",
+        "behandlingId": "caa2b1c3-9fa8-43d3-ad28-d8ea9cf5477a",
+        "resultat": "OPPFYLT",
+        "vilkårType": "LOVLIG_OPPHOLD",
+        "barnId": null,
+        "endretAv": "Z994344",
+        "endretTid": "2021-03-24T16:14:44.76",
         "delvilkårsvurderinger": [
           {
-            "type": "HAR_FÅTT_ELLER_VENTER_NYTT_BARN_MED_SAMME_PARTNER",
-            "resultat": "IKKE_VURDERT",
-            "årsak": null,
-            "begrunnelse": null
+            "resultat": "OPPFYLT",
+            "vurderinger": [
+              {
+                "regelId": "BOR_OG_OPPHOLDER_SEG_I_NORGE",
+                "svar": "JA",
+                "begrunnelse": null
+              }
+            ]
           }
         ]
       },
       {
-        "id": "3f49e98e-6e69-4f33-a9c9-6e289a7682dd",
-        "behandlingId": "33b7b31e-09df-4e71-99a1-97e53a5c898c",
-        "resultat": "IKKE_OPPFYLT",
-        "vilkårType": "ALENEOMSORG",
-        "barnId": "3c1ee844-1b3c-44d7-8cc5-0a4576e6d08f",
-        "begrunnelse": null,
-        "unntak": null,
-        "endretAv": "Z994119",
-        "endretTid": "2021-03-04T13:28:40.547",
+        "id": "cc8df6b0-a8d9-44fb-85a9-378d83c4bdb6",
+        "behandlingId": "caa2b1c3-9fa8-43d3-ad28-d8ea9cf5477a",
+        "resultat": "OPPFYLT",
+        "vilkårType": "AKTIVITET",
+        "barnId": null,
+        "endretAv": "Z994344",
+        "endretTid": "2021-03-24T16:14:51.285",
         "delvilkårsvurderinger": [
           {
-            "type": "SKRIFTLIG_AVTALE_OM_DELT_BOSTED",
             "resultat": "OPPFYLT",
-            "årsak": null,
-            "begrunnelse": "asd"
-          },
-          {
-            "type": "NÆRE_BOFORHOLD",
-            "resultat": "IKKE_OPPFYLT",
-            "årsak": "SAMME_HUS_OG_FLERE_ENN_4_BOENHETER_MEN_VURDERT_NÆRT",
-            "begrunnelse": "Tralallaa"
-          },
-          {
-            "type": "MER_AV_DAGLIG_OMSORG",
-            "resultat": "OPPFYLT",
-            "årsak": null,
-            "begrunnelse": "kalsdjlkasjdklasjdl"
+            "vurderinger": [
+              {
+                "regelId": "FYLLER_BRUKER_AKTIVITETSPLIKT",
+                "svar": "JA",
+                "begrunnelse": "s"
+              }
+            ]
           }
         ]
       },
       {
-      "id": "c136fe87-1504-4ffd-b0d0-7079b200a80f",
-      "behandlingId": "a8735f04-c8d1-4d52-b0d5-9e35db818074",
-      "resultat": "OPPFYLT",
-      "vilkårType": "SAGT_OPP_ELLER_REDUSERT",
-      "barnId": null,
-      "begrunnelse": null,
-      "unntak": null,
-      "endretAv": "Z994481",
-      "endretTid": "2021-03-04T13:28:40.547",
-      "delvilkårsvurderinger": [
-        {
-          "type": "SAGT_OPP_ELLER_REDUSERT",
-          "resultat": "OPPFYLT",
-          "årsak": null,
-          "begrunnelse": null
-        }
-      ]
-    }
+        "id": "88406c9f-f8a0-4f32-a373-60ad80b0f9bf",
+        "behandlingId": "caa2b1c3-9fa8-43d3-ad28-d8ea9cf5477a",
+        "resultat": "OPPFYLT",
+        "vilkårType": "SAGT_OPP_ELLER_REDUSERT",
+        "barnId": null,
+        "endretAv": "Z994344",
+        "endretTid": "2021-03-24T16:14:57.776",
+        "delvilkårsvurderinger": [
+          {
+            "resultat": "OPPFYLT",
+            "vurderinger": [
+              {
+                "regelId": "SAGT_OPP_ELLER_REDUSERT",
+                "svar": "JA",
+                "begrunnelse": null
+              },
+              {
+                "regelId": "RIMELIG_GRUNN_SAGT_OPP",
+                "svar": "JA",
+                "begrunnelse": "s"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "1a28addc-3e5e-4940-8730-537ced8f003b",
+        "behandlingId": "caa2b1c3-9fa8-43d3-ad28-d8ea9cf5477a",
+        "resultat": "OPPFYLT",
+        "vilkårType": "SIVILSTAND",
+        "barnId": null,
+        "endretAv": "Z994344",
+        "endretTid": "2021-03-24T16:14:37.668",
+        "delvilkårsvurderinger": [
+          {
+            "resultat": "OPPFYLT",
+            "vurderinger": [
+              {
+                "regelId": "SAMLIVSBRUDD_LIKESTILT_MED_SEPARASJON",
+                "svar": "JA",
+                "begrunnelse": "s"
+              }
+            ]
+          }
+        ]
+      }
     ],
     "grunnlag": {
       "medlemskap": {
@@ -243,23 +285,23 @@
           "statsborgerskap": [
             {
               "land": "NORGE",
-              "gyldigFraOgMedDato": "1987-11-14",
+              "gyldigFraOgMedDato": "1969-03-30",
               "gyldigTilOgMedDato": null
             }
           ],
           "oppholdstatus": [],
           "bostedsadresse": [
             {
-              "visningsadresse": "SCHWENCKEGATA 47, 0484",
+              "visningsadresse": "LAUTGUTUA 1, 0368 OSLO",
               "type": "BOSTEDADRESSE",
-              "gyldigFraOgMed": "1987-11-14",
+              "gyldigFraOgMed": "1969-03-30",
               "gyldigTilOgMed": null
             }
           ],
           "innflytting": [
             {
-              "fraflyttingsland": "MALTA",
-              "dato": "1987-11-14",
+              "fraflyttingsland": "VANUATU",
+              "dato": "1969-03-30",
               "fraflyttingssted": null
             }
           ],
@@ -274,17 +316,17 @@
         "søknadsgrunnlag": {
           "samlivsbruddsdato": null,
           "endringSamværsordningDato": null,
-          "fraflytningsdato": null,
-          "erUformeltGift": true,
-          "erUformeltSeparertEllerSkilt": true,
-          "datoSøktSeparasjon": null,
-          "søktOmSkilsmisseSeparasjon": null,
-          "årsakEnslig": "aleneFraFødsel",
+          "fraflytningsdato": "2021-03-02",
+          "erUformeltGift": null,
+          "erUformeltSeparertEllerSkilt": null,
+          "datoSøktSeparasjon": "2021-03-10",
+          "søktOmSkilsmisseSeparasjon": true,
+          "årsakEnslig": null,
           "tidligereSamboer": null
         },
         "registergrunnlag": {
-          "type": "UGIFT",
-          "gyldigFraOgMed": null
+          "type": "GIFT",
+          "gyldigFraOgMed": "2021-03-16"
         }
       },
       "bosituasjon": {
@@ -296,19 +338,62 @@
       },
       "barnMedSamvær": [
         {
-          "barnId": "8608ec0f-a297-45f9-ae39-c649517fa6b0",
+          "barnId": "f00393fc-5e8b-48c1-9a6c-df84cdc9f322",
           "søknadsgrunnlag": {
-            "id": "8608ec0f-a297-45f9-ae39-c649517fa6b0",
-            "navn": "",
-            "fødselsnummer": null,
-            "fødselTermindato": "2021-02-27",
-            "erBarnetFødt": false,
+            "id": "f00393fc-5e8b-48c1-9a6c-df84cdc9f322",
+            "navn": "FORFJAMSET HATT",
+            "fødselsnummer": "03101868485",
+            "fødselTermindato": "2018-10-03",
+            "erBarnetFødt": true,
             "harSammeAdresse": true,
             "skalBoBorHosSøker": null,
             "forelder": {
-              "navn": "TestPerson",
+              "navn": "Bjarnese",
               "fødselsnummer": null,
-              "fødselsdato": null,
+              "fødselsdato": "2000-03-01",
+              "bosattINorge": true,
+              "land": null
+            },
+            "ikkeOppgittAnnenForelderBegrunnelse": null,
+            "spørsmålAvtaleOmDeltBosted": false,
+            "skalAnnenForelderHaSamvær": "jaIkkeMerEnnVanlig",
+            "harDereSkriftligAvtaleOmSamvær": "jaIkkeKonkreteTidspunkter",
+            "hvordanPraktiseresSamværet": null,
+            "borAnnenForelderISammeHus": "ja",
+            "borAnnenForelderISammeHusBeskrivelse": "Ca tusen",
+            "harDereTidligereBoddSammen": true,
+            "nårFlyttetDereFraHverandre": "2021-03-01",
+            "hvorMyeErDuSammenMedAnnenForelder": "møtesUtenom",
+            "beskrivSamværUtenBarn": " Litt nå og daLitt nå og daLitt nå og daLitt nå og da Litt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og da"
+          },
+          "registergrunnlag": {
+            "id": "f00393fc-5e8b-48c1-9a6c-df84cdc9f322",
+            "navn": "FORFJAMSET HATT",
+            "fødselsnummer": "03101868485",
+            "harSammeAdresse": true,
+            "forelder": {
+              "navn": "SNILL KAMELEON",
+              "fødselsnummer": "17128221697",
+              "fødselsdato": "1982-12-17",
+              "bosattINorge": true,
+              "land": null
+            }
+          }
+        },
+        {
+          "barnId": "6acb3212-5ca1-49b3-b40b-116afd8cbf97",
+          "søknadsgrunnlag": {
+            "id": "6acb3212-5ca1-49b3-b40b-116afd8cbf97",
+            "navn": "RASK HØYSTAKK",
+            "fødselsnummer": "22091479161",
+            "fødselTermindato": "2014-09-22",
+            "erBarnetFødt": true,
+            "harSammeAdresse": true,
+            "skalBoBorHosSøker": null,
+            "forelder": {
+              "navn": "Bjarnese",
+              "fødselsnummer": null,
+              "fødselsdato": "2000-03-01",
               "bosattINorge": true,
               "land": null
             },
@@ -317,56 +402,25 @@
             "skalAnnenForelderHaSamvær": "nei",
             "harDereSkriftligAvtaleOmSamvær": null,
             "hvordanPraktiseresSamværet": null,
-            "borAnnenForelderISammeHus": "nei",
-            "borAnnenForelderISammeHusBeskrivelse": null,
-            "harDereTidligereBoddSammen": false,
-            "nårFlyttetDereFraHverandre": null,
-            "hvorMyeErDuSammenMedAnnenForelder": "møtesIkke",
-            "beskrivSamværUtenBarn": null
+            "borAnnenForelderISammeHus": "ja",
+            "borAnnenForelderISammeHusBeskrivelse": "Ca tusen",
+            "harDereTidligereBoddSammen": true,
+            "nårFlyttetDereFraHverandre": "2021-03-01",
+            "hvorMyeErDuSammenMedAnnenForelder": "møtesUtenom",
+            "beskrivSamværUtenBarn": " Litt nå og daLitt nå og daLitt nå og daLitt nå og da Litt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og daLitt nå og da"
           },
           "registergrunnlag": {
-            "id": "8608ec0f-a297-45f9-ae39-c649517fa6b0",
-            "navn": null,
-            "fødselsnummer": null,
-            "harSammeAdresse": null,
-            "forelder": null
-          }
-        },
-        {
-          "barnId": "3c1ee844-1b3c-44d7-8cc5-0a4576e6d08f",
-          "søknadsgrunnlag": {
-            "id": "3c1ee844-1b3c-44d7-8cc5-0a4576e6d08f",
-            "navn": "TYKKMAGET TAREMEL",
-            "fødselsnummer": "03091776811",
-            "fødselTermindato": "2017-09-03",
-            "erBarnetFødt": true,
+            "id": "6acb3212-5ca1-49b3-b40b-116afd8cbf97",
+            "navn": "RASK HØYSTAKK",
+            "fødselsnummer": "22091479161",
             "harSammeAdresse": true,
-            "skalBoBorHosSøker": null,
             "forelder": {
-              "navn": "ikke oppgitt",
-              "fødselsnummer": null,
-              "fødselsdato": null,
-              "bosattINorge": null,
+              "navn": "SNILL KAMELEON",
+              "fødselsnummer": "17128221697",
+              "fødselsdato": "1982-12-17",
+              "bosattINorge": true,
               "land": null
-            },
-            "ikkeOppgittAnnenForelderBegrunnelse": "Donor",
-            "spørsmålAvtaleOmDeltBosted": null,
-            "skalAnnenForelderHaSamvær": null,
-            "harDereSkriftligAvtaleOmSamvær": null,
-            "hvordanPraktiseresSamværet": null,
-            "borAnnenForelderISammeHus": null,
-            "borAnnenForelderISammeHusBeskrivelse": null,
-            "harDereTidligereBoddSammen": null,
-            "nårFlyttetDereFraHverandre": null,
-            "hvorMyeErDuSammenMedAnnenForelder": null,
-            "beskrivSamværUtenBarn": null
-          },
-          "registergrunnlag": {
-            "id": "3c1ee844-1b3c-44d7-8cc5-0a4576e6d08f",
-            "navn": "TYKKMAGET TAREMEL",
-            "fødselsnummer": "03091776811",
-            "harSammeAdresse": true,
-            "forelder": null
+            }
           }
         }
       ],
@@ -374,6 +428,35 @@
         "harPlaner": false,
         "fraDato": null,
         "vordendeSamboerEktefelle": null
+      },
+      "aktivitet": {
+        "arbeidssituasjon": [
+          "erArbeidssøker"
+        ],
+        "arbeidsforhold": [],
+        "selvstendig": [],
+        "aksjeselskap": [],
+        "arbeidssøker": {
+          "registrertSomArbeidssøkerNav": true,
+          "villigTilÅTaImotTilbudOmArbeid": true,
+          "kanDuBegynneInnenEnUke": true,
+          "kanDuSkaffeBarnepassInnenEnUke": null,
+          "hvorØnskerDuArbeid": "Hvor som helst i landet",
+          "ønskerDuMinst50ProsentStilling": true
+        },
+        "underUtdanning": null,
+        "virksomhet": null,
+        "tidligereUtdanninger": [],
+        "gjelderDeg": [
+          "harSøktBarnepassOgVenterEnnå"
+        ],
+        "særligeTilsynsbehov": [],
+        "datoOppstartJobb": null
+      },
+      "sagtOppEllerRedusertStilling": {
+        "sagtOppEllerRedusertStilling": "redusertStilling",
+        "årsak": "s",
+        "dato": "2021-03-11"
       }
     }
   },

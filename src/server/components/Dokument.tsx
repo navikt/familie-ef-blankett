@@ -58,7 +58,7 @@ const Dokument = (dokumentProps: DokumentProps) => {
         const grunnlag = dokumentProps.dokumentData.vilkår.grunnlag;
         return vurderinger.map(vurdering => {
           return (
-            <div key={vurdering.id}>
+            <div key={vurdering.id} className={'page-break'}>
               <h2>{vilkårTypeTilTekst[vurdering.vilkårType]}</h2>
               {registergrunnlagForVilkår(grunnlag, vilkårgruppe, vurdering.barnId)}
 

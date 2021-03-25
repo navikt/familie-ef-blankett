@@ -1,33 +1,61 @@
 import React from 'react';
 import {
   delvilkårTypeTilTekst,
-  delvilkårÅrsakTilTekst,
   IVurdering,
-  unntakTypeTilTekst,
+  resultatTilTekst,
+  svarIdTilTekst,
   Vilkårsresultat,
 } from '../../typer/dokumentApi';
+import Oppfylt from './ikoner/Oppfylt';
+import IkkeOppfylt from './ikoner/IkkeOppfylt';
+import IkkeVurdert from './ikoner/IkkeVurdert';
 
 interface Props {
   vurdering: IVurdering;
 }
 
+const resultatIkon = (resultat: Vilkårsresultat) => {
+  switch (resultat) {
+    case Vilkårsresultat.OPPFYLT:
+      return <Oppfylt />;
+    case Vilkårsresultat.IKKE_OPPFYLT:
+      return <IkkeOppfylt />;
+    default:
+      return <IkkeVurdert />;
+  }
+};
+
 const Vilkårsvurdering: React.FC<Props> = ({ vurdering }) => {
   return (
     <>
-      <h3>Vilkårsvurdering</h3>
-      <div>Resultat: {vurdering.resultat}</div>
-      {vurdering.begrunnelse && <div>Begrunnelse: {vurdering.begrunnelse}</div>}
-      {vurdering.unntak && <div>Unntak: {unntakTypeTilTekst[vurdering.unntak]}</div>}
-      <h4>Vurderinger</h4>
+      <div className={'vilkårsresultat'}>
+        <strong>Vilkårsvurdering</strong>: {resultatTilTekst[vurdering.resultat]}{' '}
+        <div className={'vilkårsresultat-ikon'}>
+          <span style={{ paddingBottom: '20%' }}>{resultatIkon(vurdering.resultat)}</span>
+        </div>
+      </div>
+
       {vurdering.delvilkårsvurderinger
-        .filter(delvilkår => delvilkår.resultat !== Vilkårsresultat.IKKE_AKTUELL)
-        .map(delvilkår => {
+        .filter(
+          delvilkårsvurderinger => delvilkårsvurderinger.resultat !== Vilkårsresultat.IKKE_AKTUELL,
+        )
+        .map((delvilkårsvurderinger, i) => {
           return (
-            <div className={'delvilkår'} key={delvilkår.type}>
-              <div>{delvilkårTypeTilTekst[delvilkår.type]}</div>
-              <div>Resultat: {delvilkår.resultat}</div>
-              {delvilkår.begrunnelse && <div>Begrunnelse: {delvilkår.begrunnelse}</div>}
-              {delvilkår.årsak && <div>Årsak: {delvilkårÅrsakTilTekst[delvilkår.årsak]}</div>}
+            <div className={'delvilkår'} key={i}>
+              <span>
+                <strong>Delvurdering:</strong> {resultatTilTekst[delvilkårsvurderinger.resultat]}
+              </span>
+              {delvilkårsvurderinger.vurderinger.map((delvilkår, subIndex) => {
+                return (
+                  <div className={'delvilkår'} key={subIndex}>
+                    <div>
+                      {delvilkårTypeTilTekst[delvilkår.regelId]}{' '}
+                      {delvilkår.svar ? svarIdTilTekst[delvilkår.svar] : 'Ikke besvart'}
+                    </div>
+                    {delvilkår.begrunnelse && <div>Begrunnelse: {delvilkår.begrunnelse}</div>}
+                  </div>
+                );
+              })}
             </div>
           );
         })}

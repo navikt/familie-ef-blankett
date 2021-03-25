@@ -1,5 +1,6 @@
 import { IAnnenForelder } from '../../typer/dokumentApi';
 import React from 'react';
+import { formaterNullableIsoDato } from '../utils/util';
 
 interface AnnenForelderProps {
   annenForelder?: IAnnenForelder;
@@ -20,7 +21,9 @@ const AnnenForelder: React.FC<AnnenForelderProps> = ({
     <div>
       <div>Navn: {annenForelder.navn}</div>
       <div>Fødsels eller D-nummer: {annenForelder.fødselsnummer}</div>
-      {annenForelder.fødselsdato && <div>Fødselsdato: {annenForelder.fødselsdato}</div>}
+      {annenForelder.fødselsdato && (
+        <div>Fødselsdato: {formaterNullableIsoDato(annenForelder.fødselsdato)}</div>
+      )}
       <div>Annen forelder bor i: {annenForelder.bosattINorge ? 'Norge' : '-'}</div>
     </div>
   );

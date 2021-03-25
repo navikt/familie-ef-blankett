@@ -1,5 +1,6 @@
 import React from 'react';
-import { ISivilstandVilkår } from '../../typer/dokumentApi';
+import { ISivilstandVilkår, sivilstandTilTekst } from '../../typer/dokumentApi';
+import { formaterNullableIsoDato } from '../utils/util';
 
 interface Props {
   sivilstand: ISivilstandVilkår;
@@ -9,8 +10,10 @@ const SivilstandGrunnlag: React.FC<Props> = ({ sivilstand }) => {
   return (
     <>
       <h3>Registerdata</h3>
-      <div>Sivilstatus: {sivilstand.registergrunnlag.type}</div>
-      <div>Gyldig fra og med: {sivilstand.registergrunnlag.gyldigFraOgMed}</div>
+      <div>Sivilstatus: {sivilstandTilTekst[sivilstand.registergrunnlag.type]}</div>
+      <div>
+        Gyldig fra og med: {formaterNullableIsoDato(sivilstand.registergrunnlag.gyldigFraOgMed)}
+      </div>
     </>
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { IBarnMedSamvær } from '../../typer/dokumentApi';
 import AnnenForelder from './AnnenForelder';
+import { formaterNullableIsoDato } from '../utils/util';
 
 interface Props {
   barnMedSamvær: IBarnMedSamvær[];
@@ -43,7 +44,10 @@ const AleneomsorgGrunnlag: React.FC<Props> = ({ barnMedSamvær, barnId }) => {
                 {barn.registergrunnlag.fødselsnummer || barn.søknadsgrunnlag.fødselsnummer}
               </div>
               {barn.søknadsgrunnlag.fødselTermindato && (
-                <div>Fødselsdato/termindato: {barn.søknadsgrunnlag.fødselTermindato}</div>
+                <div>
+                  Fødselsdato/termindato:{' '}
+                  {formaterNullableIsoDato(barn.søknadsgrunnlag.fødselTermindato)}
+                </div>
               )}
               <div>Bosted: {bostedForBarn(barn)} </div>
               <AnnenForelder annenForelder={barn.registergrunnlag.forelder} />
