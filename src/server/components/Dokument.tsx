@@ -40,6 +40,8 @@ function gjelderDetteVilkåret(vurdering: IVurdering, vilkårgruppe: string) {
       return vurdering.vilkårType === Vilkår.NYTT_BARN_SAMME_PARTNER;
     case VilkårGruppe.SAGT_OPP_ELLER_REDUSERT:
       return vurdering.vilkårType === Vilkår.SAGT_OPP_ELLER_REDUSERT;
+    case VilkårGruppe.AKTIVITET:
+      return vurdering.vilkårType === Vilkår.AKTIVITET;
     default:
       return false;
   }
@@ -67,7 +69,10 @@ const Dokument = (dokumentProps: DokumentProps) => {
           );
         });
       })}
-      <Vedtak vedtak={dokumentProps.dokumentData.vedtak} />
+      <Vedtak
+        vedtak={dokumentProps.dokumentData.vedtak}
+        søknadsdatoer={dokumentProps.dokumentData.søknadsdatoer}
+      />
     </div>
   );
 };

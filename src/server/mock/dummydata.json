@@ -473,5 +473,10 @@
      }
    ],
    "inntekter": []
- }
+ },
+  "søknadsdatoer": {
+   "søkerStønadFra": "2021-07",
+   "søknadsdato": "2021-03-24T16:46:02.725"
+  }
+
 }
