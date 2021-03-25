@@ -459,5 +459,19 @@
         "dato": "2021-03-11"
       }
     }
-  }
+  },
+  "vedtak": {
+   "resultatType": "INNVILGE",
+   "periodeBegrunnelse": "Dette er periode",
+   "inntektBegrunnelse": "Og dette er inntekt",
+   "perioder": [
+     {
+       "datoFra": "2021-03-01",
+       "datoTil": "2021-09-01",
+       "aktivitet": "BARN_UNDER_ETT_ÅR",
+       "periodeType": "HOVEDPERIODE"
+     }
+   ],
+   "inntekter": []
+ }
 }

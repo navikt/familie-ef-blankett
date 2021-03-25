@@ -16,6 +16,7 @@ import MorEllerFarGrunnlag from './MorEllerFarGrunnlag';
 import AleneomsorgGrunnlag from './AleneomsorgGrunnlag';
 import NyttBarnSammePartner from './NyttBarnSammePartner';
 import SagtOppEllerRedusertGrunnlag from './SagtOppEllerRedusertGrunnlag';
+import { Vedtak } from './Vedtak';
 
 interface DokumentProps {
   dokumentData: IDokumentData;
@@ -66,6 +67,7 @@ const Dokument = (dokumentProps: DokumentProps) => {
           );
         });
       })}
+      <Vedtak vedtak={dokumentProps.dokumentData.vedtak} />
     </div>
   );
 };
