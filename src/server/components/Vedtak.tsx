@@ -2,18 +2,25 @@ import React from 'react';
 import {
   aktivitetsTypeTilTekst,
   behandlingResultatTilTekst,
+  ISøknadsdatoer,
   IVedtak,
   periodetypeTilTekst,
 } from '../../typer/dokumentApi';
-import { formaterNullableIsoDato } from '../utils/util';
+import { formaterNullableIsoDato, formaterNullableMånedÅr } from '../utils/util';
 
-export const Vedtak: React.FC<{ vedtak: IVedtak }> = ({ vedtak }) => {
+export const Vedtak: React.FC<{ vedtak: IVedtak; søknadsdatoer: ISøknadsdatoer }> = ({
+  vedtak,
+  søknadsdatoer,
+}) => {
   const { resultatType, periodeBegrunnelse, perioder, inntektBegrunnelse } = vedtak;
   return (
-    <div>
+    <div className={'page-break'}>
       <h2>Vedtak</h2>
       <h3>Resultat</h3>
       <div>{behandlingResultatTilTekst[resultatType]}</div>
+      <h3>Søknadsinformasjon</h3>
+      <div>Søknadsdato: {formaterNullableIsoDato(søknadsdatoer.søknadsdato)}</div>
+      <div>Søker stønad fra: {formaterNullableMånedÅr(søknadsdatoer.søkerStønadFra)}</div>
       <h3>Vedtaksperiode</h3>
       {perioder.map((periode, indeks) => {
         return (
