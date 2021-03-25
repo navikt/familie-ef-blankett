@@ -18,6 +18,13 @@ export enum EBehandlingResultat {
   BEHANDLE_I_GOSYS = 'BEHANDLE_I_GOSYS',
 }
 
+export const behandlingResultatTilTekst: Record<EBehandlingResultat, string> = {
+  INNVILGE: 'Innvilge',
+  AVSLÅ: 'Avslå',
+  HENLEGGE: 'Henlegge',
+  BEHANDLE_I_GOSYS: 'Behandle i Gosys',
+};
+
 export interface IPeriode {
   periodeType: EPeriodetype;
   aktivitet: EAktivitet;
@@ -28,6 +35,12 @@ export enum EPeriodetype {
   PERIODE_FØR_FØDSEL = 'PERIODE_FØR_FØDSEL',
   HOVEDPERIODE = 'HOVEDPERIODE',
 }
+
+export const periodetypeTilTekst: Record<EPeriodetype, string> = {
+  PERIODE_FØR_FØDSEL: 'Periode før fødsel',
+  HOVEDPERIODE: 'Hovedperiode',
+};
+
 export enum EAktivitet {
   IKKE_AKTIVITETSPLIKT = 'IKKE_AKTIVITETSPLIKT',
   BARN_UNDER_ETT_ÅR = 'BARN_UNDER_ETT_ÅR',
