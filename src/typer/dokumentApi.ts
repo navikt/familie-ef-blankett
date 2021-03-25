@@ -183,6 +183,10 @@ export interface Vurderingsfeilmelding {
 export enum IRegelId {
   SLUTT_NODE = 'SLUTT_NODE',
 
+  //Tidligere perioder
+  HAR_TIDLIGERE_ANDRE_STØNADER_SOM_HAR_BETYDNING = 'HAR_TIDLIGERE_ANDRE_STØNADER_SOM_HAR_BETYDNING',
+  HAR_TIDLIGERE_MOTTATT_OVERGANSSTØNAD = 'HAR_TIDLIGERE_MOTTATT_OVERGANSSTØNAD',
+
   // Medlemskap
   SØKER_MEDLEM_I_FOLKETRYGDEN = 'SØKER_MEDLEM_I_FOLKETRYGDEN',
   MEDLEMSKAP_UNNTAK = 'MEDLEMSKAP_UNNTAK',
@@ -283,6 +287,7 @@ export enum Vilkårsresultat {
 }
 
 export enum Vilkår {
+  TIDLIGERE_VEDTAKSPERIODER = 'TIDLIGERE_VEDTAKSPERIODER',
   FORUTGÅENDE_MEDLEMSKAP = 'FORUTGÅENDE_MEDLEMSKAP',
   LOVLIG_OPPHOLD = 'LOVLIG_OPPHOLD',
   SIVILSTAND = 'SIVILSTAND',
@@ -339,6 +344,7 @@ export type VilkårType =
   | Vilkår.NYTT_BARN_SAMME_PARTNER
   | Vilkår.MOR_ELLER_FAR
   | Vilkår.SAGT_OPP_ELLER_REDUSERT
+  | Vilkår.TIDLIGERE_VEDTAKSPERIODER
   | Vilkår.AKTIVITET;
 
 export const vilkårTypeTilTekst: Record<VilkårType, string> = {
@@ -351,6 +357,7 @@ export const vilkårTypeTilTekst: Record<VilkårType, string> = {
   NYTT_BARN_SAMME_PARTNER: 'Vilkår om nytt barn samme partner',
   SAGT_OPP_ELLER_REDUSERT: 'Vilkår om sagt opp eller redusert stilling',
   AKTIVITET: 'Aktivitet',
+  TIDLIGERE_VEDTAKSPERIODER: 'Tidligere vedtaksperioder',
 };
 // ------ VILKÅRGRUPPE
 /**
@@ -358,6 +365,7 @@ export const vilkårTypeTilTekst: Record<VilkårType, string> = {
  * Når man eks legger til en vurdering til medlemskap i VurderingConfig nå så kommer den opp automatisk
  */
 export enum VilkårGruppe {
+  TIDLIGERE_VEDTAKSPERIODER = 'TIDLIGERE_VEDTAKSPERIODER',
   MEDLEMSKAP = 'MEDLEMSKAP',
   LOVLIG_OPPHOLD = 'LOVLIG_OPPHOLD',
   SIVILSTAND = 'SIVILSTAND',
@@ -430,7 +438,7 @@ export const delvilkårTypeTilTekst: Record<IRegelId, string> = {
   MER_AV_DAGLIG_OMSORG: 'Har bruker klart mer av den daglige omsorgen?',
   OMSORG_FOR_EGNE_ELLER_ADOPTERTE_BARN: 'Har bruker omsorgen for egne/adopterte barn? ',
   HAR_FÅTT_ELLER_VENTER_NYTT_BARN_MED_SAMME_PARTNER:
-    'Har søker fått nytt barn med samme partner (født etter 01.01.2016) eller venter nytt barn med samme partner, etter at en av foreldrene tidligere har mottatt eller fortsatt mottar stønad for et annet felles barn.',
+    'Har søker fått nytt barn med samme partner (født etter 01.01.2016) eller venter nytt barn med samme partner, etter at en av foreldrene tidligere har mottatt eller fortsatt mottar stønad for et annet felles barn?',
   SAGT_OPP_ELLER_REDUSERT:
     'Har søker sagt opp jobben, tatt frivillig permisjon eller redusert arbeidstiden de siste 6 månedene før søknadstidspunktet?',
   MEDLEMSKAP_UNNTAK: 'Er unntak fra hovedregelen oppfylt?',
@@ -441,6 +449,9 @@ export const delvilkårTypeTilTekst: Record<IRegelId, string> = {
   RIMELIG_GRUNN_SAGT_OPP:
     'Hadde søker rimelig grunn til å si opp jobben eller redusere arbeidstiden?',
   SLUTT_NODE: 'UGYLDIG DELVILKÅR',
+  HAR_TIDLIGERE_ANDRE_STØNADER_SOM_HAR_BETYDNING:
+    'Har søker tidligere mottatt andre stønader som har betydning for stønadstiden i §15-8 første og andre ledd?',
+  HAR_TIDLIGERE_MOTTATT_OVERGANSSTØNAD: 'Har søker tidligere mottatt overgangsstønad?',
 };
 
 export const sivilstandTilTekst: Record<SivilstandType, string> = {
