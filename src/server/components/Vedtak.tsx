@@ -1,5 +1,6 @@
 import React from 'react';
 import { aktivitetsTypeTilTekst, IVedtak } from '../../typer/dokumentApi';
+import { formaterNullableIsoDato } from '../utils/util';
 
 export const Vedtak: React.FC<{ vedtak: IVedtak }> = ({ vedtak }) => {
   const { resultatType, periodeBegrunnelse, perioder, inntektBegrunnelse } = vedtak;
@@ -15,8 +16,8 @@ export const Vedtak: React.FC<{ vedtak: IVedtak }> = ({ vedtak }) => {
             <h4>Periode</h4>
             <div>Periodetype: {periode.periodeType}</div>
             <div>Aktivitet: {aktivitetsTypeTilTekst[periode.aktivitet]}</div>
-            <div>Fra og med: {periode.datoFra}</div>
-            <div>Til og med: {periode.datoTil}</div>
+            <div>Fra og med: {formaterNullableIsoDato(periode.datoFra)}</div>
+            <div>Til og med: {formaterNullableIsoDato(periode.datoTil)}</div>
           </div>
         );
       })}
