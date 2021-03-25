@@ -49,7 +49,31 @@ export default `
   }
   
   .delvilkår {
-    padding-bottom: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .vilkårsresultat {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    margin-top: 10px;
+  }
+  
+  .page-break {
+    page-break-inside: avoid;
+  }
+  
+  .vilkårsresultat-ikon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    top: 5px;
+    margin:0;
+    padding:0;
+  }
+  
+  h3, h4 {
+    margin-bottom: 3px;
   }
   
 `;

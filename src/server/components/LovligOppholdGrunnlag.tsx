@@ -1,5 +1,6 @@
 import React from 'react';
 import { IMedlemskap } from '../../typer/dokumentApi';
+import { formaterNullableIsoDato } from '../utils/util';
 
 interface Props {
   medlemskap: IMedlemskap;
@@ -19,9 +20,9 @@ const LovligOppholdGrunnlag: React.FC<Props> = ({ medlemskap }) => {
           : medlemskap.registergrunnlag.oppholdstatus.map((oppholdstatus, i) => {
               return (
                 <div key={i}>
-                  Fra: {oppholdstatus.fraDato || 'Ikke angitt'} | Til:{' '}
-                  {oppholdstatus.tilDato || 'Ikke angitt'} | Oppholdsstatus:{' '}
-                  {oppholdstatus.oppholdstillatelse}
+                  Fra: {formaterNullableIsoDato(oppholdstatus.fraDato) || 'Ikke angitt'} | Til:{' '}
+                  {formaterNullableIsoDato(oppholdstatus.tilDato) || 'Ikke angitt'} |
+                  Oppholdsstatus: {oppholdstatus.oppholdstillatelse}
                 </div>
               );
             })}
@@ -33,7 +34,7 @@ const LovligOppholdGrunnlag: React.FC<Props> = ({ medlemskap }) => {
           : medlemskap.registergrunnlag.innflytting.map((innflytting, i) => {
               return (
                 <div key={i}>
-                  Dato: {innflytting.dato || 'Ikke angitt'} | Fra:{' '}
+                  Dato: {formaterNullableIsoDato(innflytting.dato) || 'Ikke angitt'} | Fra:{' '}
                   {innflytting.fraflyttingsland || 'Ikke angitt'}, {innflytting.fraflyttingssted}
                 </div>
               );
@@ -46,7 +47,7 @@ const LovligOppholdGrunnlag: React.FC<Props> = ({ medlemskap }) => {
           : medlemskap.registergrunnlag.utflytting.map((utflytting, i) => {
               return (
                 <div key={i}>
-                  Dato: {utflytting.dato || 'Ikke angitt'} | Til:{' '}
+                  Dato: {formaterNullableIsoDato(utflytting.dato) || 'Ikke angitt'} | Til:{' '}
                   {utflytting.tilflyttingsland || 'Ikke angitt'}, {utflytting.tilflyttingssted}
                 </div>
               );

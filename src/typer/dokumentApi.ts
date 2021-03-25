@@ -101,8 +101,6 @@ export interface IVurdering {
   behandlingId: string;
   barnId?: string;
   vilkårType: VilkårType;
-  begrunnelse?: string | null;
-  unntak?: UnntakType | null;
   delvilkårsvurderinger: IDelvilkår[];
   endretAv: string;
   endretTid: string;
@@ -112,11 +110,85 @@ export interface Vurderingsfeilmelding {
   [Key: string]: string;
 }
 
+export enum IRegelId {
+  SLUTT_NODE = 'SLUTT_NODE',
+
+  // Medlemskap
+  SØKER_MEDLEM_I_FOLKETRYGDEN = 'SØKER_MEDLEM_I_FOLKETRYGDEN',
+  MEDLEMSKAP_UNNTAK = 'MEDLEMSKAP_UNNTAK',
+
+  // Opphold
+  BOR_OG_OPPHOLDER_SEG_I_NORGE = 'BOR_OG_OPPHOLDER_SEG_I_NORGE',
+  OPPHOLD_UNNTAK = 'OPPHOLD_UNNTAK',
+
+  // Samliv
+  LEVER_IKKE_MED_ANNEN_FORELDER = 'LEVER_IKKE_MED_ANNEN_FORELDER',
+  LEVER_IKKE_I_EKTESKAPLIGNENDE_FORHOLD = 'LEVER_IKKE_I_EKTESKAPLIGNENDE_FORHOLD',
+
+  // Aleneomsorg
+  SKRIFTLIG_AVTALE_OM_DELT_BOSTED = 'SKRIFTLIG_AVTALE_OM_DELT_BOSTED',
+  NÆRE_BOFORHOLD = 'NÆRE_BOFORHOLD',
+  MER_AV_DAGLIG_OMSORG = 'MER_AV_DAGLIG_OMSORG',
+
+  // Mor eller far
+  OMSORG_FOR_EGNE_ELLER_ADOPTERTE_BARN = 'OMSORG_FOR_EGNE_ELLER_ADOPTERTE_BARN',
+
+  // Sivilstand
+  SAMLIVSBRUDD_LIKESTILT_MED_SEPARASJON = 'SAMLIVSBRUDD_LIKESTILT_MED_SEPARASJON',
+  SAMSVAR_DATO_SEPARASJON_OG_FRAFLYTTING = 'SAMSVAR_DATO_SEPARASJON_OG_FRAFLYTTING',
+  KRAV_SIVILSTAND_PÅKREVD_BEGRUNNELSE = 'KRAV_SIVILSTAND_PÅKREVD_BEGRUNNELSE',
+  KRAV_SIVILSTAND_UTEN_PÅKREVD_BEGRUNNELSE = 'KRAV_SIVILSTAND_UTEN_PÅKREVD_BEGRUNNELSE',
+  SIVILSTAND_UNNTAK = 'SIVILSTAND_UNNTAK',
+
+  // Nytt barn samme partner
+  HAR_FÅTT_ELLER_VENTER_NYTT_BARN_MED_SAMME_PARTNER = 'HAR_FÅTT_ELLER_VENTER_NYTT_BARN_MED_SAMME_PARTNER',
+
+  // Aktivitet
+  FYLLER_BRUKER_AKTIVITETSPLIKT = 'FYLLER_BRUKER_AKTIVITETSPLIKT',
+
+  // Sagt opp arbeidsforhold
+  SAGT_OPP_ELLER_REDUSERT = 'SAGT_OPP_ELLER_REDUSERT',
+  RIMELIG_GRUNN_SAGT_OPP = 'RIMELIG_GRUNN_SAGT_OPP',
+}
+export enum ISvarId {
+  // Felles
+  JA = 'JA',
+  NEI = 'NEI',
+
+  // Aleneomsorg
+  SAMME_HUS_OG_FÆRRE_ENN_4_BOENHETER = 'SAMME_HUS_OG_FÆRRE_ENN_4_BOENHETER',
+  SAMME_HUS_OG_FLERE_ENN_4_BOENHETER_MEN_VURDERT_NÆRT = 'SAMME_HUS_OG_FLERE_ENN_4_BOENHETER_MEN_VURDERT_NÆRT',
+  SELVSTENDIGE_BOLIGER_SAMME_GÅRDSTUN = 'SELVSTENDIGE_BOLIGER_SAMME_GÅRDSTUN',
+  SELVSTENDIGE_BOLIGER_SAMME_TOMT = 'SELVSTENDIGE_BOLIGER_SAMME_TOMT',
+  NÆRMESTE_BOLIG_ELLER_REKKEHUS_I_SAMMEGATE = 'NÆRMESTE_BOLIG_ELLER_REKKEHUS_I_SAMMEGATE',
+  TILSTØTENDE_BOLIGER_ELLER_REKKEHUS_I_SAMMEGATE = 'TILSTØTENDE_BOLIGER_ELLER_REKKEHUS_I_SAMMEGATE',
+
+  // Forutgående medlemskap
+  MEDLEM_MER_ENN_5_ÅR_AVBRUDD_MINDRE_ENN_10_ÅR = 'MEDLEM_MER_ENN_5_ÅR_AVBRUDD_MINDRE_ENN_10_ÅR',
+  MEDLEM_MER_ENN_7_ÅR_AVBRUDD_MER_ENN_10ÅR = 'MEDLEM_MER_ENN_7_ÅR_AVBRUDD_MER_ENN_10ÅR',
+  I_LANDET_FOR_GJENFORENING_ELLER_GIFTE_SEG = 'I_LANDET_FOR_GJENFORENING_ELLER_GIFTE_SEG',
+  ANDRE_FORELDER_MEDLEM_SISTE_5_ÅR = 'ANDRE_FORELDER_MEDLEM_SISTE_5_ÅR',
+  ANDRE_FORELDER_MEDLEM_MINST_5_ÅR_AVBRUDD_MINDRE_ENN_10_ÅR = 'ANDRE_FORELDER_MEDLEM_MINST_5_ÅR_AVBRUDD_MINDRE_ENN_10_ÅR',
+  ANDRE_FORELDER_MEDLEM_MINST_7_ÅR_AVBRUDD_MER_ENN_10_ÅR = 'ANDRE_FORELDER_MEDLEM_MINST_7_ÅR_AVBRUDD_MER_ENN_10_ÅR',
+  TOTALVURDERING_OPPFYLLER_FORSKRIFT = 'TOTALVURDERING_OPPFYLLER_FORSKRIFT',
+
+  // Opphold
+  ARBEID_NORSK_ARBEIDSGIVER = 'ARBEID_NORSK_ARBEIDSGIVER',
+  UTENLANDSOPPHOLD_MINDRE_ENN_6_UKER = 'UTENLANDSOPPHOLD_MINDRE_ENN_6_UKER',
+
+  // Sivilstand
+  GJENLEVENDE_IKKE_RETT_TIL_YTELSER = 'GJENLEVENDE_IKKE_RETT_TIL_YTELSER',
+  GJENLEVENDE_OVERTAR_OMSORG = 'GJENLEVENDE_OVERTAR_OMSORG',
+}
+export interface IVurderingDelvilkår {
+  regelId: IRegelId;
+  svar?: ISvarId;
+  begrunnelse?: string;
+}
+
 export interface IDelvilkår {
-  type: DelvilkårType;
   resultat: Vilkårsresultat;
-  årsak?: EDelvilkårÅrsak;
-  begrunnelse?: string | null;
+  vurderinger: IVurderingDelvilkår[];
 }
 
 export enum SivilstandType {
@@ -133,16 +205,11 @@ export enum SivilstandType {
 }
 
 export enum Vilkårsresultat {
-  JA = 'JA',
-  NEI = 'NEI',
+  OPPFYLT = 'OPPFYLT',
+  IKKE_OPPFYLT = 'IKKE_OPPFYLT',
   IKKE_AKTUELL = 'IKKE_AKTUELL',
-  IKKE_VURDERT = 'IKKE_VURDERT',
-}
-
-export enum Redigeringsmodus {
-  REDIGERING = 'REDIGERING',
-  VISNING = 'VISNING',
-  IKKE_PÅSTARTET = 'IKKE_PÅSTARTET',
+  IKKE_TATT_STILLING_TIL = 'IKKE_TATT_STILLING_TIL',
+  SKAL_IKKE_VURDERES = 'SKAL_IKKE_VURDERES',
 }
 
 export enum Vilkår {
@@ -154,6 +221,7 @@ export enum Vilkår {
   MOR_ELLER_FAR = 'MOR_ELLER_FAR',
   NYTT_BARN_SAMME_PARTNER = 'NYTT_BARN_SAMME_PARTNER',
   SAGT_OPP_ELLER_REDUSERT = 'SAGT_OPP_ELLER_REDUSERT',
+  AKTIVITET = 'AKTIVITET',
 }
 
 export interface IStatsborgerskap {
@@ -200,7 +268,8 @@ export type VilkårType =
   | Vilkår.ALENEOMSORG
   | Vilkår.NYTT_BARN_SAMME_PARTNER
   | Vilkår.MOR_ELLER_FAR
-  | Vilkår.SAGT_OPP_ELLER_REDUSERT;
+  | Vilkår.SAGT_OPP_ELLER_REDUSERT
+  | Vilkår.AKTIVITET;
 
 export const vilkårTypeTilTekst: Record<VilkårType, string> = {
   FORUTGÅENDE_MEDLEMSKAP: 'Vilkår om forutgående medlemskap',
@@ -211,72 +280,36 @@ export const vilkårTypeTilTekst: Record<VilkårType, string> = {
   MOR_ELLER_FAR: 'Vilkår om mor eller far',
   NYTT_BARN_SAMME_PARTNER: 'Vilkår om nytt barn samme partner',
   SAGT_OPP_ELLER_REDUSERT: 'Vilkår om sagt opp eller redusert stilling',
+  AKTIVITET: 'Aktivitet',
 };
-
-// ------- DELVILKÅR
-
-export enum DelvilkårType {
-  FEM_ÅRS_MEDLEMSKAP = 'FEM_ÅRS_MEDLEMSKAP',
-  BOR_OG_OPPHOLDER_SEG_I_NORGE = 'BOR_OG_OPPHOLDER_SEG_I_NORGE',
-  DOKUMENTERT_EKTESKAP = 'DOKUMENTERT_EKTESKAP',
-  DOKUMENTERT_SEPARASJON_ELLER_SKILSMISSE = 'DOKUMENTERT_SEPARASJON_ELLER_SKILSMISSE',
-  KRAV_SIVILSTAND = 'KRAV_SIVILSTAND',
-  SAMLIVSBRUDD_LIKESTILT_MED_SEPARASJON = 'SAMLIVSBRUDD_LIKESTILT_MED_SEPARASJON',
-  SAMSVAR_DATO_SEPARASJON_OG_FRAFLYTTING = 'SAMSVAR_DATO_SEPARASJON_OG_FRAFLYTTING',
-  HAR_FLYTTET_FRA_HVERANDRE = 'HAR_FLYTTET_FRA_HVERANDRE',
-  LEVER_IKKE_MED_ANNEN_FORELDER = 'LEVER_IKKE_MED_ANNEN_FORELDER',
-  LEVER_IKKE_I_EKTESKAPLIGNENDE_FORHOLD = 'LEVER_IKKE_I_EKTESKAPLIGNENDE_FORHOLD',
-  SKRIFTLIG_AVTALE_OM_DELT_BOSTED = 'SKRIFTLIG_AVTALE_OM_DELT_BOSTED',
-  NÆRE_BOFORHOLD = 'NÆRE_BOFORHOLD',
-  MER_AV_DAGLIG_OMSORG = 'MER_AV_DAGLIG_OMSORG',
-  HAR_FÅTT_ELLER_VENTER_NYTT_BARN_MED_SAMME_PARTNER = 'HAR_FÅTT_ELLER_VENTER_NYTT_BARN_MED_SAMME_PARTNER',
+// ------ VILKÅRGRUPPE
+/**
+ * Gjør det mulig å splitte opp vurderinger i eks Medlemskap, Aleneomsorg, etc.
+ * Når man eks legger til en vurdering til medlemskap i VurderingConfig nå så kommer den opp automatisk
+ */
+export enum VilkårGruppe {
+  MEDLEMSKAP = 'MEDLEMSKAP',
+  LOVLIG_OPPHOLD = 'LOVLIG_OPPHOLD',
+  SIVILSTAND = 'SIVILSTAND',
+  SAMLIV = 'SAMLIV',
+  ALENEOMSORG = 'ALENEOMSORG',
+  MOR_ELLER_FAR = 'MOR_ELLER_FAR',
+  NYTT_BARN_SAMME_PARTNER = 'NYTT_BARN_SAMME_PARTNER',
   SAGT_OPP_ELLER_REDUSERT = 'SAGT_OPP_ELLER_REDUSERT',
+  AKTIVITET = 'AKTIVITET',
 }
 
-export const delvilkårTypeTilTekst: Record<DelvilkårType, string> = {
-  FEM_ÅRS_MEDLEMSKAP: 'Har bruker vært medlem i folketrygden i de siste 5 årene?',
-  BOR_OG_OPPHOLDER_SEG_I_NORGE: 'Bor og oppholder bruker og barna seg i Norge?',
-  DOKUMENTERT_EKTESKAP: 'Foreligger det dokumentasjon på ekteskap?',
-  DOKUMENTERT_SEPARASJON_ELLER_SKILSMISSE:
-    'Foreligger det dokumentasjon på separasjon eller skilsmisse?',
-  KRAV_SIVILSTAND: 'Er krav for sivilstand oppfylt?',
-  SAMLIVSBRUDD_LIKESTILT_MED_SEPARASJON: 'Kan samlivsbrudd likestilles med formell separasjon?',
-  SAMSVAR_DATO_SEPARASJON_OG_FRAFLYTTING:
-    'Er det samsvar mellom datoene for separasjon og fraflytting?',
-  HAR_FLYTTET_FRA_HVERANDRE: 'Har partene flyttet fra hverandre?',
-  LEVER_IKKE_MED_ANNEN_FORELDER:
-    'Er vilkåret om å ikke leve sammen med den andre av barnets/barnas foreldre oppfylt?',
-  LEVER_IKKE_I_EKTESKAPLIGNENDE_FORHOLD:
-    'Er vilkåret om å ikke leve i et ekteskapslignende forhold i felles husholdning uten felles barn oppfylt?',
-  SKRIFTLIG_AVTALE_OM_DELT_BOSTED: 'Har foreldrene inngått skriftlig avtale om delt bosted?',
-  NÆRE_BOFORHOLD: 'Har bruker og den andre forelderen nære boforhold?',
-  MER_AV_DAGLIG_OMSORG: 'Har bruker klart mer av den daglige omsorgen?',
-  HAR_FÅTT_ELLER_VENTER_NYTT_BARN_MED_SAMME_PARTNER:
-    'Har søker fått nytt barn med samme partner (født etter 01.01.2016) eller venter nytt barn med samme partner, etter at en av foreldrene tidligere har mottatt eller fortsatt mottar stønad for et annet felles barn.',
-  SAGT_OPP_ELLER_REDUSERT:
-    'Har søker sagt opp jobben, tatt frivillig permisjon eller redusert arbeidstiden de siste 6 månedene før søknadstidspunktet?',
+export const resultatTilTekst: Record<Vilkårsresultat, string> = {
+  OPPFYLT: 'Oppfylt',
+  IKKE_AKTUELL: 'Ikke aktuell',
+  IKKE_OPPFYLT: 'Ikke oppfylt',
+  IKKE_TATT_STILLING_TIL: 'Ikke tatt stilling til',
+  SKAL_IKKE_VURDERES: 'Ikke vurdert',
 };
 
-// ------ UNNTAK
-
-export enum UnntakType {
-  IKKE_OPPFYLT = 'IKKE_OPPFYLT',
-  ARBEID_NORSK_ARBEIDSGIVER = 'ARBEID_NORSK_ARBEIDSGIVER',
-  UTENLANDSOPPHOLD_MINDRE_ENN_6_UKER = 'UTENLANDSOPPHOLD_MINDRE_ENN_6_UKER',
-  GJENLEVENDE_OVERTAR_OMSORG = 'GJENLEVENDE_OVERTAR_OMSORG',
-  GJENLEVENDE_IKKE_RETT_TIL_YTELSER = 'GJENLEVENDE_IKKE_RETT_TIL_YTELSER',
-  MEDLEM_MER_ENN_5_ÅR_AVBRUDD_MINDRE_ENN_10_ÅR = 'MEDLEM_MER_ENN_5_ÅR_AVBRUDD_MINDRE_ENN_10_ÅR',
-  MEDLEM_MER_ENN_7_ÅR_AVBRUDD_MER_ENN_10ÅR = 'MEDLEM_MER_ENN_7_ÅR_AVBRUDD_MER_ENN_10ÅR',
-  I_LANDET_FOR_GJENFORENING_ELLER_GIFTE_SEG = 'I_LANDET_FOR_GJENFORENING_ELLER_GIFTE_SEG',
-  ANDRE_FORELDER_MEDLEM_SISTE_5_ÅR = 'ANDRE_FORELDER_MEDLEM_SISTE_5_ÅR',
-  ANDRE_FORELDER_MEDLEM_MINST_5_ÅR_AVBRUDD_MINDRE_ENN_10_ÅR = 'ANDRE_FORELDER_MEDLEM_MINST_5_ÅR_AVBRUDD_MINDRE_ENN_10_ÅR',
-  ANDRE_FORELDER_MEDLEM_MINST_7_ÅR_AVBRUDD_MER_ENN_10_ÅR = 'ANDRE_FORELDER_MEDLEM_MINST_7_ÅR_AVBRUDD_MER_ENN_10_ÅR',
-  TOTALVURDERING_OPPFYLLER_FORSKRIFT = 'TOTALVURDERING_OPPFYLLER_FORSKRIFT',
-  RIMELIG_GRUNN_SAGT_OPP = 'RIMELIG_GRUNN_SAGT_OPP',
-}
-
-export const unntakTypeTilTekst: Record<UnntakType, string> = {
-  IKKE_OPPFYLT: 'Nei',
+export const svarIdTilTekst: Record<ISvarId, string> = {
+  JA: 'Ja',
+  NEI: 'Nei',
   ARBEID_NORSK_ARBEIDSGIVER: 'Arbeid for norsk arbeidsgiver',
   UTENLANDSOPPHOLD_MINDRE_ENN_6_UKER: 'Utenlandsopphold på mindre enn 6 uker',
   GJENLEVENDE_OVERTAR_OMSORG:
@@ -297,68 +330,58 @@ export const unntakTypeTilTekst: Record<UnntakType, string> = {
     'Ja, medlem i minst syv år etter fylte 16 år når krav fremsettes, og avbruddet er mer enn 10 år',
   TOTALVURDERING_OPPFYLLER_FORSKRIFT:
     'Ja, totalvurdering viser at forholdene går inn under forskriften om kravet om fem års forutgående medlemskap',
+  SAMME_HUS_OG_FÆRRE_ENN_4_BOENHETER:
+    'Ja, søker bor i samme hus som den andre forelderen og huset har 4 eller færre boenheter',
+  SAMME_HUS_OG_FLERE_ENN_4_BOENHETER_MEN_VURDERT_NÆRT:
+    'Ja, søker bor i samme hus som den andre forelderen og huset har flere enn 4 boenheter, men boforholdet er vurdert nært',
+  SELVSTENDIGE_BOLIGER_SAMME_TOMT:
+    'Ja, foreldrene bor i selvstendige boliger på samme tomt eller gårdsbruk',
+  SELVSTENDIGE_BOLIGER_SAMME_GÅRDSTUN:
+    'Ja, foreldrene bor i selvstendige boliger på samme gårdstun',
+  NÆRMESTE_BOLIG_ELLER_REKKEHUS_I_SAMMEGATE:
+    'Ja, foreldrene bor i nærmeste bolig eller rekkehus i samme gate',
+  TILSTØTENDE_BOLIGER_ELLER_REKKEHUS_I_SAMMEGATE:
+    'Ja, foreldrene bor i tilstøtende boliger eller rekkehus i samme gate',
+};
+export const delvilkårTypeTilTekst: Record<IRegelId, string> = {
+  SØKER_MEDLEM_I_FOLKETRYGDEN: 'Har bruker vært medlem i folketrygden i de siste 5 årene?',
+  BOR_OG_OPPHOLDER_SEG_I_NORGE: 'Bor og oppholder bruker og barna seg i Norge?',
+  KRAV_SIVILSTAND_PÅKREVD_BEGRUNNELSE: 'Er krav til sivilstand oppfylt?',
+  KRAV_SIVILSTAND_UTEN_PÅKREVD_BEGRUNNELSE: 'Er krav til sivilstand oppfylt?',
+  SAMLIVSBRUDD_LIKESTILT_MED_SEPARASJON: 'Kan samlivsbrudd likestilles med formell separasjon?',
+  SAMSVAR_DATO_SEPARASJON_OG_FRAFLYTTING:
+    'Er det samsvar mellom datoene for separasjon og fraflytting?',
+  LEVER_IKKE_MED_ANNEN_FORELDER:
+    'Er vilkåret om å ikke leve sammen med den andre av barnets/barnas foreldre oppfylt?',
+  LEVER_IKKE_I_EKTESKAPLIGNENDE_FORHOLD:
+    'Er vilkåret om å ikke leve i et ekteskapslignende forhold i felles husholdning uten felles barn oppfylt?',
+  SKRIFTLIG_AVTALE_OM_DELT_BOSTED: 'Har foreldrene inngått skriftlig avtale om delt bosted?',
+  NÆRE_BOFORHOLD: 'Har bruker og den andre forelderen nære boforhold?',
+  MER_AV_DAGLIG_OMSORG: 'Har bruker klart mer av den daglige omsorgen?',
+  OMSORG_FOR_EGNE_ELLER_ADOPTERTE_BARN: 'Har bruker omsorgen for egne/adopterte barn? ',
+  HAR_FÅTT_ELLER_VENTER_NYTT_BARN_MED_SAMME_PARTNER:
+    'Har søker fått nytt barn med samme partner (født etter 01.01.2016) eller venter nytt barn med samme partner, etter at en av foreldrene tidligere har mottatt eller fortsatt mottar stønad for et annet felles barn.',
+  SAGT_OPP_ELLER_REDUSERT:
+    'Har søker sagt opp jobben, tatt frivillig permisjon eller redusert arbeidstiden de siste 6 månedene før søknadstidspunktet?',
+  MEDLEMSKAP_UNNTAK: 'Er unntak fra hovedregelen oppfylt?',
+  OPPHOLD_UNNTAK: 'Er unntak fra hovedregelen oppfylt?',
+  FYLLER_BRUKER_AKTIVITETSPLIKT:
+    'Fyller bruker aktivitetsplikt, unntak for aktivitetsplikt eller har barn under 1 år?',
+  SIVILSTAND_UNNTAK: 'Er unntak fra krav om sivilstand oppfylt?',
   RIMELIG_GRUNN_SAGT_OPP:
     'Hadde søker rimelig grunn til å si opp jobben eller redusere arbeidstiden?',
+  SLUTT_NODE: 'UGYLDIG DELVILKÅR',
 };
 
-// ------ VILKÅRGRUPPE
-/**
- * Gjør det mulig å splitte opp vurderinger i eks Medlemskap, Aleneomsorg, etc.
- * Når man eks legger til en vurdering til medlemskap i VurderingConfig nå så kommer den opp automatisk
- */
-export enum VilkårGruppe {
-  MEDLEMSKAP = 'MEDLEMSKAP',
-  LOVLIG_OPPHOLD = 'LOVLIG_OPPHOLD',
-  SIVILSTAND = 'SIVILSTAND',
-  SAMLIV = 'SAMLIV',
-  ALENEOMSORG = 'ALENEOMSORG',
-  MOR_ELLER_FAR = 'MOR_ELLER_FAR',
-  NYTT_BARN_SAMME_PARTNER = 'NYTT_BARN_SAMME_PARTNER',
-  SAGT_OPP_ELLER_REDUSERT = 'SAGT_OPP_ELLER_REDUSERT',
-}
-
-export const vilkårsresultatTypeTilTekstForDelvilkår = (
-  vilkårsresultat: Vilkårsresultat,
-  delvilkårType: DelvilkårType,
-): string => {
-  if (
-    delvilkårType === DelvilkårType.NÆRE_BOFORHOLD ||
-    delvilkårType === DelvilkårType.SKRIFTLIG_AVTALE_OM_DELT_BOSTED
-  ) {
-    if (vilkårsresultat === Vilkårsresultat.JA)
-      return vilkårsresultatTypeTilTekst[Vilkårsresultat.NEI];
-    if (vilkårsresultat === Vilkårsresultat.NEI)
-      return vilkårsresultatTypeTilTekst[Vilkårsresultat.JA];
-  }
-  return vilkårsresultatTypeTilTekst[vilkårsresultat];
-};
-export const vilkårsresultatTypeTilTekst: Record<Vilkårsresultat, string> = {
-  JA: 'Ja',
-  NEI: 'Nei',
-  IKKE_VURDERT: 'Ikke vurdert',
-  IKKE_AKTUELL: 'Ikke aktuell',
-};
-
-export enum EDelvilkårÅrsak {
-  /** Nære boforhold **/
-  SAMME_HUS_OG_FÆRRE_ENN_4_BOENHETER = 'SAMME_HUS_OG_FÆRRE_ENN_4_BOENHETER',
-  SAMME_HUS_OG_FLERE_ENN_4_BOENHETER_MEN_VURDERT_NÆRT = 'SAMME_HUS_OG_FLERE_ENN_4_BOENHETER_MEN_VURDERT_NÆRT',
-  SELVSTENDIGE_BOLIGER_SAMME_TOMT = 'SELVSTENDIGE_BOLIGER_SAMME_TOMT',
-  SELVSTENDIGE_BOLIGER_SAMME_GÅRDSTUN = 'SELVSTENDIGE_BOLIGER_SAMME_GÅRDSTUN',
-  NÆRMESTE_BOLIG_ELLER_REKKEHUS_I_SAMMEGATE = 'NÆRMESTE_BOLIG_ELLER_REKKEHUS_I_SAMMEGATE',
-  TILSTØTENDE_BOLIGER_ELLER_REKKEHUS_I_SAMMEGATE = 'TILSTØTENDE_BOLIGER_ELLER_REKKEHUS_I_SAMMEGATE',
-}
-
-export const delvilkårÅrsakTilTekst: Record<EDelvilkårÅrsak, string> = {
-  SAMME_HUS_OG_FÆRRE_ENN_4_BOENHETER:
-    'Søker bor i samme hus som den andre forelderen og huset har 4 eller færre boenheter',
-  SAMME_HUS_OG_FLERE_ENN_4_BOENHETER_MEN_VURDERT_NÆRT:
-    'Søker bor i samme hus som den andre forelderen og huset har flere enn 4 boenheter, men boforholdet er vurdert nært',
-  SELVSTENDIGE_BOLIGER_SAMME_TOMT:
-    'Foreldrene bor i selvstendige boliger på samme tomt eller gårdsbruk',
-  SELVSTENDIGE_BOLIGER_SAMME_GÅRDSTUN: 'Foreldrene bor i selvstendige boliger på samme gårdstun',
-  NÆRMESTE_BOLIG_ELLER_REKKEHUS_I_SAMMEGATE:
-    'Foreldrene bor i nærmeste bolig eller rekkehus i samme gate',
-  TILSTØTENDE_BOLIGER_ELLER_REKKEHUS_I_SAMMEGATE:
-    'Foreldrene bor i tilstøtende boliger eller rekkehus i samme gate',
+export const sivilstandTilTekst: Record<SivilstandType, string> = {
+  UOPPGITT: 'Ikke oppgitt',
+  UGIFT: 'Ugift',
+  GIFT: 'Gift',
+  ENKE_ELLER_ENKEMANN: 'Enke/Enkemann',
+  SKILT: 'Skilt',
+  SKILT_PARTNER: 'Skilt partner',
+  SEPARERT: 'Separert',
+  SEPARERT_PARTNER: 'Separert partner',
+  REGISTRERT_PARTNER: 'Registrert partner',
+  GJENLEVENDE_PARTNER: 'Gjenlevende partner',
 };
