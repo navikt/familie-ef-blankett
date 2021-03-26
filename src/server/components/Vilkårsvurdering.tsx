@@ -4,6 +4,7 @@ import {
   IVurdering,
   resultatTilTekst,
   svarIdTilTekst,
+  Vilkår,
   Vilkårsresultat,
 } from '../../typer/dokumentApi';
 import Oppfylt from './ikoner/Oppfylt';
@@ -26,12 +27,16 @@ const resultatIkon = (resultat: Vilkårsresultat) => {
 };
 
 const Vilkårsvurdering: React.FC<Props> = ({ vurdering }) => {
+  const resultat =
+    vurdering.vilkårType === Vilkår.TIDLIGERE_VEDTAKSPERIODER
+      ? Vilkårsresultat.OPPFYLT
+      : vurdering.resultat;
   return (
     <>
       <div className={'vilkårsresultat'}>
-        <strong>Vilkårsvurdering</strong>: {resultatTilTekst[vurdering.resultat]}{' '}
+        <strong>Vilkårsvurdering</strong>: {resultatTilTekst[resultat]}{' '}
         <div className={'vilkårsresultat-ikon'}>
-          <span style={{ paddingBottom: '20%' }}>{resultatIkon(vurdering.resultat)}</span>
+          <span style={{ paddingBottom: '20%' }}>{resultatIkon(resultat)}</span>
         </div>
       </div>
 

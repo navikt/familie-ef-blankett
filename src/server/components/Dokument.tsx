@@ -24,6 +24,8 @@ interface DokumentProps {
 
 function gjelderDetteVilkåret(vurdering: IVurdering, vilkårgruppe: string) {
   switch (vilkårgruppe) {
+    case VilkårGruppe.TIDLIGERE_VEDTAKSPERIODER:
+      return vurdering.vilkårType === Vilkår.TIDLIGERE_VEDTAKSPERIODER;
     case VilkårGruppe.MEDLEMSKAP:
       return vurdering.vilkårType === Vilkår.FORUTGÅENDE_MEDLEMSKAP;
     case VilkårGruppe.LOVLIG_OPPHOLD:

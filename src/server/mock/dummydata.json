@@ -269,6 +269,37 @@
             ]
           }
         ]
+      },
+      {
+        "id": "1a008573-bf07-4dc2-9202-40ce070aab55",
+        "behandlingId": "caa2b1c3-9fa8-43d3-ad28-d8ea9cf5477",
+        "resultat": "IKKE_TATT_STILLING_TIL",
+        "vilkårType": "TIDLIGERE_VEDTAKSPERIODER",
+        "barnId": null,
+        "endretAv": "Z994344",
+        "endretTid": "2021-03-24T16:14:37.668",
+        "delvilkårsvurderinger": [
+          {
+            "resultat": "OPPFYLT",
+            "vurderinger": [
+              {
+                "regelId": "HAR_TIDLIGERE_MOTTATT_OVERGANSSTØNAD",
+                "svar": "NEI",
+                "begrunnelse": null
+              }
+            ]
+          },
+          {
+            "resultat": "OPPFYLT",
+            "vurderinger": [
+              {
+                "regelId": "HAR_TIDLIGERE_ANDRE_STØNADER_SOM_HAR_BETYDNING",
+                "svar": "NEI",
+                "begrunnelse": null
+              }
+            ]
+          }
+        ]
       }
     ],
     "grunnlag": {
