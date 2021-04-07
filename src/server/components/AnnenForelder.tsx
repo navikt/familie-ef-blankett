@@ -19,10 +19,10 @@ const AnnenForelder: React.FC<AnnenForelderProps> = ({
   }
   return (
     <div>
-      <div>Navn: {annenForelder.navn}</div>
-      <div>Fødsels eller D-nummer: {annenForelder.fødselsnummer}</div>
+      <div>Annen forelder navn: {annenForelder.navn}</div>
+      <div>Annen forelder fødsels eller D-nummer: {annenForelder.fødselsnummer}</div>
       {annenForelder.fødselsdato && (
-        <div>Fødselsdato: {formaterNullableIsoDato(annenForelder.fødselsdato)}</div>
+        <div>Annen forelder fødselsdato: {formaterNullableIsoDato(annenForelder.fødselsdato)}</div>
       )}
       <div>Annen forelder bor i: {annenForelder.bosattINorge ? 'Norge' : '-'}</div>
     </div>
