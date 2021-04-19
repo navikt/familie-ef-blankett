@@ -6,7 +6,11 @@ import {
   IVedtak,
   periodetypeTilTekst,
 } from '../../typer/dokumentApi';
-import { formaterNullableIsoDato, formaterNullableMånedÅr } from '../utils/util';
+import {
+  formaterNullableIsoDato,
+  formaterNullableMånedÅr,
+  parseOgFormaterÅrMåned,
+} from '../utils/util';
 
 export const Vedtak: React.FC<{ vedtak: IVedtak; søknadsdatoer: ISøknadsdatoer }> = ({
   vedtak,
@@ -28,8 +32,8 @@ export const Vedtak: React.FC<{ vedtak: IVedtak; søknadsdatoer: ISøknadsdatoer
             <h4>Periode</h4>
             <div>Periodetype: {periodetypeTilTekst[periode.periodeType]}</div>
             <div>Aktivitet: {aktivitetsTypeTilTekst[periode.aktivitet]}</div>
-            <div>Fra og med: {formaterNullableIsoDato(periode.datoFra)}</div>
-            <div>Til og med: {formaterNullableIsoDato(periode.datoTil)}</div>
+            <div>Fra og med: {parseOgFormaterÅrMåned(periode.årMånedFra)}</div>
+            <div>Til og med: {parseOgFormaterÅrMåned(periode.årMånedTil)}</div>
           </div>
         );
       })}

@@ -497,8 +497,8 @@
    "inntektBegrunnelse": "Og dette er inntekt",
    "perioder": [
      {
-       "datoFra": "2021-03-01",
-       "datoTil": "2021-09-01",
+       "årMånedFra": "2021-03",
+       "årMånedTil": "2021-09",
        "aktivitet": "BARN_UNDER_ETT_ÅR",
        "periodeType": "HOVEDPERIODE"
      }
