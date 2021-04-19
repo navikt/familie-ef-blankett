@@ -34,8 +34,8 @@ export const behandlingResultatTilTekst: Record<EBehandlingResultat, string> = {
 export interface IPeriode {
   periodeType: EPeriodetype;
   aktivitet: EAktivitet;
-  datoFra: string;
-  datoTil: string;
+  årMånedFra: string;
+  årMånedTil: string;
 }
 export enum EPeriodetype {
   PERIODE_FØR_FØDSEL = 'PERIODE_FØR_FØDSEL',
