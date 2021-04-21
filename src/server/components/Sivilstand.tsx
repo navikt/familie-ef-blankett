@@ -7,13 +7,15 @@ interface Props {
 }
 
 const SivilstandGrunnlag: React.FC<Props> = ({ sivilstand }) => {
+  const registergrunnlag = sivilstand.registergrunnlag;
   return (
     <>
       <h3>Registerdata</h3>
-      <div>Sivilstatus: {sivilstandTilTekst[sivilstand.registergrunnlag.type]}</div>
       <div>
-        Gyldig fra og med: {formaterNullableIsoDato(sivilstand.registergrunnlag.gyldigFraOgMed)}
+        Sivilstatus: {sivilstandTilTekst[registergrunnlag.type]}
+        {registergrunnlag.navn && ` med ${registergrunnlag.navn}`}
       </div>
+      <div>Gyldig fra og med: {formaterNullableIsoDato(registergrunnlag.gyldigFraOgMed)}</div>
     </>
   );
 };
