@@ -13,7 +13,7 @@ const SivilstandGrunnlag: React.FC<Props> = ({ sivilstand }) => {
       <h3>Registerdata</h3>
       <div>
         Sivilstatus: {sivilstandTilTekst[registergrunnlag.type]}
-        {registergrunnlag.navn && ` med ${registergrunnlag.navn}`}
+        {registergrunnlag.navn && ` - ${registergrunnlag.navn}`}
       </div>
       <div>Gyldig fra og med: {formaterNullableIsoDato(registergrunnlag.gyldigFraOgMed)}</div>
     </>
