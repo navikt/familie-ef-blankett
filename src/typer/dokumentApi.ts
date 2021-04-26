@@ -15,8 +15,14 @@ export interface IVedtak {
   periodeBegrunnelse: string;
   inntektBegrunnelse: string;
   perioder: IPeriode[];
+  inntekter: IInntekt[];
 }
 
+export interface IInntekt {
+  årMånedFra: string;
+  forventetInntekt: number;
+  samordningsfradrag?: number;
+}
 export enum EBehandlingResultat {
   INNVILGE = 'INNVILGE',
   AVSLÅ = 'AVSLÅ',
