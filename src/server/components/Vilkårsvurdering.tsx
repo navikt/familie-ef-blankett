@@ -7,9 +7,9 @@ import {
   Vilkår,
   Vilkårsresultat,
 } from '../../typer/dokumentApi';
-import Oppfylt from './ikoner/Oppfylt';
+import OppfyltIkon from './ikoner/OppfyltIkon';
 import IkkeOppfylt from './ikoner/IkkeOppfylt';
-import IkkeVurdert from './ikoner/IkkeVurdert';
+import InfoIkon from './ikoner/InfoIkon';
 
 interface Props {
   vurdering: IVurdering;
@@ -18,11 +18,11 @@ interface Props {
 const resultatIkon = (resultat: Vilkårsresultat) => {
   switch (resultat) {
     case Vilkårsresultat.OPPFYLT:
-      return <Oppfylt />;
+      return <OppfyltIkon />;
     case Vilkårsresultat.IKKE_OPPFYLT:
       return <IkkeOppfylt />;
     default:
-      return <IkkeVurdert />;
+      return <InfoIkon />;
   }
 };
 

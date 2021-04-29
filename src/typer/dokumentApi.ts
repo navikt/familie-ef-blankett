@@ -10,14 +10,20 @@ export interface ISøknadsdatoer {
   søkerStønadFra: string;
 }
 
-export interface IVedtak {
-  resultatType: EBehandlingResultat;
+export type IAvslåVedtak = {
+  resultatType: EBehandlingResultat.AVSLÅ;
+  avslåBegrunnelse: string;
+};
+
+export type IInnvilgeVedtak = {
+  resultatType: EBehandlingResultat.INNVILGE;
   periodeBegrunnelse: string;
   inntektBegrunnelse: string;
   perioder: IPeriode[];
   inntekter: IInntekt[];
-}
+};
 
+export type IVedtak = IAvslåVedtak | IInnvilgeVedtak;
 export interface IInntekt {
   årMånedFra: string;
   forventetInntekt: number;
@@ -385,7 +391,7 @@ export enum VilkårGruppe {
 }
 
 export const resultatTilTekst: Record<Vilkårsresultat, string> = {
-  OPPFYLT: 'Oppfylt',
+  OPPFYLT: 'OppfyltIkon',
   IKKE_AKTUELL: 'Ikke aktuell',
   IKKE_OPPFYLT: 'Ikke oppfylt',
   IKKE_TATT_STILLING_TIL: 'Ikke tatt stilling til',
