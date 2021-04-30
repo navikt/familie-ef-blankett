@@ -2,8 +2,8 @@ import * as React from 'react';
 
 const InfoIkon: React.FC = () => {
   return (
-    <svg aria-labelledby={'oppfylt'} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <title id={'oppfylt'}>Oppfylt</title>
+    <svg aria-labelledby={'ikke vurdert'} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <title id={'ikke vurdert'}>Ikke vurdert</title>
       <path
         d="M12 0C5.382 0 0 5.382 0 12s5.382 12 12 12c6.617 0 12-5.382 12-12S18.617 0 12 0z"
         fill="#337C9B"

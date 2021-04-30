@@ -10,6 +10,7 @@ import {
 import OppfyltIkon from './ikoner/OppfyltIkon';
 import IkkeOppfylt from './ikoner/IkkeOppfylt';
 import InfoIkon from './ikoner/InfoIkon';
+import { IkkeVurdert } from './ikoner/IkkeVurdert';
 
 interface Props {
   vurdering: IVurdering;
@@ -21,8 +22,10 @@ const resultatIkon = (resultat: Vilkårsresultat) => {
       return <OppfyltIkon />;
     case Vilkårsresultat.IKKE_OPPFYLT:
       return <IkkeOppfylt />;
-    default:
+    case Vilkårsresultat.SKAL_IKKE_VURDERES:
       return <InfoIkon />;
+    default:
+      return <IkkeVurdert />;
   }
 };
 
