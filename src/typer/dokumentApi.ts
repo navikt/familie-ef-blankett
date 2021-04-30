@@ -391,7 +391,7 @@ export enum VilkårGruppe {
 }
 
 export const resultatTilTekst: Record<Vilkårsresultat, string> = {
-  OPPFYLT: 'OppfyltIkon',
+  OPPFYLT: 'Oppfylt',
   IKKE_AKTUELL: 'Ikke aktuell',
   IKKE_OPPFYLT: 'Ikke oppfylt',
   IKKE_TATT_STILLING_TIL: 'Ikke tatt stilling til',
