@@ -1,33 +1,19 @@
-import * as React from 'react';
+import React from 'react';
 
-interface IOppfylt {
-  className?: string;
-  heigth?: number;
-  width?: number;
-}
-
-const IkkeVurdert: React.FC<IOppfylt> = ({ className, heigth, width }) => {
+export const IkkeVurdert: React.FC = () => {
   return (
-    <svg
-      aria-labelledby={'ikke vurdert'}
-      className={className}
-      focusable="false"
-      height={heigth}
-      width={width}
-      viewBox="0 0 24 24"
-    >
-      <g fill="none">
-        <path
-          d="M12 0C5.382 0 0 5.382 0 12s5.382 12 12 12c6.617 0 12-5.382 12-12S18.617 0 12 0z"
-          fill="#337C9B"
-        ></path>
-        <path
-          d="M12 5a1.566 1.566 0 1 1 .11 3.13A1.566 1.566 0 0 1 12 5zm2.976 12.01c.563 0 1.043.431 1.043.991s-.48.992-1.043.992H9.39c-.564 0-1.043-.431-1.043-.992 0-.56.479-.99 1.043-.99h1.6v-5.016h-.986c-.565 0-1.044-.43-1.044-.991 0-.56.48-.991 1.044-.991h2.03c.563 0 1.043.43 1.043.99v6.007h1.899z"
-          fill="#FFF"
-        ></path>
-      </g>
+    <svg aria-labelledby={'ikke vurdert'} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <title id={'ikke vurdert'}>Ikke vurdert</title>
+      <path
+        fill="#FFA733"
+        d="M12.205.996l-.214.002a12.226 12.226 0 00-8.517 3.658c-2.295 2.32-3.527 5.355-3.472 8.55.115 6.611 5.296 11.79 11.795 11.79l.212-.002c6.726-.116 12.105-5.593 11.99-12.207-.115-6.61-5.296-11.79-11.794-11.79z"
+      ></path>
+      <path
+        fill="#3E3832"
+        fillRule="evenodd"
+        d="M13 6.8a1 1 0 10-2 0v7a1 1 0 102 0v-7zm-1 13h.027a1.5 1.5 0 00-.027-3l-.013.002h-.014A1.498 1.498 0 0012 19.801z"
+        clipRule="evenodd"
+      ></path>
     </svg>
   );
 };
-
-export default IkkeVurdert;
