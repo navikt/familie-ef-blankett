@@ -28,7 +28,7 @@
     ]
   },
   "dependencies": {
-    "@craco/craco": "^6.0.0",
+    "@craco/craco": "^6.1.2",
     "@navikt/familie-backend": "^5.0.16",
     "@navikt/familie-logging": "^1.0.2",
     "@navikt/fnrvalidator": "^1.1.3",
