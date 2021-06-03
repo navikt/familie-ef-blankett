@@ -38,7 +38,7 @@ export const InnvilgeVedtak: React.FC<{
         );
       })}
       <h4>Begrunnelse</h4>
-      <div>{periodeBegrunnelse}</div>
+      <p style={{ whiteSpace: 'pre-wrap' }}>{periodeBegrunnelse}</p>
       <h3>Inntekt</h3>
       {inntekter.map((inntekt, indeks) => {
         return (
@@ -50,7 +50,7 @@ export const InnvilgeVedtak: React.FC<{
         );
       })}
       <h4>Begrunnelse</h4>
-      <div>{inntektBegrunnelse}</div>
+      <p style={{ whiteSpace: 'pre-wrap' }}>{inntektBegrunnelse}</p>
     </div>
   );
 };
