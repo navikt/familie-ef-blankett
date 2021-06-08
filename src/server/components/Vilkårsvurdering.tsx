@@ -60,7 +60,12 @@ const Vilkårsvurdering: React.FC<Props> = ({ vurdering }) => {
                       {delvilkårTypeTilTekst[delvilkår.regelId]}{' '}
                       {delvilkår.svar ? svarIdTilTekst[delvilkår.svar] : 'Ikke besvart'}
                     </div>
-                    {delvilkår.begrunnelse && <div>Begrunnelse: {delvilkår.begrunnelse}</div>}
+                    {delvilkår.begrunnelse && (
+                      <div>
+                        Begrunnelse:{' '}
+                        <p style={{ whiteSpace: 'pre-wrap' }}>{delvilkår.begrunnelse}</p>
+                      </div>
+                    )}
                   </div>
                 );
               })}

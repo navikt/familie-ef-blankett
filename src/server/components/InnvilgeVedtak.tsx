@@ -37,20 +37,24 @@ export const InnvilgeVedtak: React.FC<{
           </div>
         );
       })}
-      <h4>Begrunnelse</h4>
-      <div>{periodeBegrunnelse}</div>
-      <h3>Inntekt</h3>
-      {inntekter.map((inntekt, indeks) => {
-        return (
-          <div key={indeks}>
-            <h4>Fra og med {parseOgFormaterÅrMåned(inntekt.årMånedFra)}</h4>
-            <div>Forventet inntekt (år): {inntekt.forventetInntekt}</div>
-            <div>Samordningsfradrag (mnd): {inntekt.samordningsfradrag}</div>
-          </div>
-        );
-      })}
-      <h4>Begrunnelse</h4>
-      <div>{inntektBegrunnelse}</div>
+      <div className={'page-break'}>
+        <h4>Begrunnelse</h4>
+        <p style={{ whiteSpace: 'pre-wrap' }}>{periodeBegrunnelse}</p>
+        <h3>Inntekt</h3>
+        {inntekter.map((inntekt, indeks) => {
+          return (
+            <div key={indeks}>
+              <h4>Fra og med {parseOgFormaterÅrMåned(inntekt.årMånedFra)}</h4>
+              <div>Forventet inntekt (år): {inntekt.forventetInntekt}</div>
+              <div>Samordningsfradrag (mnd): {inntekt.samordningsfradrag}</div>
+            </div>
+          );
+        })}
+      </div>
+      <div className={'page-break'}>
+        <h4>Begrunnelse</h4>
+        <p style={{ whiteSpace: 'pre-wrap' }}>{inntektBegrunnelse}</p>
+      </div>
     </div>
   );
 };

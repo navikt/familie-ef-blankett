@@ -8,7 +8,7 @@ export const AvslåVedtak: React.FC<IAvslåVedtak> = ({ avslåBegrunnelse }) => 
       <h3>Resultat</h3>
       <div>Avslå</div>
       <h4>Begrunnelse</h4>
-      <div>{avslåBegrunnelse}</div>
+      <p style={{ whiteSpace: 'pre-wrap' }}>{avslåBegrunnelse}</p>
     </div>
   );
 };

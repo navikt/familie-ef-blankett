@@ -36,7 +36,7 @@ const hentDokumentHtml = async (data: IDokumentData): Promise<string> => {
   const htmldokument = asyncHtml();
   const dokument = await renderToStaticMarkup(htmldokument);
 
-  return dokument.replace(/(\r\n|\n|\r)/gm, '');
+  return dokument;
 };
 
 export default hentDokumentHtml;
