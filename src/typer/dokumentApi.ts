@@ -1,5 +1,5 @@
 export interface IDokumentData {
-  behandling?: IBehandling;
+  behandling: IBehandling;
   vilkår: IVilkår;
   personopplysninger: IPersonopplysninger;
   vedtak: IVedtak;
