@@ -13,7 +13,7 @@ import {
 
 export const InnvilgeVedtak: React.FC<{
   vedtak: IInnvilgeVedtak;
-  søknadsdatoer: ISøknadsdatoer;
+  søknadsdatoer?: ISøknadsdatoer;
 }> = ({ vedtak, søknadsdatoer }) => {
   const { periodeBegrunnelse, perioder, inntektBegrunnelse, inntekter } = vedtak;
   return (
@@ -21,9 +21,13 @@ export const InnvilgeVedtak: React.FC<{
       <h2>Vedtak</h2>
       <h3>Resultat</h3>
       <div>Innvilge</div>
-      <h3>Søknadsinformasjon</h3>
-      <div>Søknadsdato: {formaterNullableIsoDato(søknadsdatoer.søknadsdato)}</div>
-      <div>Søker stønad fra: {formaterNullableMånedÅr(søknadsdatoer.søkerStønadFra)}</div>
+      {søknadsdatoer && (
+        <>
+          <h3>Søknadsinformasjon</h3>
+          <div>Søknadsdato: {formaterNullableIsoDato(søknadsdatoer.søknadsdato)}</div>
+          <div>Søker stønad fra: {formaterNullableMånedÅr(søknadsdatoer?.søkerStønadFra)}</div>
+        </>
+      )}
       <h3>Vedtaksperiode</h3>
       {perioder.map((periode, indeks) => {
         return (

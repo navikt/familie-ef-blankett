@@ -2,12 +2,12 @@ export interface IDokumentData {
   vilkår: IVilkår;
   personopplysninger: IPersonopplysninger;
   vedtak: IVedtak;
-  søknadsdatoer: ISøknadsdatoer;
+  søknadsdatoer?: ISøknadsdatoer;
 }
 
 export interface ISøknadsdatoer {
   søknadsdato: string;
-  søkerStønadFra: string;
+  søkerStønadFra?: string;
 }
 
 export type IAvslåVedtak = {
