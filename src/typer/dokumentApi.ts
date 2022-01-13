@@ -1,8 +1,13 @@
 export interface IDokumentData {
+  behandling: IBehandling;
   vilkår: IVilkår;
   personopplysninger: IPersonopplysninger;
   vedtak: IVedtak;
   søknadsdatoer: ISøknadsdatoer;
+}
+
+export interface IBehandling {
+  årsak: EBehandlingÅrsak;
 }
 
 export interface ISøknadsdatoer {
@@ -41,6 +46,20 @@ export const behandlingResultatTilTekst: Record<EBehandlingResultat, string> = {
   AVSLÅ: 'Avslå',
   HENLEGGE: 'Henlegge',
   BEHANDLE_I_GOSYS: 'Behandle i Gosys',
+};
+
+export enum EBehandlingÅrsak {
+  SØKNAD = 'SØKNAD',
+  NYE_OPPLYSNINGER = 'NYE_OPPLYSNINGER',
+  KLAGE = 'KLAGE',
+  MIGRERING = 'MIGRERING',
+}
+
+export const behandlingÅrsakTilTekst: Record<EBehandlingÅrsak, string> = {
+  SØKNAD: 'Ny søknad',
+  NYE_OPPLYSNINGER: 'Nye opplysninger',
+  KLAGE: 'Klage',
+  MIGRERING: 'Migrering',
 };
 
 export interface IPeriode {

@@ -5,6 +5,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import css from './utils/css';
 import Header from './components/Header';
 import { datoFormat } from './utils/util';
+import { Behandling } from './components/Behandling';
 
 enum HtmlLang {
   NB = 'nb',
@@ -27,6 +28,7 @@ const hentDokumentHtml = async (data: IDokumentData): Promise<string> => {
             fodselsnummer={data.personopplysninger.personIdent}
             dato={new Date().toLocaleDateString('no-NO', datoFormat)}
           />
+          <Behandling behandling={data.behandling} />
           <Dokument dokumentData={data} />
         </div>
       </body>

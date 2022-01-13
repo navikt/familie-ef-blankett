@@ -1,4 +1,7 @@
 {
+  "behandling": {
+    "årsak": "MIGRERING"
+  },
   "personopplysninger": {
     "navn": "Navn Navnesen",
     "personIdent": "12345678901"
