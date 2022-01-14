@@ -3,7 +3,7 @@ export interface IDokumentData {
   vilkår: IVilkår;
   personopplysninger: IPersonopplysninger;
   vedtak: IVedtak;
-  søknadsdatoer: ISøknadsdatoer;
+  søknadsdatoer?: ISøknadsdatoer;
 }
 
 export interface IBehandling {
@@ -12,7 +12,7 @@ export interface IBehandling {
 
 export interface ISøknadsdatoer {
   søknadsdato: string;
-  søkerStønadFra: string;
+  søkerStønadFra?: string;
 }
 
 export type IAvslåVedtak = {

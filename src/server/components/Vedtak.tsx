@@ -3,7 +3,7 @@ import { EBehandlingResultat, ISøknadsdatoer, IVedtak } from '../../typer/dokum
 import { InnvilgeVedtak } from './InnvilgeVedtak';
 import { AvslåVedtak } from './AvslåVedtak';
 
-export const Vedtak: React.FC<{ vedtak: IVedtak; søknadsdatoer: ISøknadsdatoer }> = ({
+export const Vedtak: React.FC<{ vedtak: IVedtak; søknadsdatoer?: ISøknadsdatoer }> = ({
   vedtak,
   søknadsdatoer,
 }) => {
