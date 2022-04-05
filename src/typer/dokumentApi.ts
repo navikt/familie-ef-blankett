@@ -8,6 +8,7 @@ export interface IDokumentData {
 
 export interface IBehandling {
   årsak: EBehandlingÅrsak;
+  stønadstype: EStønadType;
 }
 
 export interface ISøknadsdatoer {
@@ -20,7 +21,7 @@ export type IAvslåVedtak = {
   avslåBegrunnelse: string;
 };
 
-export type IInnvilgeVedtak = {
+export type IInnvilgeVedtakOvergangsstønad = {
   resultatType: EBehandlingResultat.INNVILGE;
   periodeBegrunnelse: string;
   inntektBegrunnelse: string;
@@ -28,7 +29,34 @@ export type IInnvilgeVedtak = {
   inntekter: IInntekt[];
 };
 
-export type IVedtak = IAvslåVedtak | IInnvilgeVedtak;
+export type IInnvilgeVedtakBarnetilsyn = {
+  resultatType: EBehandlingResultat.INNVILGE;
+  begrunnelse?: string;
+  perioder: Barnetilsynperiode[];
+  perioderKontantstøtte: PeriodeMedBeløp[];
+  tilleggsstønad: Tilleggsstønad;
+};
+
+export type Tilleggsstønad = {
+  harTilleggsstønad: boolean;
+  perioder: PeriodeMedBeløp[];
+  begrunnelse?: string;
+};
+
+export type PeriodeMedBeløp = {
+  årMånedFra: string;
+  årMånedTil: string;
+  beløp: number;
+};
+
+export type Barnetilsynperiode = {
+  årMånedFra: string;
+  årMånedTil: string;
+  utgifter: number;
+  barn: string[];
+};
+
+export type IVedtak = IAvslåVedtak | IInnvilgeVedtakOvergangsstønad | IInnvilgeVedtakBarnetilsyn;
 export interface IInntekt {
   årMånedFra: string;
   forventetInntekt: number;
@@ -46,6 +74,18 @@ export const behandlingResultatTilTekst: Record<EBehandlingResultat, string> = {
   AVSLÅ: 'Avslå',
   HENLEGGE: 'Henlegge',
   BEHANDLE_I_GOSYS: 'Behandle i Gosys',
+};
+
+export enum EStønadType {
+  OVERGANGSSTØNAD = 'OVERGANGSSTØNAD',
+  BARNETILSYN = 'BARNETILSYN',
+  SKOLEPENGER = 'SKOLEPENGER',
+}
+
+export const stønadstypeTilTekst: Record<EStønadType, string> = {
+  OVERGANGSSTØNAD: 'Overgangsstønad',
+  BARNETILSYN: 'Barnetilsyn',
+  SKOLEPENGER: 'Skolepenger',
 };
 
 export enum EBehandlingÅrsak {
@@ -67,6 +107,13 @@ export interface IPeriode {
   aktivitet: EAktivitet;
   årMånedFra: string;
   årMånedTil: string;
+}
+
+export interface IPeriodeBarnetilsyn {
+  årMånedFra: string;
+  årMånedTil: string;
+  utgifter: number;
+  antallBarn: number;
 }
 export enum EPeriodetype {
   PERIODE_FØR_FØDSEL = 'PERIODE_FØR_FØDSEL',
@@ -255,6 +302,11 @@ export enum IRegelId {
   // Sagt opp arbeidsforhold
   SAGT_OPP_ELLER_REDUSERT = 'SAGT_OPP_ELLER_REDUSERT',
   RIMELIG_GRUNN_SAGT_OPP = 'RIMELIG_GRUNN_SAGT_OPP',
+
+  ER_I_ARBEID_ELLER_FORBIGÅENDE_SYKDOM = 'ER_I_ARBEID_ELLER_FORBIGÅENDE_SYKDOM',
+  INNTEKT_LAVERE_ENN_INNTEKTSGRENSE = 'INNTEKT_LAVERE_ENN_INNTEKTSGRENSE',
+  HAR_ALDER_LAVERE_ENN_GRENSEVERDI = 'HAR_ALDER_LAVERE_ENN_GRENSEVERDI',
+  UNNTAK_ALDER = 'UNNTAK_ALDER',
 }
 export enum ISvarId {
   // Felles
@@ -285,6 +337,14 @@ export enum ISvarId {
   // Sivilstand
   GJENLEVENDE_IKKE_RETT_TIL_YTELSER = 'GJENLEVENDE_IKKE_RETT_TIL_YTELSER',
   GJENLEVENDE_OVERTAR_OMSORG = 'GJENLEVENDE_OVERTAR_OMSORG',
+
+  // Aktivtet barnetilsyn
+  ER_I_ARBEID = 'ER_I_ARBEID',
+  ETABLERER_EGEN_VIRKSOMHET = 'ETABLERER_EGEN_VIRKSOMHET',
+  HAR_FORBIGÅENDE_SYKDOM = 'HAR_FORBIGÅENDE_SYKDOM',
+  // Alder på barn
+  TRENGER_MER_TILSYN_ENN_JEVNALDRENDE = 'TRENGER_MER_TILSYN_ENN_JEVNALDRENDE',
+  FORSØRGER_HAR_LANGVARIG_ELLER_UREGELMESSIG_ARBEIDSTID = 'FORSØRGER_HAR_LANGVARIG_ELLER_UREGELMESSIG_ARBEIDSTID',
 }
 export interface IVurderingDelvilkår {
   regelId: IRegelId;
@@ -329,6 +389,9 @@ export enum Vilkår {
   NYTT_BARN_SAMME_PARTNER = 'NYTT_BARN_SAMME_PARTNER',
   SAGT_OPP_ELLER_REDUSERT = 'SAGT_OPP_ELLER_REDUSERT',
   AKTIVITET = 'AKTIVITET',
+  ALDER_PÅ_BARN = 'ALDER_PÅ_BARN',
+  INNTEKT = 'INNTEKT',
+  AKTIVITET_ARBEID = 'AKTIVITET_ARBEID',
 }
 
 export interface IStatsborgerskap {
@@ -377,7 +440,10 @@ export type VilkårType =
   | Vilkår.MOR_ELLER_FAR
   | Vilkår.SAGT_OPP_ELLER_REDUSERT
   | Vilkår.TIDLIGERE_VEDTAKSPERIODER
-  | Vilkår.AKTIVITET;
+  | Vilkår.AKTIVITET
+  | Vilkår.AKTIVITET_ARBEID
+  | Vilkår.INNTEKT
+  | Vilkår.ALDER_PÅ_BARN;
 
 export const vilkårTypeTilTekst: Record<VilkårType, string> = {
   FORUTGÅENDE_MEDLEMSKAP: 'Vilkår om forutgående medlemskap',
@@ -390,6 +456,9 @@ export const vilkårTypeTilTekst: Record<VilkårType, string> = {
   SAGT_OPP_ELLER_REDUSERT: 'Vilkår om sagt opp eller redusert stilling',
   AKTIVITET: 'Aktivitet',
   TIDLIGERE_VEDTAKSPERIODER: 'Tidligere vedtaksperioder',
+  ALDER_PÅ_BARN: 'Alder på barn',
+  INNTEKT: 'Inntekt',
+  AKTIVITET_ARBEID: 'Aktivitet arbeid',
 };
 // ------ VILKÅRGRUPPE
 /**
@@ -407,6 +476,9 @@ export enum VilkårGruppe {
   NYTT_BARN_SAMME_PARTNER = 'NYTT_BARN_SAMME_PARTNER',
   SAGT_OPP_ELLER_REDUSERT = 'SAGT_OPP_ELLER_REDUSERT',
   AKTIVITET = 'AKTIVITET',
+  AKTIVITET_ARBEID = 'AKTIVITET_ARBEID',
+  INNTEKT = 'INNTEKT',
+  ALDER_PÅ_BARN = 'ALDER_PÅ_BARN',
 }
 
 export const resultatTilTekst: Record<Vilkårsresultat, string> = {
@@ -452,6 +524,13 @@ export const svarIdTilTekst: Record<ISvarId, string> = {
     'Ja, foreldrene bor i nærmeste bolig eller rekkehus i samme gate',
   TILSTØTENDE_BOLIGER_ELLER_REKKEHUS_I_SAMMEGATE:
     'Ja, foreldrene bor i tilstøtende boliger eller rekkehus i samme gate',
+  ER_I_ARBEID: 'Ja, det er dokumentert at brukeren er i arbeid',
+  ETABLERER_EGEN_VIRKSOMHET: 'Ja, det er dokumentert at brukeren etablerer egen virksomhet',
+  HAR_FORBIGÅENDE_SYKDOM: 'Ja, det er dokumentert at brukeren har forbigående sykdom',
+  TRENGER_MER_TILSYN_ENN_JEVNALDRENDE:
+    'Ja, det yngste barnet har fullført fjerde skoleår og det er dokumentert at barnet trenger vesentlig mer tilsyn enn jevnaldrene',
+  FORSØRGER_HAR_LANGVARIG_ELLER_UREGELMESSIG_ARBEIDSTID:
+    'Ja, det yngste barnet har fullført fjerde skoleår og det er dokumentert at forsørgeren har langvarig og/eller uregelmessig arbeidstid',
 };
 export const delvilkårTypeTilTekst: Record<IRegelId, string> = {
   SØKER_MEDLEM_I_FOLKETRYGDEN: 'Har bruker vært medlem i folketrygden i de siste 5 årene?',
@@ -484,6 +563,11 @@ export const delvilkårTypeTilTekst: Record<IRegelId, string> = {
   HAR_TIDLIGERE_ANDRE_STØNADER_SOM_HAR_BETYDNING:
     'Har søker tidligere mottatt andre stønader som har betydning for stønadstiden i §15-8 første og andre ledd?',
   HAR_TIDLIGERE_MOTTATT_OVERGANSSTØNAD: 'Har søker tidligere mottatt overgangsstønad?',
+  ER_I_ARBEID_ELLER_FORBIGÅENDE_SYKDOM: 'Er brukeren i arbeid eller har forbigående sykdom?',
+  INNTEKT_LAVERE_ENN_INNTEKTSGRENSE:
+    'Har brukeren inntekt under 6 ganger grunnbeløpet (638 394 kr / 53 200 kr)?',
+  HAR_ALDER_LAVERE_ENN_GRENSEVERDI: 'Har barnet fullført 4.skoleår?',
+  UNNTAK_ALDER: 'Oppfylles unntak etter å ha fullført 4. skoleår?',
 };
 
 export const sivilstandTilTekst: Record<SivilstandType, string> = {

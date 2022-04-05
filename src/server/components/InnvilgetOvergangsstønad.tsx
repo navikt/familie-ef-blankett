@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   aktivitetsTypeTilTekst,
-  IInnvilgeVedtak,
+  IInnvilgeVedtakOvergangsstønad,
   ISøknadsdatoer,
   periodetypeTilTekst,
 } from '../../typer/dokumentApi';
@@ -11,8 +11,8 @@ import {
   parseOgFormaterÅrMåned,
 } from '../utils/util';
 
-export const InnvilgeVedtak: React.FC<{
-  vedtak: IInnvilgeVedtak;
+export const InnvilgetOvergangsstønad: React.FC<{
+  vedtak: IInnvilgeVedtakOvergangsstønad;
   søknadsdatoer?: ISøknadsdatoer;
 }> = ({ vedtak, søknadsdatoer }) => {
   const { periodeBegrunnelse, perioder, inntektBegrunnelse, inntekter } = vedtak;

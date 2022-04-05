@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IDokumentData } from '../typer/dokumentApi';
+import { IDokumentData, stønadstypeTilTekst } from '../typer/dokumentApi';
 import Dokument from './components/Dokument';
 import { renderToStaticMarkup } from 'react-dom/server';
 import css from './utils/css';
@@ -23,7 +23,7 @@ const hentDokumentHtml = async (data: IDokumentData): Promise<string> => {
         <div>
           <Header
             visLogo={true}
-            tittel={'Blankett overgangsstønad'}
+            tittel={`Blankett ${stønadstypeTilTekst[data.behandling.stønadstype]}`}
             navn={data.personopplysninger.navn}
             fodselsnummer={data.personopplysninger.personIdent}
             dato={new Date().toLocaleDateString('no-NO', datoFormat)}
