@@ -17,6 +17,7 @@ import AleneomsorgGrunnlag from './AleneomsorgGrunnlag';
 import NyttBarnSammePartner from './NyttBarnSammePartner';
 import SagtOppEllerRedusertGrunnlag from './SagtOppEllerRedusertGrunnlag';
 import { Vedtak } from './Vedtak';
+import AlderPåBarnGrunnlag from './AlderPåBarnGrunnlag';
 
 interface DokumentProps {
   dokumentData: IDokumentData;
@@ -57,7 +58,7 @@ const Dokument = (dokumentProps: DokumentProps) => {
           gjelderDetteVilkåret(vurdering, vilkårgruppe),
         );
         if (vurderinger.length === 0) {
-          return <div key={vilkårgruppe}>Kan ikke finne noen data for: {vilkårgruppe}</div>;
+          return null;
         }
         const grunnlag = dokumentProps.dokumentData.vilkår.grunnlag;
         return vurderinger.map(vurdering => {
@@ -72,6 +73,7 @@ const Dokument = (dokumentProps: DokumentProps) => {
         });
       })}
       <Vedtak
+        stønadstype={dokumentProps.dokumentData.behandling.stønadstype}
         vedtak={dokumentProps.dokumentData.vedtak}
         søknadsdatoer={dokumentProps.dokumentData.søknadsdatoer}
       />
@@ -97,6 +99,8 @@ function registergrunnlagForVilkår(
       return <MorEllerFarGrunnlag barnMedSamvær={grunnlag.barnMedSamvær} />;
     case VilkårGruppe.ALENEOMSORG:
       return <AleneomsorgGrunnlag barnMedSamvær={grunnlag.barnMedSamvær} barnId={barnId} />;
+    case VilkårGruppe.ALDER_PÅ_BARN:
+      return <AlderPåBarnGrunnlag barnMedSamvær={grunnlag.barnMedSamvær} barnId={barnId} />;
     case VilkårGruppe.NYTT_BARN_SAMME_PARTNER:
       return <NyttBarnSammePartner barnMedSamvær={grunnlag.barnMedSamvær} />;
     case VilkårGruppe.SAGT_OPP_ELLER_REDUSERT:
