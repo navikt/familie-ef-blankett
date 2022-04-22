@@ -23,7 +23,7 @@ interface DokumentProps {
   dokumentData: IDokumentData;
 }
 
-function gjelderDetteVilkåret(vurdering: IVurdering, vilkårgruppe: string) {
+function gjelderDetteVilkåret(vurdering: IVurdering, vilkårgruppe: string): boolean {
   switch (vilkårgruppe) {
     case VilkårGruppe.TIDLIGERE_VEDTAKSPERIODER:
       return vurdering.vilkårType === Vilkår.TIDLIGERE_VEDTAKSPERIODER;
@@ -45,6 +45,12 @@ function gjelderDetteVilkåret(vurdering: IVurdering, vilkårgruppe: string) {
       return vurdering.vilkårType === Vilkår.SAGT_OPP_ELLER_REDUSERT;
     case VilkårGruppe.AKTIVITET:
       return vurdering.vilkårType === Vilkår.AKTIVITET;
+    case VilkårGruppe.AKTIVITET_ARBEID:
+      return vurdering.vilkårType === Vilkår.AKTIVITET_ARBEID;
+    case VilkårGruppe.INNTEKT:
+      return vurdering.vilkårType === Vilkår.INNTEKT;
+    case VilkårGruppe.ALDER_PÅ_BARN:
+      return vurdering.vilkårType === Vilkår.ALDER_PÅ_BARN;
     default:
       return false;
   }
