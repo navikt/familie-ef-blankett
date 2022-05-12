@@ -345,6 +345,9 @@ export enum ISvarId {
   // Alder på barn
   TRENGER_MER_TILSYN_ENN_JEVNALDRENDE = 'TRENGER_MER_TILSYN_ENN_JEVNALDRENDE',
   FORSØRGER_HAR_LANGVARIG_ELLER_UREGELMESSIG_ARBEIDSTID = 'FORSØRGER_HAR_LANGVARIG_ELLER_UREGELMESSIG_ARBEIDSTID',
+
+  // Inntekt
+  NOEN_MÅNEDER_OVERSTIGER_6G = 'NOEN_MÅNEDER_OVERSTIGER_6G',
 }
 export interface IVurderingDelvilkår {
   regelId: IRegelId;
@@ -531,6 +534,7 @@ export const svarIdTilTekst: Record<ISvarId, string> = {
     'Ja, det yngste barnet har fullført fjerde skoleår og det er dokumentert at barnet trenger vesentlig mer tilsyn enn jevnaldrene',
   FORSØRGER_HAR_LANGVARIG_ELLER_UREGELMESSIG_ARBEIDSTID:
     'Ja, det yngste barnet har fullført fjerde skoleår og det er dokumentert at forsørgeren har langvarig og/eller uregelmessig arbeidstid',
+  NOEN_MÅNEDER_OVERSTIGER_6G: 'Ja, men noen måneder overstiger 6G',
 };
 export const delvilkårTypeTilTekst: Record<IRegelId, string> = {
   SØKER_MEDLEM_I_FOLKETRYGDEN: 'Har bruker vært medlem i folketrygden i de siste 5 årene?',
