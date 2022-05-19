@@ -307,6 +307,7 @@ export enum IRegelId {
   INNTEKT_LAVERE_ENN_INNTEKTSGRENSE = 'INNTEKT_LAVERE_ENN_INNTEKTSGRENSE',
   HAR_ALDER_LAVERE_ENN_GRENSEVERDI = 'HAR_ALDER_LAVERE_ENN_GRENSEVERDI',
   UNNTAK_ALDER = 'UNNTAK_ALDER',
+  HAR_DOKUMENTERTE_TILSYNSUTGIFTER = 'HAR_DOKUMENTERTE_TILSYNSUTGIFTER',
 }
 export enum ISvarId {
   // Felles
@@ -395,6 +396,7 @@ export enum Vilkår {
   ALDER_PÅ_BARN = 'ALDER_PÅ_BARN',
   INNTEKT = 'INNTEKT',
   AKTIVITET_ARBEID = 'AKTIVITET_ARBEID',
+  DOKUMENTASJON_TILSYNSUTGIFTER = 'DOKUMENTASJON_TILSYNSUTGIFTER',
 }
 
 export interface IStatsborgerskap {
@@ -446,7 +448,8 @@ export type VilkårType =
   | Vilkår.AKTIVITET
   | Vilkår.AKTIVITET_ARBEID
   | Vilkår.INNTEKT
-  | Vilkår.ALDER_PÅ_BARN;
+  | Vilkår.ALDER_PÅ_BARN
+  | Vilkår.DOKUMENTASJON_TILSYNSUTGIFTER;
 
 export const vilkårTypeTilTekst: Record<VilkårType, string> = {
   FORUTGÅENDE_MEDLEMSKAP: 'Vilkår om forutgående medlemskap',
@@ -462,6 +465,7 @@ export const vilkårTypeTilTekst: Record<VilkårType, string> = {
   ALDER_PÅ_BARN: 'Alder på barn',
   INNTEKT: 'Inntekt',
   AKTIVITET_ARBEID: 'Aktivitet arbeid',
+  DOKUMENTASJON_TILSYNSUTGIFTER: 'Vilkår om dokumentasjon av tilsynsutgifter',
 };
 // ------ VILKÅRGRUPPE
 /**
@@ -482,6 +486,7 @@ export enum VilkårGruppe {
   AKTIVITET_ARBEID = 'AKTIVITET_ARBEID',
   INNTEKT = 'INNTEKT',
   ALDER_PÅ_BARN = 'ALDER_PÅ_BARN',
+  DOKUMENTASJON_TILSYNSUTGIFTER = 'DOKUMENTASJON_TILSYNSUTGIFTER',
 }
 
 export const resultatTilTekst: Record<Vilkårsresultat, string> = {
@@ -572,6 +577,7 @@ export const delvilkårTypeTilTekst: Record<IRegelId, string> = {
     'Har brukeren inntekt under 6 ganger grunnbeløpet (638 394 kr / 53 200 kr)?',
   HAR_ALDER_LAVERE_ENN_GRENSEVERDI: 'Har barnet fullført 4.skoleår?',
   UNNTAK_ALDER: 'Oppfylles unntak etter å ha fullført 4. skoleår?',
+  HAR_DOKUMENTERTE_TILSYNSUTGIFTER: 'Har brukeren dokumenterte tilsynsutgifter?',
 };
 
 export const sivilstandTilTekst: Record<SivilstandType, string> = {
