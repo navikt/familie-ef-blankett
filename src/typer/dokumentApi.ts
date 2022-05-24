@@ -304,7 +304,11 @@ export enum IRegelId {
   RIMELIG_GRUNN_SAGT_OPP = 'RIMELIG_GRUNN_SAGT_OPP',
 
   ER_I_ARBEID_ELLER_FORBIGÅENDE_SYKDOM = 'ER_I_ARBEID_ELLER_FORBIGÅENDE_SYKDOM',
+
+  // Inntekt
   INNTEKT_LAVERE_ENN_INNTEKTSGRENSE = 'INNTEKT_LAVERE_ENN_INNTEKTSGRENSE',
+  INNTEKT_SAMSVARER_MED_OS = 'INNTEKT_SAMSVARER_MED_OS',
+
   HAR_ALDER_LAVERE_ENN_GRENSEVERDI = 'HAR_ALDER_LAVERE_ENN_GRENSEVERDI',
   UNNTAK_ALDER = 'UNNTAK_ALDER',
   HAR_DOKUMENTERTE_TILSYNSUTGIFTER = 'HAR_DOKUMENTERTE_TILSYNSUTGIFTER',
@@ -349,6 +353,7 @@ export enum ISvarId {
 
   // Inntekt
   NOEN_MÅNEDER_OVERSTIGER_6G = 'NOEN_MÅNEDER_OVERSTIGER_6G',
+  BRUKER_MOTTAR_IKKE_OVERGANGSSTØNAD = 'BRUKER_MOTTAR_IKKE_OVERGANGSSTØNAD',
 }
 export interface IVurderingDelvilkår {
   regelId: IRegelId;
@@ -540,6 +545,7 @@ export const svarIdTilTekst: Record<ISvarId, string> = {
   FORSØRGER_HAR_LANGVARIG_ELLER_UREGELMESSIG_ARBEIDSTID:
     'Ja, barnet har fullført fjerde skoleår og det er dokumentert at forsørgeren har langvarig og/eller uregelmessig arbeidstid',
   NOEN_MÅNEDER_OVERSTIGER_6G: 'Ja, men noen måneder overstiger 6G',
+  BRUKER_MOTTAR_IKKE_OVERGANGSSTØNAD: 'Bruker mottar ikke overgangsstønad',
 };
 export const delvilkårTypeTilTekst: Record<IRegelId, string> = {
   SØKER_MEDLEM_I_FOLKETRYGDEN: 'Har bruker vært medlem i folketrygden i de siste 5 årene?',
@@ -575,6 +581,8 @@ export const delvilkårTypeTilTekst: Record<IRegelId, string> = {
   ER_I_ARBEID_ELLER_FORBIGÅENDE_SYKDOM: 'Er brukeren i arbeid eller har forbigående sykdom?',
   INNTEKT_LAVERE_ENN_INNTEKTSGRENSE:
     'Har brukeren inntekt under 6 ganger grunnbeløpet (638 394 kr / 53 200 kr)?',
+  INNTEKT_SAMSVARER_MED_OS:
+    'Er inntekten i samsvar med den inntekten som er lagt til grunn ved beregning av overgangsstønad?',
   HAR_ALDER_LAVERE_ENN_GRENSEVERDI: 'Har barnet fullført 4.skoleår?',
   UNNTAK_ALDER: 'Oppfylles unntak etter å ha fullført 4. skoleår?',
   HAR_DOKUMENTERTE_TILSYNSUTGIFTER: 'Har brukeren dokumenterte tilsynsutgifter?',
