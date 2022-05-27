@@ -1,8 +1,19 @@
 import React from 'react';
-
-export const IkkeVurdert: React.FC = () => {
+interface Props {
+  className?: string;
+  heigth?: number;
+  width?: number;
+}
+export const IkkeVurdert: React.FC<Props> = ({ className, heigth, width }) => {
   return (
-    <svg aria-labelledby={'ikke vurdert'} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      aria-labelledby={'ikke vurdert'}
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      height={heigth}
+      width={width}
+    >
       <title id={'ikke vurdert'}>Ikke vurdert</title>
       <path
         fill="#FFA733"
