@@ -19,13 +19,13 @@ interface Props {
 const resultatIkon = (resultat: Vilkårsresultat) => {
   switch (resultat) {
     case Vilkårsresultat.OPPFYLT:
-      return <OppfyltIkon />;
+      return <OppfyltIkon heigth={24} width={24} />;
     case Vilkårsresultat.IKKE_OPPFYLT:
-      return <IkkeOppfylt />;
+      return <IkkeOppfylt heigth={24} width={24} />;
     case Vilkårsresultat.SKAL_IKKE_VURDERES:
-      return <InfoIkon />;
+      return <InfoIkon heigth={24} width={24} />;
     default:
-      return <IkkeVurdert />;
+      return <IkkeVurdert heigth={24} width={24} />;
   }
 };
 

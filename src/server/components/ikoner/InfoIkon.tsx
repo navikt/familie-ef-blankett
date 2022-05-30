@@ -1,8 +1,20 @@
 import * as React from 'react';
 
-const InfoIkon: React.FC = () => {
+interface Props {
+  className?: string;
+  heigth?: number;
+  width?: number;
+}
+const InfoIkon: React.FC<Props> = ({ className, heigth, width }) => {
   return (
-    <svg aria-labelledby={'ikke vurdert'} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      aria-labelledby={'ikke vurdert'}
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      height={heigth}
+      width={width}
+    >
       <title id={'ikke vurdert'}>Ikke vurdert</title>
       <path
         d="M12 0C5.382 0 0 5.382 0 12s5.382 12 12 12c6.617 0 12-5.382 12-12S18.617 0 12 0z"
