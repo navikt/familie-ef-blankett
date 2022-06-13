@@ -76,4 +76,9 @@ export default `
     margin-bottom: 3px;
   }
   
+  table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+  
 `;

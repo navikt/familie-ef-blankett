@@ -2,6 +2,7 @@ import React from 'react';
 import {
   IInnvilgeVedtakSkolepenger,
   ISøknadsdatoer,
+  studietypeTilTekst,
   utgiftstypeTilTekst,
 } from '../../typer/dokumentApi';
 import {
@@ -14,7 +15,6 @@ export const InnvilgetSkolepenger: React.FC<{
   vedtak: IInnvilgeVedtakSkolepenger;
   søknadsdatoer?: ISøknadsdatoer;
 }> = ({ vedtak, søknadsdatoer }) => {
-  // const { begrunnelse } = vedtak;
   return (
     <div className={'page-break'}>
       <h2>Vedtak</h2>
@@ -29,7 +29,7 @@ export const InnvilgetSkolepenger: React.FC<{
       )}
       <h3>Utgifter til skolepenger</h3>
       {vedtak.skoleårsperioder.map(skoleårsperiode => (
-        <div>
+        <div style={{}}>
           <h4>Utgifter</h4>
           <table>
             <thead>
@@ -43,14 +43,14 @@ export const InnvilgetSkolepenger: React.FC<{
             <tbody>
               {skoleårsperiode.utgiftsperioder.map(utgift => (
                 <tr>
-                  <th>{parseOgFormaterÅrMåned(utgift.årMånedFra)}</th>
-                  <th>
+                  <td>{parseOgFormaterÅrMåned(utgift.årMånedFra)}</td>
+                  <td>
                     {utgift.utgiftstyper
                       .map(utgiftstype => utgiftstypeTilTekst[utgiftstype])
                       .join(', ')}
-                  </th>
-                  <th>{utgift.utgifter}</th>
-                  <th>{utgift.stønad}</th>
+                  </td>
+                  <td>{utgift.utgifter}</td>
+                  <td>{utgift.stønad}</td>
                 </tr>
               ))}
             </tbody>
@@ -70,7 +70,7 @@ export const InnvilgetSkolepenger: React.FC<{
                 <tr>
                   <th>{parseOgFormaterÅrMåned(periode.årMånedFra)}</th>
                   <th>{parseOgFormaterÅrMåned(periode.årMånedTil)}</th>
-                  <th>{periode.studietype}</th>
+                  <th>{studietypeTilTekst[periode.studietype]}</th>
                   <th>{periode.studiebelastning} %</th>
                 </tr>
               ))}

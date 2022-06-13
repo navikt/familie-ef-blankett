@@ -55,6 +55,11 @@ export type IDelårsperiodeSkoleårDto = {
   studiebelastning: number;
 };
 
+export const studietypeTilTekst: Record<ESkolepengerStudietype, string> = {
+  HØGSKOLE_UNIVERSITET: 'Høgskole / Universitet',
+  VIDEREGÅENDE: 'Videregående',
+};
+
 export enum ESkolepengerStudietype {
   HØGSKOLE_UNIVERSITET = 'HØGSKOLE_UNIVERSITET',
   VIDEREGÅENDE = 'VIDEREGÅENDE',
