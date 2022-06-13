@@ -37,6 +37,48 @@ export type IInnvilgeVedtakBarnetilsyn = {
   tilleggsstønad: Tilleggsstønad;
 };
 
+export type IInnvilgeVedtakSkolepenger = {
+  resultatType: EBehandlingResultat.INNVILGE;
+  begrunnelse?: string;
+  skoleårsperioder: ISkoleårsperiode[];
+};
+
+export type ISkoleårsperiode = {
+  perioder: IDelårsperiodeSkoleårDto[];
+  utgiftsperioder: ISkolepengerUtgift[];
+};
+
+export type IDelårsperiodeSkoleårDto = {
+  studietype: ESkolepengerStudietype;
+  årMånedFra: string;
+  årMånedTil: string;
+  studiebelastning: number;
+};
+
+export enum ESkolepengerStudietype {
+  HØGSKOLE_UNIVERSITET = 'HØGSKOLE_UNIVERSITET',
+  VIDEREGÅENDE = 'VIDEREGÅENDE',
+}
+
+export enum ESkolepengerUtgiftstype {
+  SEMESTERAVGIFT = 'SEMESTERAVGIFT',
+  STUDIEAVGIFT = 'STUDIEAVGIFT',
+  EKSAMENSAVGIFT = 'EKSAMENSAVGIFT',
+}
+
+export const utgiftstypeTilTekst: Record<ESkolepengerUtgiftstype, string> = {
+  SEMESTERAVGIFT: 'Semesteravgift',
+  STUDIEAVGIFT: 'Studieavgift',
+  EKSAMENSAVGIFT: 'Eksamensavgift',
+};
+
+export type ISkolepengerUtgift = {
+  utgiftstyper: ESkolepengerUtgiftstype[];
+  årMånedFra: string;
+  utgifter: number;
+  stønad: number;
+};
+
 export type Tilleggsstønad = {
   harTilleggsstønad: boolean;
   perioder: PeriodeMedBeløp[];
@@ -56,7 +98,11 @@ export type Barnetilsynperiode = {
   barn: string[];
 };
 
-export type IVedtak = IAvslåVedtak | IInnvilgeVedtakOvergangsstønad | IInnvilgeVedtakBarnetilsyn;
+export type IVedtak =
+  | IAvslåVedtak
+  | IInnvilgeVedtakOvergangsstønad
+  | IInnvilgeVedtakBarnetilsyn
+  | IInnvilgeVedtakSkolepenger;
 export interface IInntekt {
   årMånedFra: string;
   forventetInntekt: number;
@@ -312,6 +358,12 @@ export enum IRegelId {
   HAR_ALDER_LAVERE_ENN_GRENSEVERDI = 'HAR_ALDER_LAVERE_ENN_GRENSEVERDI',
   UNNTAK_ALDER = 'UNNTAK_ALDER',
   HAR_DOKUMENTERTE_TILSYNSUTGIFTER = 'HAR_DOKUMENTERTE_TILSYNSUTGIFTER',
+
+  // Skolepenger
+  RETT_TIL_OVERGANGSSTØNAD = 'RETT_TIL_OVERGANGSSTØNAD',
+  DOKUMENTASJON_AV_UTDANNING = 'DOKUMENTASJON_AV_UTDANNING',
+  NAVKONTOR_VURDERING = 'NAVKONTOR_VURDERING',
+  SAKSBEHANDLER_VURDERING = 'SAKSBEHANDLER_VURDERING',
 }
 export enum ISvarId {
   // Felles
@@ -402,6 +454,9 @@ export enum Vilkår {
   INNTEKT = 'INNTEKT',
   AKTIVITET_ARBEID = 'AKTIVITET_ARBEID',
   DOKUMENTASJON_TILSYNSUTGIFTER = 'DOKUMENTASJON_TILSYNSUTGIFTER',
+  RETT_TIL_OVERGANGSSTØNAD = 'RETT_TIL_OVERGANGSSTØNAD',
+  DOKUMENTASJON_AV_UTDANNING = 'DOKUMENTASJON_AV_UTDANNING',
+  ER_UTDANNING_HENSIKTSMESSIG = 'ER_UTDANNING_HENSIKTSMESSIG',
 }
 
 export interface IStatsborgerskap {
@@ -454,7 +509,10 @@ export type VilkårType =
   | Vilkår.AKTIVITET_ARBEID
   | Vilkår.INNTEKT
   | Vilkår.ALDER_PÅ_BARN
-  | Vilkår.DOKUMENTASJON_TILSYNSUTGIFTER;
+  | Vilkår.DOKUMENTASJON_TILSYNSUTGIFTER
+  | Vilkår.RETT_TIL_OVERGANGSSTØNAD
+  | Vilkår.DOKUMENTASJON_AV_UTDANNING
+  | Vilkår.ER_UTDANNING_HENSIKTSMESSIG;
 
 export const vilkårTypeTilTekst: Record<VilkårType, string> = {
   FORUTGÅENDE_MEDLEMSKAP: 'Vilkår om forutgående medlemskap',
@@ -471,6 +529,9 @@ export const vilkårTypeTilTekst: Record<VilkårType, string> = {
   INNTEKT: 'Inntekt',
   AKTIVITET_ARBEID: 'Aktivitet arbeid',
   DOKUMENTASJON_TILSYNSUTGIFTER: 'Vilkår om dokumentasjon av tilsynsutgifter',
+  DOKUMENTASJON_AV_UTDANNING: 'Vilkår om dokumentasjon av utdanning',
+  ER_UTDANNING_HENSIKTSMESSIG: 'Vilkår om utdanningens nødvendighet og hensiktsmessighet',
+  RETT_TIL_OVERGANGSSTØNAD: 'Vilkåret om rett til overgangsstønad',
 };
 // ------ VILKÅRGRUPPE
 /**
@@ -492,6 +553,9 @@ export enum VilkårGruppe {
   INNTEKT = 'INNTEKT',
   ALDER_PÅ_BARN = 'ALDER_PÅ_BARN',
   DOKUMENTASJON_TILSYNSUTGIFTER = 'DOKUMENTASJON_TILSYNSUTGIFTER',
+  RETT_TIL_OVERGANGSSTØNAD = 'RETT_TIL_OVERGANGSSTØNAD',
+  DOKUMENTASJON_AV_UTDANNING = 'DOKUMENTASJON_AV_UTDANNING',
+  ER_UTDANNING_HENSIKTSMESSIG = 'ER_UTDANNING_HENSIKTSMESSIG',
 }
 
 export const resultatTilTekst: Record<Vilkårsresultat, string> = {
@@ -586,6 +650,10 @@ export const delvilkårTypeTilTekst: Record<IRegelId, string> = {
   HAR_ALDER_LAVERE_ENN_GRENSEVERDI: 'Har barnet fullført 4.skoleår?',
   UNNTAK_ALDER: 'Oppfylles unntak etter å ha fullført 4. skoleår?',
   HAR_DOKUMENTERTE_TILSYNSUTGIFTER: 'Har brukeren dokumenterte tilsynsutgifter?',
+  RETT_TIL_OVERGANGSSTØNAD: 'Er vilkårene for rett til overgangsstønad oppfylt?',
+  DOKUMENTASJON_AV_UTDANNING: 'Er det dokumentert at bruker er under utdanning?',
+  NAVKONTOR_VURDERING: 'Har NAV kontoret vurdert at utdanning er nødvendig og hensiktsmessig?',
+  SAKSBEHANDLER_VURDERING: 'Er utdanningen nødvendig og hensiktsmessig?',
 };
 
 export const sivilstandTilTekst: Record<SivilstandType, string> = {

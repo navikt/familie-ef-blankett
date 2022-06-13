@@ -4,12 +4,14 @@ import {
   EStønadType,
   IInnvilgeVedtakBarnetilsyn,
   IInnvilgeVedtakOvergangsstønad,
+  IInnvilgeVedtakSkolepenger,
   ISøknadsdatoer,
   IVedtak,
 } from '../../typer/dokumentApi';
 import { AvslåVedtak } from './AvslåVedtak';
 import { InnvilgetOvergangsstønad } from './InnvilgetOvergangsstønad';
 import { InnvilgetBarnetilsyn } from './InnvilgetBarnetilsyn';
+import { InnvilgetSkolepenger } from './InnvilgetSkolepenger';
 
 export const Vedtak: React.FC<{
   stønadstype: EStønadType;
@@ -48,7 +50,12 @@ const InnvilgetVedtak: React.FC<{
           søknadsdatoer={søknadsdatoer}
         />
       );
-    default:
-      return null;
+    case EStønadType.SKOLEPENGER:
+      return (
+        <InnvilgetSkolepenger
+          vedtak={vedtak as IInnvilgeVedtakSkolepenger}
+          søknadsdatoer={søknadsdatoer}
+        />
+      );
   }
 };
