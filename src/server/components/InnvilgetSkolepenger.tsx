@@ -27,9 +27,10 @@ export const InnvilgetSkolepenger: React.FC<{
           <div>Søker stønad fra: {formaterNullableMånedÅr(søknadsdatoer?.søkerStønadFra)}</div>
         </>
       )}
-      <h3>Utgifter til skolepenger</h3>
-      {vedtak.skoleårsperioder.map(skoleårsperiode => (
-        <div style={{}}>
+
+      {vedtak.skoleårsperioder.map((skoleårsperiode, index) => (
+        <div>
+          <h3>Utgifter til skoleårsperiode nr. {index + 1}</h3>
           <h4>Utgifter</h4>
           <table>
             <thead>
@@ -68,10 +69,10 @@ export const InnvilgetSkolepenger: React.FC<{
             <tbody>
               {skoleårsperiode.perioder.map(periode => (
                 <tr>
-                  <th>{parseOgFormaterÅrMåned(periode.årMånedFra)}</th>
-                  <th>{parseOgFormaterÅrMåned(periode.årMånedTil)}</th>
-                  <th>{studietypeTilTekst[periode.studietype]}</th>
-                  <th>{periode.studiebelastning} %</th>
+                  <td>{parseOgFormaterÅrMåned(periode.årMånedFra)}</td>
+                  <td>{parseOgFormaterÅrMåned(periode.årMånedTil)}</td>
+                  <td>{studietypeTilTekst[periode.studietype]}</td>
+                  <td>{periode.studiebelastning} %</td>
                 </tr>
               ))}
             </tbody>
