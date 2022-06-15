@@ -8941,10 +8941,10 @@ nav-frontend-knapper-style@^1.0.5:
   resolved "https://registry.yarnpkg.com/nav-frontend-knapper-style/-/nav-frontend-knapper-style-1.0.17.tgz#238088ebbe09eac8072ab74df20ac09b11141b88"
   integrity sha512-jkucj5zh3+ToPqRigHHMwmA6iwKixPvwKbcnmsXc9idh7nsnf9wRDeQLizmqbNy7G3KGO4YgjXIYEZqeigqBGQ==
 
-nav-frontend-knapper@^2.0.14:
-  version "2.0.32"
-  resolved "https://registry.yarnpkg.com/nav-frontend-knapper/-/nav-frontend-knapper-2.0.32.tgz#4c384626486f78916e50ac1e29f8d7a2a2852fcc"
-  integrity sha512-MDPG5VOOub8kzY+NjW+JJjLlhwvWMwrLS9gTI4xogYwPLo6TIqKQ9TuvE0xoNWAHJrfDxTBFCRUOoMtdDAFmhw==
+nav-frontend-knapper@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/nav-frontend-knapper/-/nav-frontend-knapper-2.1.4.tgz#8eea6a82a5f014987e22a4aba02f847a1382e220"
+  integrity sha512-qq4d6mZ1wlvo62cNe4rwWbTgupEyJlaQzZNuYLWCCkIbSDNR6vz/pkfAue57lsFgeAXAWK4YC13r/8MbMu6f+w==
 
 nav-frontend-lenker-style@^0.2.33:
   version "0.2.42"
