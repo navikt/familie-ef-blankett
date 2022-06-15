@@ -9,6 +9,7 @@ import {
   formaterNullableIsoDato,
   formaterNullableMånedÅr,
   parseOgFormaterÅrMåned,
+  tilSkoleår,
 } from '../utils/util';
 
 export const InnvilgetSkolepenger: React.FC<{
@@ -28,57 +29,60 @@ export const InnvilgetSkolepenger: React.FC<{
         </>
       )}
 
-      {vedtak.skoleårsperioder.map((skoleårsperiode, index) => (
-        <div>
-          <h3>Utgifter til skoleårsperiode nr. {index + 1}</h3>
-          <h4>Utgifter</h4>
-          <table>
-            <thead>
-              <tr>
-                <th>Utgiftsdato</th>
-                <th>Utgiftstype</th>
-                <th>Utgiftstype</th>
-                <th>Stønadsbeløp</th>
-              </tr>
-            </thead>
-            <tbody>
-              {skoleårsperiode.utgiftsperioder.map(utgift => (
+      {vedtak.skoleårsperioder.map(skoleårsperiode => {
+        const skoleår = tilSkoleår(skoleårsperiode.perioder[0]?.årMånedFra);
+        return (
+          <div>
+            <h3>{`Utgifter til skoleår ${skoleår}/${skoleår + 1}`}</h3>
+            <h4>Utgifter</h4>
+            <table>
+              <thead>
                 <tr>
-                  <td>{parseOgFormaterÅrMåned(utgift.årMånedFra)}</td>
-                  <td>
-                    {utgift.utgiftstyper
-                      .map(utgiftstype => utgiftstypeTilTekst[utgiftstype])
-                      .join(', ')}
-                  </td>
-                  <td>{utgift.utgifter}</td>
-                  <td>{utgift.stønad}</td>
+                  <th>Utgiftsdato</th>
+                  <th>Utgiftstype</th>
+                  <th>Utgiftstype</th>
+                  <th>Stønadsbeløp</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-          <h4>Studiebelastning</h4>
-          <table>
-            <thead>
-              <tr>
-                <th>Fra</th>
-                <th>Til</th>
-                <th>Studietype</th>
-                <th>Belastning</th>
-              </tr>
-            </thead>
-            <tbody>
-              {skoleårsperiode.perioder.map(periode => (
+              </thead>
+              <tbody>
+                {skoleårsperiode.utgiftsperioder.map(utgift => (
+                  <tr>
+                    <td>{parseOgFormaterÅrMåned(utgift.årMånedFra)}</td>
+                    <td>
+                      {utgift.utgiftstyper
+                        .map(utgiftstype => utgiftstypeTilTekst[utgiftstype])
+                        .join(', ')}
+                    </td>
+                    <td>{utgift.utgifter}</td>
+                    <td>{utgift.stønad}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <h4>Studiebelastning</h4>
+            <table>
+              <thead>
                 <tr>
-                  <td>{parseOgFormaterÅrMåned(periode.årMånedFra)}</td>
-                  <td>{parseOgFormaterÅrMåned(periode.årMånedTil)}</td>
-                  <td>{studietypeTilTekst[periode.studietype]}</td>
-                  <td>{periode.studiebelastning} %</td>
+                  <th>Fra</th>
+                  <th>Til</th>
+                  <th>Studietype</th>
+                  <th>Belastning</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      ))}
+              </thead>
+              <tbody>
+                {skoleårsperiode.perioder.map(periode => (
+                  <tr>
+                    <td>{parseOgFormaterÅrMåned(periode.årMånedFra)}</td>
+                    <td>{parseOgFormaterÅrMåned(periode.årMånedTil)}</td>
+                    <td>{studietypeTilTekst[periode.studietype]}</td>
+                    <td>{periode.studiebelastning} %</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        );
+      })}
 
       <div className={'page-break'}>
         <h4>Begrunnelse</h4>

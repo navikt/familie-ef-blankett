@@ -80,5 +80,9 @@ export default `
   border: 1px solid black;
   border-collapse: collapse;
 }
+
+td, th {
+  padding 0.5rem
+}
   
 `;
