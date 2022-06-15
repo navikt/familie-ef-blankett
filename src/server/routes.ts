@@ -5,6 +5,8 @@ import { genererPdf } from './utils/api';
 import { logError, logSecure } from '@navikt/familie-logging';
 
 import fs from 'fs';
+import { genererMetadata } from './utils/logging';
+
 const { NODE_ENV } = process.env;
 
 const router = express.Router();
@@ -20,7 +22,11 @@ router.post('/html', async (req: Request, res: Response) => {
     const html = await hentDokumentHtml(dokument);
     res.send(html);
   } catch (feil) {
-    logError(`Generering av dokument (html) feilet: Sjekk secure-logs `);
+    logError(
+      `Generering av dokument (html) feilet: Sjekk secure-logs`,
+      undefined,
+      genererMetadata(req),
+    );
     loggFeilMedDataTilSecurelog<IDokumentData>(dokument, req, feil);
     return res.status(500).send(`Generering av dokument (html) feilet: ${feil.message}`);
   }
@@ -28,15 +34,15 @@ router.post('/html', async (req: Request, res: Response) => {
 
 router.post('/pdf', async (req: Request, res: Response) => {
   const dokument: IDokumentData = req.body as IDokumentData;
-
+  const meta = genererMetadata(req);
   try {
     const html = await hentDokumentHtml(dokument);
-    const pdf = await genererPdf(html);
+    const pdf = await genererPdf(html, meta);
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', `attachment; filename=saksbehandlingsblankett.pdf`);
     res.end(pdf);
   } catch (feil) {
-    logError(`Generering av dokument (pdf) feilet: Sjekk secure-logs`);
+    logError(`Generering av dokument (pdf) feilet: Sjekk secure-logs`, undefined, meta);
     loggFeilMedDataTilSecurelog<IDokumentData>(dokument, req, feil);
 
     return res.status(500).send(`Generering av dokument (pdf) feilet: ${feil.message}`);
@@ -51,7 +57,7 @@ if (NODE_ENV !== 'production') {
   router.post('/dummy-pdf', async (_req: Request, res: Response) => {
     try {
       const html = await hentDokumentHtml(lesMockFil());
-      const pdf = await genererPdf(html);
+      const pdf = await genererPdf(html, genererMetadata(_req));
       res.setHeader('Content-Type', 'application/pdf');
       res.setHeader('Content-Disposition', `attachment; filename=saksbehandlingsblankett.pdf`);
       res.end(pdf);
@@ -76,6 +82,7 @@ const loggFeilMedDataTilSecurelog = <T>(data: T, req: Request, feil: Error) => {
     }] Genererer saksbehandlingsblankett med request-data feilet med feil=${feil.message}-${
       feil.stack
     } med data: ${JSON.stringify(data)}.`,
+    genererMetadata(req),
   );
 };
 
