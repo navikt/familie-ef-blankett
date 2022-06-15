@@ -33,7 +33,7 @@ export const InnvilgetSkolepenger: React.FC<{
         const skoleår = tilSkoleår(skoleårsperiode.perioder[0]?.årMånedFra);
         return (
           <div>
-            <h3>{`Utgifter til skoleår ${skoleår}/${skoleår + 1}`}</h3>
+            <h3>{`Utgifter til skoleåret ${skoleår}/${skoleår + 1}`}</h3>
             <h4>Utgifter</h4>
             <table>
               <thead>
