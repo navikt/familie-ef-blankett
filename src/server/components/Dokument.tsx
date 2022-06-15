@@ -53,6 +53,12 @@ function gjelderDetteVilkåret(vurdering: IVurdering, vilkårgruppe: string): bo
       return vurdering.vilkårType === Vilkår.ALDER_PÅ_BARN;
     case VilkårGruppe.DOKUMENTASJON_TILSYNSUTGIFTER:
       return vurdering.vilkårType === Vilkår.DOKUMENTASJON_TILSYNSUTGIFTER;
+    case VilkårGruppe.RETT_TIL_OVERGANGSSTØNAD:
+      return vurdering.vilkårType === Vilkår.RETT_TIL_OVERGANGSSTØNAD;
+    case VilkårGruppe.DOKUMENTASJON_AV_UTDANNING:
+      return vurdering.vilkårType === Vilkår.DOKUMENTASJON_AV_UTDANNING;
+    case VilkårGruppe.ER_UTDANNING_HENSIKTSMESSIG:
+      return vurdering.vilkårType === Vilkår.ER_UTDANNING_HENSIKTSMESSIG;
     default:
       return false;
   }

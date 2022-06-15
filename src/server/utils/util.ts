@@ -1,4 +1,4 @@
-import { parse } from 'date-fns';
+import { parse, getYear, getMonth } from 'date-fns';
 import DateTimeFormatOptions = Intl.DateTimeFormatOptions;
 export const datoFormat: DateTimeFormatOptions = {
   day: '2-digit',
@@ -25,4 +25,14 @@ export const formaterNullableMånedÅr = (dato?: string): string | undefined =>
 
 export const formaterIsoDato = (dato: string): string => {
   return new Date(dato).toLocaleDateString('no-NO', datoFormat);
+};
+
+export const tilSkoleår = (årMåned: string): number => {
+  const dato = månedÅrTilDate(årMåned);
+  const år = getYear(dato);
+  return getMonth(dato) > 6 ? år : år - 1;
+};
+
+export const månedÅrTilDate = (årMåned: string): Date => {
+  return parse(årMåned, 'yyyy-MM', new Date());
 };
