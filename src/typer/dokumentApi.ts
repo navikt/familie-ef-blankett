@@ -367,6 +367,7 @@ export enum IRegelId {
   // Skolepenger
   RETT_TIL_OVERGANGSSTØNAD = 'RETT_TIL_OVERGANGSSTØNAD',
   DOKUMENTASJON_AV_UTDANNING = 'DOKUMENTASJON_AV_UTDANNING',
+  DOKUMENTASJON_AV_UTGIFTER_UTDANNING = 'DOKUMENTASJON_AV_UTGIFTER_UTDANNING',
   NAVKONTOR_VURDERING = 'NAVKONTOR_VURDERING',
   SAKSBEHANDLER_VURDERING = 'SAKSBEHANDLER_VURDERING',
 }
@@ -657,6 +658,8 @@ export const delvilkårTypeTilTekst: Record<IRegelId, string> = {
   HAR_DOKUMENTERTE_TILSYNSUTGIFTER: 'Har brukeren dokumenterte tilsynsutgifter?',
   RETT_TIL_OVERGANGSSTØNAD: 'Er vilkårene for rett til overgangsstønad oppfylt?',
   DOKUMENTASJON_AV_UTDANNING: 'Er det dokumentert at bruker er under utdanning?',
+  DOKUMENTASJON_AV_UTGIFTER_UTDANNING:
+    'Er det dokumentert at brukeren har utgifter til utdanningen?',
   NAVKONTOR_VURDERING: 'Har NAV kontoret vurdert at utdanning er nødvendig og hensiktsmessig?',
   SAKSBEHANDLER_VURDERING: 'Er utdanningen nødvendig og hensiktsmessig?',
 };
