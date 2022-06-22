@@ -65,20 +65,7 @@ export enum ESkolepengerStudietype {
   VIDEREGÅENDE = 'VIDEREGÅENDE',
 }
 
-export enum ESkolepengerUtgiftstype {
-  SEMESTERAVGIFT = 'SEMESTERAVGIFT',
-  STUDIEAVGIFT = 'STUDIEAVGIFT',
-  EKSAMENSAVGIFT = 'EKSAMENSAVGIFT',
-}
-
-export const utgiftstypeTilTekst: Record<ESkolepengerUtgiftstype, string> = {
-  SEMESTERAVGIFT: 'Semesteravgift',
-  STUDIEAVGIFT: 'Studieavgift',
-  EKSAMENSAVGIFT: 'Eksamensavgift',
-};
-
 export type ISkolepengerUtgift = {
-  utgiftstyper: ESkolepengerUtgiftstype[];
   årMånedFra: string;
   utgifter: number;
   stønad: number;

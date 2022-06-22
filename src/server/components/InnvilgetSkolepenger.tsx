@@ -3,7 +3,6 @@ import {
   IInnvilgeVedtakSkolepenger,
   ISøknadsdatoer,
   studietypeTilTekst,
-  utgiftstypeTilTekst,
 } from '../../typer/dokumentApi';
 import {
   formaterNullableIsoDato,
@@ -39,8 +38,7 @@ export const InnvilgetSkolepenger: React.FC<{
               <thead>
                 <tr>
                   <th>Utgiftsdato</th>
-                  <th>Utgiftstype</th>
-                  <th>Utgiftstype</th>
+                  <th>Utgifter</th>
                   <th>Stønadsbeløp</th>
                 </tr>
               </thead>
@@ -48,11 +46,6 @@ export const InnvilgetSkolepenger: React.FC<{
                 {skoleårsperiode.utgiftsperioder.map(utgift => (
                   <tr>
                     <td>{parseOgFormaterÅrMåned(utgift.årMånedFra)}</td>
-                    <td>
-                      {utgift.utgiftstyper
-                        .map(utgiftstype => utgiftstypeTilTekst[utgiftstype])
-                        .join(', ')}
-                    </td>
                     <td>{utgift.utgifter}</td>
                     <td>{utgift.stønad}</td>
                   </tr>
