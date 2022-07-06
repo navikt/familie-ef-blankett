@@ -22,13 +22,14 @@ router.post('/html', async (req: Request, res: Response) => {
     const html = await hentDokumentHtml(dokument);
     res.send(html);
   } catch (feil) {
+    const error = feil as Error;
     logError(
       `Generering av dokument (html) feilet: Sjekk secure-logs`,
       undefined,
       genererMetadata(req),
     );
-    loggFeilMedDataTilSecurelog<IDokumentData>(dokument, req, feil);
-    return res.status(500).send(`Generering av dokument (html) feilet: ${feil.message}`);
+    loggFeilMedDataTilSecurelog<IDokumentData>(dokument, req, error);
+    return res.status(500).send(`Generering av dokument (html) feilet: ${error.message}`);
   }
 });
 
@@ -42,10 +43,11 @@ router.post('/pdf', async (req: Request, res: Response) => {
     res.setHeader('Content-Disposition', `attachment; filename=saksbehandlingsblankett.pdf`);
     res.end(pdf);
   } catch (feil) {
+    const error = feil as Error;
     logError(`Generering av dokument (pdf) feilet: Sjekk secure-logs`, undefined, meta);
-    loggFeilMedDataTilSecurelog<IDokumentData>(dokument, req, feil);
+    loggFeilMedDataTilSecurelog<IDokumentData>(dokument, req, error);
 
-    return res.status(500).send(`Generering av dokument (pdf) feilet: ${feil.message}`);
+    return res.status(500).send(`Generering av dokument (pdf) feilet: ${error.message}`);
   }
 });
 if (NODE_ENV !== 'production') {
@@ -62,7 +64,8 @@ if (NODE_ENV !== 'production') {
       res.setHeader('Content-Disposition', `attachment; filename=saksbehandlingsblankett.pdf`);
       res.end(pdf);
     } catch (feil) {
-      return res.status(500).send(`Generering av dokument (pdf) feilet: ${feil.message}`);
+      const error = feil as Error;
+      return res.status(500).send(`Generering av dokument (pdf) feilet: ${error.message}`);
     }
   });
 
@@ -71,7 +74,8 @@ if (NODE_ENV !== 'production') {
       const html = await hentDokumentHtml(lesMockFil());
       res.send(html);
     } catch (feil) {
-      return res.status(500).send(`Generering av dokument (pdf) feilet: ${feil.message}`);
+      const error = feil as Error;
+      return res.status(500).send(`Generering av dokument (pdf) feilet: ${error.message}`);
     }
   });
 }
