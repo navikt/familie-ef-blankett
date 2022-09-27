@@ -1563,7 +1563,7 @@
   dependencies:
     winston "^3.2.1"
 
-"@navikt/fnrvalidator@^1.3.3":
+"@navikt/fnrvalidator@^1.3.0":
   version "1.3.3"
   resolved "https://npm.pkg.github.com/download/@navikt/fnrvalidator/1.3.3/8414963a30e59e3056c9befea7bb022498a2a742#8414963a30e59e3056c9befea7bb022498a2a742"
   integrity sha512-GsLa9ioYPGsDMBHcgKUNoYbZor09KyFIqSaWy8jy1I7f06q6DgUhdpZuRTHLVRCPjWqF2aLzKtvAfrw5dSeakg==
