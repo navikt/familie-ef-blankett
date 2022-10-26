@@ -6,6 +6,8 @@ import { logError, logSecure } from '@navikt/familie-logging';
 
 import fs from 'fs';
 import { genererMetadata } from './utils/logging';
+import genererKlageDokumentHtml from './genererKlageDokumentHtml';
+import { IKlageDokumentData } from '../typer/klageDokumentApi';
 
 const { NODE_ENV } = process.env;
 
@@ -50,6 +52,25 @@ router.post('/pdf', async (req: Request, res: Response) => {
     return res.status(500).send(`Generering av dokument (pdf) feilet: ${error.message}`);
   }
 });
+
+router.post('/klage/pdf', async (req: Request, res: Response) => {
+  const dokument: IKlageDokumentData = req.body as IKlageDokumentData;
+  const meta = genererMetadata(req);
+  try {
+    const html = await genererKlageDokumentHtml(dokument);
+    const pdf = await genererPdf(html, meta);
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `attachment; filename=klagesaksbehandlingsblankett.pdf`);
+    res.end(pdf);
+  } catch (feil) {
+    const error = feil as Error;
+    logError(`Generering av klagedokument (pdf) feilet: Sjekk secure-logs`, undefined, meta);
+    loggFeilMedDataTilSecurelog<IKlageDokumentData>(dokument, req, error);
+
+    return res.status(500).send(`Generering av dokument (pdf) feilet: ${error.message}`);
+  }
+});
+
 if (NODE_ENV !== 'production') {
   const lesMockFil = () => {
     const fileString = fs.readFileSync('./src/server/mock/dummydata.json', 'UTF-8');
