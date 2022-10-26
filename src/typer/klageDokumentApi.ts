@@ -75,7 +75,7 @@ export interface IVurdering {
   vedtak: EVedtak;
   årsak?: EÅrsakOmgjøring;
   hjemmel?: EHjemmel;
-  beskrivelse?: string;
+  innstillingKlageinstans?: string;
   interntNotat?: string;
 }
 
