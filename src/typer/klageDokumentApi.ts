@@ -11,12 +11,17 @@ export interface IPersonopplysninger {
 }
 
 export interface IKlageBehandling {
+  eksternFagsakId: string;
   stønadstype: EStønadstype;
   klageMottatt: string;
   resultat: EKlageBehandlingResultat;
-  påklagetVedtak: {
-    eksternFagsystemBehandlingId?: string;
-  };
+  påklagetVedtak?: IPåklagetVedtak;
+}
+
+export interface IPåklagetVedtak {
+  behandlingstype: string;
+  resultat: string;
+  vedtakstidspunkt: string;
 }
 
 export enum EStønadstype {
