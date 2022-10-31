@@ -5,16 +5,30 @@ import {
   hjemmelTilTekst,
   IFormkravVilkår,
   IKlageBehandling,
+  IPåklagetVedtak,
   IVurdering,
   vedtakTilTekst,
   årsakTilTekst,
 } from '../../typer/klageDokumentApi';
-import { formaterIsoDato } from '../utils/util';
+import { formaterIsoDato, formaterIsoDatoTid } from '../utils/util';
+
+const påklagetVedtak = (påklagetVedtak?: IPåklagetVedtak) => {
+  if (!påklagetVedtak) {
+    return 'Har ikke klaget på et vedtak';
+  } else {
+    return `${påklagetVedtak.behandlingstype} - ${påklagetVedtak.resultat} - ${formaterIsoDatoTid(
+      påklagetVedtak.vedtakstidspunkt,
+    )}`;
+  }
+};
 
 export const KlageBehandling: React.FC<{ behandling: IKlageBehandling }> = ({ behandling }) => {
   return (
     <div className={'page-break'}>
       <h2>Behandling</h2>
+      <div>
+        <strong>Saksnummer:</strong> {behandling.eksternFagsakId}
+      </div>
       <div>
         <strong>Klage mottatt:</strong> {formaterIsoDato(behandling.klageMottatt)}
       </div>
@@ -22,8 +36,7 @@ export const KlageBehandling: React.FC<{ behandling: IKlageBehandling }> = ({ be
         <strong>Resultat:</strong> {behandlingResultatTilTekst[behandling.resultat]}
       </div>
       <div>
-        <strong>Vedtak som er påklaget:</strong>{' '}
-        {behandling.påklagetVedtak.eksternFagsystemBehandlingId || 'Har ikke klaget på et vedtak'}
+        <strong>Vedtak som er påklaget:</strong> {påklagetVedtak(behandling.påklagetVedtak)}
       </div>
     </div>
   );

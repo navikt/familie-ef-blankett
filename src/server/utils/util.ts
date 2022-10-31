@@ -1,4 +1,4 @@
-import { parse, getYear, getMonth } from 'date-fns';
+import { parse, getYear, getMonth, format, parseISO } from 'date-fns';
 import DateTimeFormatOptions = Intl.DateTimeFormatOptions;
 export const datoFormat: DateTimeFormatOptions = {
   day: '2-digit',
@@ -21,10 +21,14 @@ export const parseOgFormaterÅrMåned = (årMåned: string): string | undefined 
 };
 
 export const formaterNullableMånedÅr = (dato?: string): string | undefined =>
-  dato && new Date(dato).toLocaleDateString('no-NO', månedÅrFormat);
+  dato && parseISO(dato).toLocaleDateString('no-NO', månedÅrFormat);
 
 export const formaterIsoDato = (dato: string): string => {
-  return new Date(dato).toLocaleDateString('no-NO', datoFormat);
+  return parseISO(dato).toLocaleDateString('no-NO', datoFormat);
+};
+
+export const formaterIsoDatoTid = (dato: string): string => {
+  return format(parseISO(dato), "dd.MM.yyyy 'kl'.HH:mm");
 };
 
 export const tilSkoleår = (årMåned: string): number => {
