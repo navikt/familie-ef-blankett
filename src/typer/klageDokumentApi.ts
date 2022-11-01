@@ -59,7 +59,8 @@ export interface IFormkravVilkår {
   klagefristOverholdt: EFormVilkår;
   klageKonkret: EFormVilkår;
   klageSignert: EFormVilkår;
-  saksbehandlerBegrunnelse: string;
+  saksbehandlerBegrunnelse?: string;
+  brevtekst?: string;
 }
 
 export enum EFormVilkår {
