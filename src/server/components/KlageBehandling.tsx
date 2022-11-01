@@ -54,9 +54,13 @@ export const KlageFormkrav: React.FC<{ formkrav: IFormkravVilkår }> = ({ formkr
       <span>{formVilkårTilTekst[formkrav.klagefristOverholdt]}</span>
       <h4>Er klagen signert?</h4>
       <span>{formVilkårTilTekst[formkrav.klageSignert]}</span>
-      <h4>Begrunnelse</h4>
-      <span style={{ whiteSpace: 'pre-wrap' }}>{formkrav.saksbehandlerBegrunnelse}</span>
       {formkrav.saksbehandlerBegrunnelse && (
+        <>
+          <h4>Begrunnelse</h4>
+          <span style={{ whiteSpace: 'pre-wrap' }}>{formkrav.saksbehandlerBegrunnelse}</span>
+        </>
+      )}
+      {formkrav.brevtekst && (
         <>
           <h4>Fritekst til brev</h4>
           <span style={{ whiteSpace: 'pre-wrap' }}>{formkrav.brevtekst}</span>
