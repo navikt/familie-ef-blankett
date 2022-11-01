@@ -60,6 +60,7 @@ export interface IFormkravVilkår {
   klageKonkret: EFormVilkår;
   klageSignert: EFormVilkår;
   saksbehandlerBegrunnelse: string;
+  brevtekst: string;
 }
 
 export enum EFormVilkår {
