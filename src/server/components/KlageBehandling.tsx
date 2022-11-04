@@ -86,10 +86,10 @@ export const Klagevurdering: React.FC<{ vurdering?: IVurdering }> = ({ vurdering
           <span>{hjemmelTilTekst[vurdering.hjemmel]}</span>
         </>
       )}
-      {vurdering.arsak && (
+      {vurdering.årsak && (
         <>
           <h4>Årsak</h4>
-          <span>{årsakTilTekst[vurdering.arsak]}</span>
+          <span>{årsakTilTekst[vurdering.årsak]}</span>
         </>
       )}
       {vurdering.begrunnelseOmgjøring && (

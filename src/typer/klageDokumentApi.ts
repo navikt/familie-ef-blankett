@@ -79,7 +79,7 @@ export const formVilkårTilTekst: Record<EFormVilkår, string> = {
 
 export interface IVurdering {
   vedtak: EVedtak;
-  arsak?: EÅrsakOmgjøring;
+  årsak?: EÅrsakOmgjøring;
   begrunnelseOmgjøring?: string;
   hjemmel?: EHjemmel;
   innstillingKlageinstans?: string;
