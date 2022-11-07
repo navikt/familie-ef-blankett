@@ -95,19 +95,19 @@ export const Klagevurdering: React.FC<{ vurdering?: IVurdering }> = ({ vurdering
       {vurdering.begrunnelseOmgjøring && (
         <>
           <h4>Begrunnelse for omgjøring</h4>
-          <span>{vurdering.begrunnelseOmgjøring}</span>
+          <span style={{ whiteSpace: 'pre-wrap' }}>{vurdering.begrunnelseOmgjøring}</span>
         </>
       )}
       {vurdering.innstillingKlageinstans && (
         <>
           <h4>Innstilling til NAV Klageinstans</h4>
-          <span>{vurdering.innstillingKlageinstans}</span>
+          <span style={{ whiteSpace: 'pre-wrap' }}>{vurdering.innstillingKlageinstans}</span>
         </>
       )}
       {vurdering.interntNotat && (
         <>
           <h4>Internt notat</h4>
-          <span>{vurdering.interntNotat}</span>
+          <span style={{ whiteSpace: 'pre-wrap' }}>{vurdering.interntNotat}</span>
         </>
       )}
     </div>
