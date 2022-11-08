@@ -49,7 +49,7 @@ export enum EKlageBehandlingResultat {
 
 export const behandlingResultatTilTekst: Record<EKlageBehandlingResultat, string> = {
   MEDHOLD: 'Medhold',
-  IKKE_MEDHOLD: 'Ikke medhold',
+  IKKE_MEDHOLD: 'Oversendt til KA',
   IKKE_MEDHOLD_FORMKRAV_AVVIST: 'Ikke medhold formkrav avvist',
   HENLAGT: 'Henlagt',
 };
