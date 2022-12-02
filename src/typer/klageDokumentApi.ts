@@ -57,11 +57,27 @@ export const behandlingResultatTilTekst: Record<EKlageBehandlingResultat, string
 export interface IFormkravVilkår {
   klagePart: EFormVilkår;
   klagefristOverholdt: EFormVilkår;
+  klagefristOverholdtUnntak?: FormkravFristUnntak;
   klageKonkret: EFormVilkår;
   klageSignert: EFormVilkår;
   saksbehandlerBegrunnelse?: string;
   brevtekst?: string;
 }
+
+export enum FormkravFristUnntak {
+  UNNTAK_KAN_IKKE_LASTES = 'UNNTAK_KAN_IKKE_LASTES',
+  UNNTAK_SÆRLIG_GRUNN = 'UNNTAK_SÆRLIG_GRUNN',
+  IKKE_UNNTAK = 'IKKE_UNNTAK',
+  IKKE_SATT = 'IKKE_SATT',
+}
+
+export const formkravFristUnntakTilTekst: Record<FormkravFristUnntak, string> = {
+  UNNTAK_KAN_IKKE_LASTES:
+    'Ja, klagepart eller fullmektig kan ikke lastes for å ha sendt inn etter frist',
+  UNNTAK_SÆRLIG_GRUNN: 'Ja, av særlige grunner er det rimelig at klagen blir behandlet',
+  IKKE_UNNTAK: 'Nei',
+  IKKE_SATT: 'Ikke satt',
+};
 
 export enum EFormVilkår {
   OPPFYLT = 'OPPFYLT',
