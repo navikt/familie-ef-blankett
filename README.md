@@ -49,3 +49,4 @@ fetch("http://localhost:8033/api/dummy-pdf", {
         a.remove();           
     });
 ```
+For at pdf-generiring skal fungere må man være pålogget Naisdevice.
