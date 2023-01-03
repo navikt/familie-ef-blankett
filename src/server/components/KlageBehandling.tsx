@@ -54,7 +54,7 @@ const visUnntak = (klagefristOverholdtUnntak: FormkravFristUnntak) => {
   );
 };
 const visUnntakHvisMulig = (formkrav: IFormkravVilkår) => {
-  formkrav.klagefristOverholdt == EFormVilkår.IKKE_OPPFYLT &&
+  formkrav.klagefristOverholdt === EFormVilkår.IKKE_OPPFYLT &&
     formkrav.klagefristOverholdtUnntak &&
     visUnntak(formkrav.klagefristOverholdtUnntak);
 };

@@ -1,12 +1,10 @@
 {
   "extends": [
     "eslint:recommended",
-    "plugin:react-app/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "prettier/@typescript-eslint"
+    "plugin:prettier/recommended",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -18,11 +16,11 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "react-app",
-    "prettier"
+    "prettier",
+    "react-hooks"
   ],
+  "root": true,
   "rules": {
-    "@typescript-eslint/no-unused-vars": 0,
     "no-case-declarations": "off",
     "import/extensions": [
       "off",
@@ -36,12 +34,14 @@
     ],
     "@typescript-eslint/ban-ts-ignore": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "prettier/prettier": "error",
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/no-var-requires": "warn",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "react-app/react-hooks/exhaustive-deps": "off",
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "prettier/prettier": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+
   },
   "settings": {
     "react": {
