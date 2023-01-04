@@ -73,7 +73,7 @@ router.post('/klage/pdf', async (req: Request, res: Response) => {
 
 if (NODE_ENV !== 'production') {
   const lesMockFil = () => {
-    const fileString = fs.readFileSync('./src/server/mock/dummydata.json', 'UTF-8');
+    const fileString = fs.readFileSync('./src/server/mock/dummydata.json', { encoding: 'utf-8' });
     return JSON.parse(fileString);
   };
 
