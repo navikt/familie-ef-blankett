@@ -2,7 +2,6 @@ import React from 'react';
 import {
   behandlingResultatTilTekst,
   EFormVilkår,
-  FormkravFristUnntak,
   formkravFristUnntakTilTekst,
   formVilkårTilTekst,
   hjemmelTilTekst,
@@ -45,20 +44,6 @@ export const KlageBehandling: React.FC<{ behandling: IKlageBehandling }> = ({ be
   );
 };
 
-const visUnntak = (klagefristOverholdtUnntak: FormkravFristUnntak) => {
-  return (
-    <>
-      <h5>Er unntak for klagefristen oppfylt?</h5>
-      <span> {formkravFristUnntakTilTekst[klagefristOverholdtUnntak]}</span>
-    </>
-  );
-};
-const visUnntakHvisMulig = (formkrav: IFormkravVilkår) => {
-  formkrav.klagefristOverholdt === EFormVilkår.IKKE_OPPFYLT &&
-    formkrav.klagefristOverholdtUnntak &&
-    visUnntak(formkrav.klagefristOverholdtUnntak);
-};
-
 export const KlageFormkrav: React.FC<{ formkrav: IFormkravVilkår }> = ({ formkrav }) => {
   return (
     <div className={'page-break'}>
@@ -70,7 +55,13 @@ export const KlageFormkrav: React.FC<{ formkrav: IFormkravVilkår }> = ({ formkr
         <span>{formVilkårTilTekst[formkrav.klageKonkret]}</span>
         <h4>Er klagefristen overholdt?</h4>
         <span>{formVilkårTilTekst[formkrav.klagefristOverholdt]}</span>
-        {visUnntakHvisMulig(formkrav)}
+        {formkrav.klagefristOverholdt === EFormVilkår.IKKE_OPPFYLT &&
+          formkrav.klagefristOverholdtUnntak && (
+            <>
+              <h5>Er unntak for klagefristen oppfylt?</h5>
+              <span>{formkravFristUnntakTilTekst[formkrav.klagefristOverholdtUnntak]}</span>
+            </>
+          )}
         <h4>Er klagen signert?</h4>
         <span>{formVilkårTilTekst[formkrav.klageSignert]}</span>
         {formkrav.saksbehandlerBegrunnelse && (
