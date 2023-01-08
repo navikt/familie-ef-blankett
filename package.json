@@ -63,7 +63,7 @@
     "gh-pages": "^4.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
-    "prettier": "^2.8.1",
+    "prettier": "^2.8.2",
     "ts-loader": "^8.0.11",
     "typescript": "^4.9.4",
     "webpack-cli": "^4.10.0",
