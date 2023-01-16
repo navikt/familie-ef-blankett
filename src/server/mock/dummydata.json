@@ -1,6 +1,11 @@
 {
   "behandling": {
-    "årsak": "MIGRERING"
+    "årsak": "MIGRERING",
+    "årsakRevurdering": {
+      "årsak": "ENDRING_INNTEKT",
+      "opplysningskilde": "MELDING_MODIA"
+    },
+    "stønadstype": "OVERGANGSSTØNAD"
   },
   "personopplysninger": {
     "navn": "Navn Navnesen",
@@ -495,22 +500,21 @@
     }
   },
   "vedtak": {
-   "resultatType": "INNVILGE",
-   "periodeBegrunnelse": "fdsflplsd fd slfkdlksfkds\n\n\n\n\ndsaøæædasødasøæ.  ldsaøldøldæløsa.        ,\n\nldsaldlsaød   ldøskaldkas. dsalødsak dsaøkdsaøldk asdkølsakdløsa dkasd dsds",
-   "inntektBegrunnelse": "Og dette er inntekt",
-   "perioder": [
-     {
-       "årMånedFra": "2021-03",
-       "årMånedTil": "2021-09",
-       "aktivitet": "BARN_UNDER_ETT_ÅR",
-       "periodeType": "HOVEDPERIODE"
-     }
-   ],
-   "inntekter": []
- },
+    "resultatType": "INNVILGE",
+    "periodeBegrunnelse": "fdsflplsd fd slfkdlksfkds\n\n\n\n\ndsaøæædasødasøæ.  ldsaøldøldæløsa.        ,\n\nldsaldlsaød   ldøskaldkas. dsalødsak dsaøkdsaøldk asdkølsakdløsa dkasd dsds",
+    "inntektBegrunnelse": "Og dette er inntekt",
+    "perioder": [
+      {
+        "årMånedFra": "2021-03",
+        "årMånedTil": "2021-09",
+        "aktivitet": "BARN_UNDER_ETT_ÅR",
+        "periodeType": "HOVEDPERIODE"
+      }
+    ],
+    "inntekter": []
+  },
   "søknadsdatoer": {
-   "søkerStønadFra": "2021-07",
-   "søknadsdato": "2021-03-24T16:46:02.725"
+    "søkerStønadFra": "2021-07",
+    "søknadsdato": "2021-03-24T16:46:02.725"
   }
-
 }
