@@ -6,6 +6,7 @@ import css from './utils/css';
 import Header from './components/Header';
 import { datoFormat } from './utils/util';
 import { Behandling } from './components/Behandling';
+import { ÅrsakRevurdering } from './components/ÅrsakRevurdering';
 
 enum HtmlLang {
   NB = 'nb',
@@ -29,6 +30,7 @@ const hentDokumentHtml = async (data: IDokumentData): Promise<string> => {
             dato={new Date().toLocaleDateString('no-NO', datoFormat)}
           />
           <Behandling behandling={data.behandling} />
+          <ÅrsakRevurdering årsakRevurdering={data.behandling.årsakRevurdering} />
           <Dokument dokumentData={data} />
         </div>
       </body>

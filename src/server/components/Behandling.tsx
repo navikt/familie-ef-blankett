@@ -6,7 +6,7 @@ export const Behandling: React.FC<{ behandling: IBehandling }> = ({ behandling }
     <div className={'page-break'}>
       <h3>Behandling</h3>
       <span>
-        <strong>Årsak:</strong> {behandlingÅrsakTilTekst[behandling.årsak]}
+        <strong>Behandlingsårsak:</strong> {behandlingÅrsakTilTekst[behandling.årsak]}
       </span>
     </div>
   );
