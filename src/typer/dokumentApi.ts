@@ -246,6 +246,7 @@ export interface IAnnenForelder {
   fødselsdato?: string;
   bosattINorge?: boolean;
   land?: string;
+  visningsadresse?: string;
 }
 
 export interface IMedlemskap {
