@@ -51,6 +51,11 @@ const AleneomsorgGrunnlag: React.FC<Props> = ({ barnMedSamvær, barnId }) => {
               )}
               <div>Bosted: {bostedForBarn(barn)} </div>
               <AnnenForelder annenForelder={barn.registergrunnlag.forelder} />
+              <div>
+                Annen forelders adresse:{' '}
+                {barn.registergrunnlag?.forelder?.visningsadresse ||
+                  'Mangler gjeldende bostedsadresse'}
+              </div>
             </div>
           );
         })}

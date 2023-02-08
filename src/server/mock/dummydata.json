@@ -415,7 +415,8 @@
               "fødselsnummer": "17128221697",
               "fødselsdato": "1982-12-17",
               "bosattINorge": true,
-              "land": null
+              "land": null,
+              "visningsadresse": "Charies Angles 3, Oslo"
             }
           }
         },
