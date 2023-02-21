@@ -381,6 +381,7 @@ export enum ISvarId {
   ANDRE_FORELDER_MEDLEM_MINST_5_ÅR_AVBRUDD_MINDRE_ENN_10_ÅR = 'ANDRE_FORELDER_MEDLEM_MINST_5_ÅR_AVBRUDD_MINDRE_ENN_10_ÅR',
   ANDRE_FORELDER_MEDLEM_MINST_7_ÅR_AVBRUDD_MER_ENN_10_ÅR = 'ANDRE_FORELDER_MEDLEM_MINST_7_ÅR_AVBRUDD_MER_ENN_10_ÅR',
   TOTALVURDERING_OPPFYLLER_FORSKRIFT = 'TOTALVURDERING_OPPFYLLER_FORSKRIFT',
+  MEDLEM_MER_ENN_5_ÅR_EØS = 'MEDLEM_MER_ENN_5_ÅR_EØS',
   MEDLEM_MER_ENN_5_ÅR_EØS_ANNEN_FORELDER_TRYGDEDEKKET_I_NORGE = 'MEDLEM_MER_ENN_5_ÅR_EØS_ANNEN_FORELDER_TRYGDEDEKKET_I_NORGE',
 
   // Opphold
@@ -573,19 +574,19 @@ export const svarIdTilTekst: Record<ISvarId, string> = {
   GJENLEVENDE_IKKE_RETT_TIL_YTELSER:
     'Ja, gjenlevende som etter dødsfallet får barn som avdøde ikke er mor/far til, og som ikke har rett til ytelser etter kap.17',
   ANDRE_FORELDER_MEDLEM_MINST_5_ÅR_AVBRUDD_MINDRE_ENN_10_ÅR:
-    'Ja, medlem og bosatt når stønadstilfellet oppstod, den andre forelderen har vært medlem i minst fem år etter fylte 16 år når krav fremsettes, og avbruddet er mindre enn 10 år',
+    'Ja, medlem og bosatt når stønadstilfellet oppstod, den andre forelderen har vært medlem i minst 5 år etter fylte 16 år når krav fremsettes, og avbruddet er mindre enn 10 år',
   ANDRE_FORELDER_MEDLEM_MINST_7_ÅR_AVBRUDD_MER_ENN_10_ÅR:
-    'Ja, medlem og bosatt når stønadstilfellet oppstod, den andre forelderen har vært medlem i minst syv år etter fylte 16 år når krav fremsettes, og avbruddet er mer enn 10 år',
+    'Ja, medlem og bosatt når stønadstilfellet oppstod, den andre forelderen har vært medlem i minst 7 år etter fylte 16 år når krav fremsettes, og avbruddet er mer enn 10 år',
   ANDRE_FORELDER_MEDLEM_SISTE_5_ÅR:
-    'Ja, medlem og bosatt når stønadstilfellet oppstod, den andre forelderen er bosatt og har vært medlem siste fem år',
+    'Ja, medlem og bosatt når stønadstilfellet oppstod, den andre forelderen er bosatt og har vært medlem siste 5 år',
   I_LANDET_FOR_GJENFORENING_ELLER_GIFTE_SEG:
     'Ja, medlem og bosatt når stønadstilfellet oppstod, kom til landet for gjenforening med ektefelle/samboer med felles barn, eller for å gifte seg med en som er bosatt, og hadde gyldig oppholdstillatelse ved ankomst',
   MEDLEM_MER_ENN_5_ÅR_AVBRUDD_MINDRE_ENN_10_ÅR:
     'Ja, medlem i minst 5 år etter fylte 16 år når krav fremsettes, og avbruddet er mindre enn 10 år',
   MEDLEM_MER_ENN_7_ÅR_AVBRUDD_MER_ENN_10ÅR:
-    'Ja, medlem i minst syv år etter fylte 16 år når krav fremsettes, og avbruddet er mer enn 10 år',
+    'Ja, medlem i minst 7 år etter fylte 16 år når krav fremsettes, og avbruddet er mer enn 10 år',
   TOTALVURDERING_OPPFYLLER_FORSKRIFT:
-    'Ja, totalvurdering viser at forholdene går inn under forskriften om kravet om fem års forutgående medlemskap',
+    'Ja, totalvurdering viser at forholdene går inn under forskriften om kravet om 5 års forutgående medlemskap',
   SAMME_HUS_OG_FÆRRE_ENN_4_BOENHETER:
     'Ja, søker bor i samme hus som den andre forelderen og huset har 4 eller færre boenheter',
   SAMME_HUS_OG_FLERE_ENN_4_BOENHETER_MEN_VURDERT_NÆRT:
@@ -608,8 +609,10 @@ export const svarIdTilTekst: Record<ISvarId, string> = {
   NOEN_MÅNEDER_OVERSTIGER_6G: 'Ja, men noen måneder overstiger 6G',
   BRUKER_MOTTAR_IKKE_OVERGANGSSTØNAD: 'Bruker mottar ikke overgangsstønad',
   OPPHOLDER_SEG_I_ANNET_EØS_LAND: 'Oppholder seg i annet EØS-land',
+  MEDLEM_MER_ENN_5_ÅR_EØS:
+    'Ja, EØS-borger fyller vilkåret om 5 års forutgående medlemskap etter sammenlegging med medlemskapsperioder i annet EU/EØS-land',
   MEDLEM_MER_ENN_5_ÅR_EØS_ANNEN_FORELDER_TRYGDEDEKKET_I_NORGE:
-    'Ja, medlem fyller vilkåret om 5 års forutgående medlemskap opptjent i annet EU',
+    'Ja, EØS-borger fyller vilkåret om 5 års forutgående medlemskap etter bestemmelsene i annet EU/EØS-land, og den andre forelderen er EØS-borger og trygdedekket i Norge som yrkesaktiv',
 };
 export const delvilkårTypeTilTekst: Record<IRegelId, string> = {
   SØKER_MEDLEM_I_FOLKETRYGDEN: 'Har bruker vært medlem i folketrygden i de siste 5 årene?',
