@@ -26,7 +26,7 @@ spec:
   prometheus:
     enabled: false
   ingresses:
-    - https://familie-ef-blankett.dev.intern.nav.no
+    - https://familie-ef-blankett.intern.dev.nav.no
   accessPolicy:
     inbound:
       rules:
