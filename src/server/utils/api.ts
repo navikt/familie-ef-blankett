@@ -12,6 +12,7 @@ export const genererPdf = async (html: string, meta: Meta): Promise<ArrayBuffer>
       headers: {
         'Content-Type': 'text/html',
         Accept: 'application/pdf',
+        'Nav-Consumer-Id': 'familie-ef-blankett',
       },
     })
     .then((res: AxiosResponse<ArrayBuffer>) => res.data)
