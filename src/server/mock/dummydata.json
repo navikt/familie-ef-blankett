@@ -512,7 +512,15 @@
         "periodeType": "HOVEDPERIODE"
       }
     ],
-    "inntekter": []
+    "inntekter": [
+      {
+        "årMånedFra": "2021-03",
+        "forventetInntekt": 100000,
+        "samordningsfradrag": 100,
+        "dagsats": 1000,
+        "månedsinntekt": 10000
+      }
+    ]
   },
   "søknadsdatoer": {
     "søkerStønadFra": "2021-07",

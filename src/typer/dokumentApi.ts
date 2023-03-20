@@ -98,8 +98,10 @@ export type IVedtak =
   | IInnvilgeVedtakSkolepenger;
 export interface IInntekt {
   årMånedFra: string;
-  forventetInntekt: number;
+  forventetInntekt?: number;
   samordningsfradrag?: number;
+  dagsats?: number;
+  månedsinntekt?: number;
 }
 export enum EBehandlingResultat {
   INNVILGE = 'INNVILGE',

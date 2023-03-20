@@ -8,6 +8,7 @@ import {
 import {
   formaterNullableIsoDato,
   formaterNullableMånedÅr,
+  formaterBeløp,
   parseOgFormaterÅrMåned,
 } from '../utils/util';
 
@@ -49,8 +50,10 @@ export const InnvilgetOvergangsstønad: React.FC<{
           return (
             <div key={indeks}>
               <h4>Fra og med {parseOgFormaterÅrMåned(inntekt.årMånedFra)}</h4>
-              <div>Forventet inntekt (år): {inntekt.forventetInntekt}</div>
-              <div>Samordningsfradrag (mnd): {inntekt.samordningsfradrag}</div>
+              <div>Dagsats: {formaterBeløp(inntekt.dagsats || 0)}</div>
+              <div>Månedsinntekt: {formaterBeløp(inntekt.månedsinntekt || 0)}</div>
+              <div>Forventet inntekt (år): {formaterBeløp(inntekt.forventetInntekt || 0)}</div>
+              <div>Samordningsfradrag (mnd): {formaterBeløp(inntekt.samordningsfradrag || 0)}</div>
             </div>
           );
         })}

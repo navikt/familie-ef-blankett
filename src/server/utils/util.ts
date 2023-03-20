@@ -40,3 +40,6 @@ export const tilSkoleår = (årMåned: string): number => {
 export const månedÅrTilDate = (årMåned: string): Date => {
   return parse(årMåned, 'yyyy-MM', new Date());
 };
+
+export const formaterBeløp = (verdi: number): string =>
+  Number(verdi).toLocaleString('no-NO', { currency: 'NOK' }) + ' kr';
