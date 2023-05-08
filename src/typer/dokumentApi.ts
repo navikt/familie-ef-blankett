@@ -134,6 +134,7 @@ export enum EBehandlingÅrsak {
   NYE_OPPLYSNINGER = 'NYE_OPPLYSNINGER',
   KLAGE = 'KLAGE',
   MIGRERING = 'MIGRERING',
+  G_OMREGNING = 'G_OMREGNING',
 }
 
 export const behandlingÅrsakTilTekst: Record<EBehandlingÅrsak, string> = {
@@ -141,6 +142,7 @@ export const behandlingÅrsakTilTekst: Record<EBehandlingÅrsak, string> = {
   NYE_OPPLYSNINGER: 'Nye opplysninger',
   KLAGE: 'Klage',
   MIGRERING: 'Migrering',
+  G_OMREGNING: 'G-omregning',
 };
 
 export interface IPeriode {
