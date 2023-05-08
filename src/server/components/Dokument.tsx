@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  EBehandlingÅrsak,
   IDokumentData,
   IVilkårGrunnlag,
   IVurdering,
@@ -67,25 +68,26 @@ function gjelderDetteVilkåret(vurdering: IVurdering, vilkårgruppe: string): bo
 const Dokument = (dokumentProps: DokumentProps) => {
   return (
     <div>
-      {Object.keys(VilkårGruppe).map(vilkårgruppe => {
-        const vurderinger = dokumentProps.dokumentData.vilkår.vurderinger.filter(vurdering =>
-          gjelderDetteVilkåret(vurdering, vilkårgruppe),
-        );
-        if (vurderinger.length === 0) {
-          return null;
-        }
-        const grunnlag = dokumentProps.dokumentData.vilkår.grunnlag;
-        return vurderinger.map(vurdering => {
-          return (
-            <div key={vurdering.id} className={'page-break'}>
-              <h2>{vilkårTypeTilTekst[vurdering.vilkårType]}</h2>
-              {registergrunnlagForVilkår(grunnlag, vilkårgruppe, vurdering.barnId)}
-
-              <Vilkårsvurdering vurdering={vurdering} />
-            </div>
+      {dokumentProps.dokumentData.behandling.årsak !== EBehandlingÅrsak.G_OMREGNING &&
+        Object.keys(VilkårGruppe).map(vilkårgruppe => {
+          const vurderinger = dokumentProps.dokumentData.vilkår.vurderinger.filter(vurdering =>
+            gjelderDetteVilkåret(vurdering, vilkårgruppe),
           );
-        });
-      })}
+          if (vurderinger.length === 0) {
+            return null;
+          }
+          const grunnlag = dokumentProps.dokumentData.vilkår.grunnlag;
+          return vurderinger.map(vurdering => {
+            return (
+              <div key={vurdering.id} className={'page-break'}>
+                <h2>{vilkårTypeTilTekst[vurdering.vilkårType]}</h2>
+                {registergrunnlagForVilkår(grunnlag, vilkårgruppe, vurdering.barnId)}
+
+                <Vilkårsvurdering vurdering={vurdering} />
+              </div>
+            );
+          });
+        })}
       <Vedtak
         stønadstype={dokumentProps.dokumentData.behandling.stønadstype}
         vedtak={dokumentProps.dokumentData.vedtak}
