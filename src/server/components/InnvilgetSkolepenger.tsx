@@ -4,12 +4,9 @@ import {
   ISøknadsdatoer,
   studietypeTilTekst,
 } from '../../typer/dokumentApi';
-import {
-  formaterNullableIsoDato,
-  formaterNullableMånedÅr,
-  parseOgFormaterÅrMåned,
-  tilSkoleår,
-} from '../utils/util';
+import { parseOgFormaterÅrMåned, tilSkoleår } from '../utils/util';
+import { Begrunnelse } from './InnvilgeVedtak/Begrunnelse';
+import { Søknadsinformasjon } from './InnvilgeVedtak/Søknadsinformasjon';
 
 export const InnvilgetSkolepenger: React.FC<{
   vedtak: IInnvilgeVedtakSkolepenger;
@@ -22,9 +19,10 @@ export const InnvilgetSkolepenger: React.FC<{
       <div>Innvilge</div>
       {søknadsdatoer && (
         <>
-          <h3>Søknadsinformasjon</h3>
-          <div>Søknadsdato: {formaterNullableIsoDato(søknadsdatoer.søknadsdato)}</div>
-          <div>Søker stønad fra: {formaterNullableMånedÅr(søknadsdatoer?.søkerStønadFra)}</div>
+          <Søknadsinformasjon
+            søknadsdato={søknadsdatoer.søknadsdato}
+            søkerStønadFra={søknadsdatoer.søkerStønadFra}
+          />
         </>
       )}
 
@@ -78,8 +76,7 @@ export const InnvilgetSkolepenger: React.FC<{
       })}
 
       <div className={'page-break'}>
-        <h4>Begrunnelse</h4>
-        <p style={{ whiteSpace: 'pre-wrap' }}>{vedtak.begrunnelse}</p>
+        <Begrunnelse begrunnelse={vedtak.begrunnelse} />
       </div>
     </div>
   );
