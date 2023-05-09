@@ -66,9 +66,11 @@ function gjelderDetteVilkåret(vurdering: IVurdering, vilkårgruppe: string): bo
 }
 
 const Dokument = (dokumentProps: DokumentProps) => {
+  const erManuellGOmregning =
+    dokumentProps.dokumentData.behandling.årsak === EBehandlingÅrsak.G_OMREGNING;
   return (
     <div>
-      {dokumentProps.dokumentData.behandling.årsak !== EBehandlingÅrsak.G_OMREGNING &&
+      {!erManuellGOmregning &&
         Object.keys(VilkårGruppe).map(vilkårgruppe => {
           const vurderinger = dokumentProps.dokumentData.vilkår.vurderinger.filter(vurdering =>
             gjelderDetteVilkåret(vurdering, vilkårgruppe),
