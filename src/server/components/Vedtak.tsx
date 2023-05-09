@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   EBehandlingResultat,
+  EBehandlingÅrsak,
   EStønadType,
   IInnvilgeVedtakBarnetilsyn,
   IInnvilgeVedtakOvergangsstønad,
@@ -12,16 +13,23 @@ import { AvslåVedtak } from './AvslåVedtak';
 import { InnvilgetOvergangsstønad } from './InnvilgetOvergangsstønad';
 import { InnvilgetBarnetilsyn } from './InnvilgetBarnetilsyn';
 import { InnvilgetSkolepenger } from './InnvilgetSkolepenger';
+import { InnvilgetGOmregning } from './InnvilgetGOmregning';
 
 export const Vedtak: React.FC<{
   stønadstype: EStønadType;
   vedtak: IVedtak;
   søknadsdatoer?: ISøknadsdatoer;
-}> = ({ stønadstype, vedtak, søknadsdatoer }) => {
+  årsak: EBehandlingÅrsak;
+}> = ({ stønadstype, vedtak, søknadsdatoer, årsak }) => {
   switch (vedtak.resultatType) {
     case EBehandlingResultat.INNVILGE:
       return (
-        <InnvilgetVedtak stønadstype={stønadstype} vedtak={vedtak} søknadsdatoer={søknadsdatoer} />
+        <InnvilgetVedtak
+          stønadstype={stønadstype}
+          vedtak={vedtak}
+          søknadsdatoer={søknadsdatoer}
+          årsak={årsak}
+        />
       );
     case EBehandlingResultat.AVSLÅ:
       return <AvslåVedtak {...vedtak} />;
@@ -34,7 +42,12 @@ const InnvilgetVedtak: React.FC<{
   stønadstype: EStønadType;
   vedtak: IVedtak;
   søknadsdatoer?: ISøknadsdatoer;
-}> = ({ stønadstype, vedtak, søknadsdatoer }) => {
+  årsak: EBehandlingÅrsak;
+}> = ({ stønadstype, vedtak, søknadsdatoer, årsak }) => {
+  if (årsak === EBehandlingÅrsak.G_OMREGNING) {
+    return <InnvilgetGOmregning vedtak={vedtak as IInnvilgeVedtakOvergangsstønad} />;
+  }
+
   switch (stønadstype) {
     case EStønadType.OVERGANGSSTØNAD:
       return (

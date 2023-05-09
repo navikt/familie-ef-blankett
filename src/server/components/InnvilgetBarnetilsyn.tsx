@@ -1,10 +1,7 @@
 import React from 'react';
 import { IInnvilgeVedtakBarnetilsyn, ISøknadsdatoer } from '../../typer/dokumentApi';
-import {
-  formaterNullableIsoDato,
-  formaterNullableMånedÅr,
-  parseOgFormaterÅrMåned,
-} from '../utils/util';
+import { parseOgFormaterÅrMåned } from '../utils/util';
+import { Søknadsinformasjon } from './InnvilgeVedtak/Søknadsinformasjon';
 
 export const InnvilgetBarnetilsyn: React.FC<{
   vedtak: IInnvilgeVedtakBarnetilsyn;
@@ -17,11 +14,10 @@ export const InnvilgetBarnetilsyn: React.FC<{
       <h3>Resultat</h3>
       <div>Innvilge</div>
       {søknadsdatoer && (
-        <>
-          <h3>Søknadsinformasjon</h3>
-          <div>Søknadsdato: {formaterNullableIsoDato(søknadsdatoer.søknadsdato)}</div>
-          <div>Søker stønad fra: {formaterNullableMånedÅr(søknadsdatoer?.søkerStønadFra)}</div>
-        </>
+        <Søknadsinformasjon
+          søknadsdato={søknadsdatoer.søknadsdato}
+          søkerStønadFra={søknadsdatoer.søkerStønadFra}
+        />
       )}
       <h3>Vedtaksperiode</h3>
       {perioder.map((periode, indeks) => {

@@ -92,6 +92,7 @@ const Dokument = (dokumentProps: DokumentProps) => {
         stønadstype={dokumentProps.dokumentData.behandling.stønadstype}
         vedtak={dokumentProps.dokumentData.vedtak}
         søknadsdatoer={dokumentProps.dokumentData.søknadsdatoer}
+        årsak={dokumentProps.dokumentData.behandling.årsak}
       />
     </div>
   );
