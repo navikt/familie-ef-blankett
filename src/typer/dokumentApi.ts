@@ -651,7 +651,7 @@ export const delvilkårTypeTilTekst: Record<IRegelId, string> = {
   HAR_TIDLIGERE_MOTTATT_OVERGANSSTØNAD: 'Har søker tidligere mottatt overgangsstønad?',
   ER_I_ARBEID_ELLER_FORBIGÅENDE_SYKDOM: 'Er brukeren i arbeid eller har forbigående sykdom?',
   INNTEKT_LAVERE_ENN_INNTEKTSGRENSE:
-    'Har brukeren inntekt under 6 ganger grunnbeløpet (pr 01.05.23 711 720 kr / 59 310 kr, pr 01.05.22 668 862 kr / 55 738 kr)',
+    'Har brukeren inntekt under 6 ganger et? (Per 1. mars 2023: 711.720 kr / 59.310 kr. Per 1. mars 2022: 668.862 kr / 55.738 kr)',
   INNTEKT_SAMSVARER_MED_OS:
     'Er inntekten i samsvar med den inntekten som er lagt til grunn ved beregning av overgangsstønad?',
   HAR_ALDER_LAVERE_ENN_GRENSEVERDI: 'Har barnet fullført 4.skoleår?',
