@@ -68,7 +68,6 @@ export enum ESkolepengerStudietype {
 
 export type ISkolepengerUtgift = {
   årMånedFra: string;
-  utgifter: number;
   stønad: number;
 };
 
