@@ -35,8 +35,7 @@ export const InnvilgetSkolepenger: React.FC<{
             <table>
               <thead>
                 <tr>
-                  <th>Utgiftsdato</th>
-                  <th>Utgifter</th>
+                  <th>Utgiftsmåned</th>
                   <th>Stønadsbeløp</th>
                 </tr>
               </thead>
@@ -44,7 +43,6 @@ export const InnvilgetSkolepenger: React.FC<{
                 {skoleårsperiode.utgiftsperioder.map(utgift => (
                   <tr>
                     <td>{parseOgFormaterÅrMåned(utgift.årMånedFra)}</td>
-                    <td>{utgift.utgifter}</td>
                     <td>{utgift.stønad}</td>
                   </tr>
                 ))}
