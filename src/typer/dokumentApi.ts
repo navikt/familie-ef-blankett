@@ -132,8 +132,13 @@ export enum EBehandlingÅrsak {
   SØKNAD = 'SØKNAD',
   NYE_OPPLYSNINGER = 'NYE_OPPLYSNINGER',
   KLAGE = 'KLAGE',
+  SANKSJON_1_MND = 'SANKSJON_1_MND',
   MIGRERING = 'MIGRERING',
   G_OMREGNING = 'G_OMREGNING',
+  MANUELT_OPPRETTET = 'MANUELT_OPPRETTET',
+  PAPIRSØKNAD = 'PAPIRSØKNAD',
+  KORRIGERING_UTEN_BREV = 'KORRIGERING_UTEN_BREV',
+  SATSENDRING = 'SATSENDRING',
 }
 
 export const behandlingÅrsakTilTekst: Record<EBehandlingÅrsak, string> = {
@@ -142,6 +147,11 @@ export const behandlingÅrsakTilTekst: Record<EBehandlingÅrsak, string> = {
   KLAGE: 'Klage',
   MIGRERING: 'Migrering',
   G_OMREGNING: 'G-omregning',
+  KORRIGERING_UTEN_BREV: 'Korrigering uten brev',
+  SANKSJON_1_MND: 'Sanksjon 1 måned',
+  SATSENDRING: 'Satsendring',
+  MANUELT_OPPRETTET: 'Manuelt opprettet',
+  PAPIRSØKNAD: 'Papirsøknad',
 };
 
 export interface IPeriode {
