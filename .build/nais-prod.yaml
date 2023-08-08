@@ -11,7 +11,6 @@ spec:
   replicas:
     min: 1
     max: 2
-    cpuThresholdPercentage: 50
   port: 8033
   liveness:
     path: /api/status
@@ -42,7 +41,6 @@ spec:
     enabled: true
   resources:
     limits:
-      cpu: 2000m
       memory: 1024Mi
     requests:
       memory: 512Mi
