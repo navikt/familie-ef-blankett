@@ -2,7 +2,6 @@ import React from 'react';
 import {
   IÅrsakRevurdering,
   opplysningskildeTilTekst,
-  Årsak,
   årsakRevuderingTilTekst,
 } from '../../typer/dokumentApi';
 
@@ -20,7 +19,7 @@ export const ÅrsakRevurdering: React.FC<{ årsakRevurdering?: IÅrsakRevurderin
           <strong>Opplysningsskilde:</strong>{' '}
           {opplysningskildeTilTekst[årsakRevurdering.opplysningskilde]}
         </div>
-        {årsakRevurdering.årsak === Årsak.ANNET && årsakRevurdering.beskrivelse && (
+        {årsakRevurdering.beskrivelse && (
           <div>
             <strong>Begrunnelse:</strong> {årsakRevurdering.beskrivelse}
           </div>
