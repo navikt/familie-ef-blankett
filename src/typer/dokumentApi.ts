@@ -129,29 +129,31 @@ export const stønadstypeTilTekst: Record<EStønadType, string> = {
 };
 
 export enum EBehandlingÅrsak {
-  SØKNAD = 'SØKNAD',
-  NYE_OPPLYSNINGER = 'NYE_OPPLYSNINGER',
   KLAGE = 'KLAGE',
+  NYE_OPPLYSNINGER = 'NYE_OPPLYSNINGER',
   SANKSJON_1_MND = 'SANKSJON_1_MND',
+  SØKNAD = 'SØKNAD',
   MIGRERING = 'MIGRERING',
   G_OMREGNING = 'G_OMREGNING',
-  MANUELT_OPPRETTET = 'MANUELT_OPPRETTET',
-  PAPIRSØKNAD = 'PAPIRSØKNAD',
+  IVERKSETTE_KA_VEDTAK = 'IVERKSETTE_KA_VEDTAK',
   KORRIGERING_UTEN_BREV = 'KORRIGERING_UTEN_BREV',
+  PAPIRSØKNAD = 'PAPIRSØKNAD',
+  MANUELT_OPPRETTET = 'MANUELT_OPPRETTET',
   SATSENDRING = 'SATSENDRING',
 }
 
 export const behandlingÅrsakTilTekst: Record<EBehandlingÅrsak, string> = {
-  SØKNAD: 'Ny søknad',
-  NYE_OPPLYSNINGER: 'Nye opplysninger',
   KLAGE: 'Klage',
+  NYE_OPPLYSNINGER: 'Nye opplysninger',
+  SANKSJON_1_MND: 'Sanksjon 1 måned',
+  SØKNAD: 'Søknad',
   MIGRERING: 'Migrering',
   G_OMREGNING: 'G-omregning',
+  IVERKSETTE_KA_VEDTAK: 'Iverksette KA-vedtak (uten brev)',
   KORRIGERING_UTEN_BREV: 'Korrigering uten brev',
-  SANKSJON_1_MND: 'Sanksjon 1 måned',
-  SATSENDRING: 'Satsendring',
-  MANUELT_OPPRETTET: 'Manuelt opprettet',
   PAPIRSØKNAD: 'Papirsøknad',
+  MANUELT_OPPRETTET: 'Manuelt opprettet',
+  SATSENDRING: 'Satsendring',
 };
 
 export interface IPeriode {
