@@ -42,7 +42,7 @@ const Vilkårsvurdering: React.FC<Props> = ({ vurdering }) => {
         <div className={'vilkårsresultat-ikon'}>
           <span style={{ paddingBottom: '20%' }}>{resultatIkon(resultat)}</span>
         </div>
-        <TidligereHistorikk />
+        {Vilkår.TIDLIGERE_VEDTAKSPERIODER && <TidligereHistorikk />}
       </div>
 
       {vurdering.delvilkårsvurderinger
