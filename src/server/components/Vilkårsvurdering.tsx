@@ -11,6 +11,7 @@ import OppfyltIkon from './ikoner/OppfyltIkon';
 import IkkeOppfylt from './ikoner/IkkeOppfylt';
 import InfoIkon from './ikoner/InfoIkon';
 import { IkkeVurdert } from './ikoner/IkkeVurdert';
+import { TidligereHistorikk } from './TidligereHistorikk';
 
 interface Props {
   vurdering: IVurdering;
@@ -41,6 +42,7 @@ const Vilkårsvurdering: React.FC<Props> = ({ vurdering }) => {
         <div className={'vilkårsresultat-ikon'}>
           <span style={{ paddingBottom: '20%' }}>{resultatIkon(resultat)}</span>
         </div>
+        <TidligereHistorikk />
       </div>
 
       {vurdering.delvilkårsvurderinger
