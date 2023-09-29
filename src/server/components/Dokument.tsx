@@ -19,6 +19,7 @@ import NyttBarnSammePartner from './NyttBarnSammePartner';
 import SagtOppEllerRedusertGrunnlag from './SagtOppEllerRedusertGrunnlag';
 import { Vedtak } from './Vedtak';
 import AlderPåBarnGrunnlag from './AlderPåBarnGrunnlag';
+import { TidligereHistorikk } from './TidligereHistorikk';
 
 interface DokumentProps {
   dokumentData: IDokumentData;
@@ -84,7 +85,9 @@ const Dokument = (dokumentProps: DokumentProps) => {
               <div key={vurdering.id} className={'page-break'}>
                 <h2>{vilkårTypeTilTekst[vurdering.vilkårType]}</h2>
                 {registergrunnlagForVilkår(grunnlag, vilkårgruppe, vurdering.barnId)}
-
+                {vurdering.vilkårType === Vilkår.TIDLIGERE_VEDTAKSPERIODER && (
+                  <TidligereHistorikk />
+                )}
                 <Vilkårsvurdering vurdering={vurdering} />
               </div>
             );
