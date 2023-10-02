@@ -48,7 +48,7 @@ export const TidligereHistorikk: React.FC<{
   const TidligereHistorikk: React.FC = () => {
     return (
       <>
-        <p>Har bruker tidligere vedtaksperioder i EF Sak eller Infotrygd</p>
+        <p>Har bruker tidligere vedtaksperioder i EF Sak eller Infotrygd?</p>
         <h3>Overgangsstønad</h3>
         <div>
           <strong>Historikk i EF Sak:</strong>{' '}
