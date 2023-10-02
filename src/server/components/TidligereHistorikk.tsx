@@ -1,9 +1,18 @@
 import React from 'react';
-import { ITidligereVedtaksperioder } from '../../typer/dokumentApi';
+import {
+  EPeriodetype,
+  ITidligereVedtaksperioder,
+  periodetypeTilTekst,
+} from '../../typer/dokumentApi';
 
 export const TidligereHistorikk: React.FC<{
   tidligereVedtaksperioder: ITidligereVedtaksperioder | undefined;
 }> = ({ tidligereVedtaksperioder }) => {
+  const tilDagMånedÅr = (dato: string) => {
+    const [år, måned, dag] = dato.split('-');
+    return `${dag}.${måned}.${år}`;
+  };
+
   const TidligereHistorikkTabell: React.FC = () => {
     return (
       <table>
@@ -11,8 +20,8 @@ export const TidligereHistorikk: React.FC<{
           <tr>
             <th>Periode</th>
             <th>Periodetype</th>
-            <th>Måneder med utbetaling</th>
-            <th>Måneder uten utbetaling</th>
+            <th>Måneder med utbet.</th>
+            <th>Måneder uten utbet.</th>
           </tr>
         </thead>
         {tidligereVedtaksperioder?.sak.periodeHistorikkOvergangsstønad?.map(periode => {
@@ -20,11 +29,16 @@ export const TidligereHistorikk: React.FC<{
             <tbody>
               <tr>
                 <td>
-                  {periode.fom} - {periode.tom}
+                  {tilDagMånedÅr(periode.fom)} - {tilDagMånedÅr(periode.tom)}
                 </td>
-                <td>{periode.vedtaksperiodeType}</td>
+                <td>{periodetypeTilTekst[periode.vedtaksperiodeType] || ''}</td>
                 <td>{periode.antallMåneder}</td>
-                <td>{periode.antallMånederUtenBeløp}</td>
+                <td>
+                  {periode.antallMånederUtenBeløp >= 1 &&
+                  periode.vedtaksperiodeType !== EPeriodetype.SANKSJON
+                    ? periode.antallMånederUtenBeløp
+                    : '-'}
+                </td>
               </tr>
             </tbody>
           );
