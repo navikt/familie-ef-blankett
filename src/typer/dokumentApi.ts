@@ -255,6 +255,7 @@ export interface IVilkårGrunnlag {
   //bosituasjon: IBosituasjon;
   sivilstandsplaner: ISivilstandsplaner;
   barnMedSamvær: IBarnMedSamvær[];
+  harAvsluttetArbeidsforhold: boolean;
 }
 
 export interface ISivilstandVilkår {
