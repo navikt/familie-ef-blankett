@@ -1,7 +1,9 @@
 import React from 'react';
+import { ITidligereVedtaksperioder } from '../../typer/dokumentApi';
 
-export const TidligereHistorikk: React.FC = () => {
-  // Hardkodet test
+export const TidligereHistorikk: React.FC<{
+  tidligereVedtaksperioder: ITidligereVedtaksperioder | undefined;
+}> = ({ tidligereVedtaksperioder }) => {
   const TidligereHistorikkTabell: React.FC = () => {
     return (
       <table>
@@ -13,26 +15,20 @@ export const TidligereHistorikk: React.FC = () => {
             <th>Måneder uten utbetaling</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>01.01.2020 - 31.12.2020</td>
-            <td>Hovedperiode</td>
-            <td>1</td>
-            <td>5</td>
-          </tr>
-          <tr>
-            <td>01.01.2019 - 31.12.2019</td>
-            <td>Forlengelse</td>
-            <td>2</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>01.01.2018 - 31.12.2018</td>
-            <td>Hovedperiode</td>
-            <td>8</td>
-            <td>16</td>
-          </tr>
-        </tbody>
+        {tidligereVedtaksperioder?.sak.periodeHistorikkOvergangsstønad?.map(periode => {
+          return (
+            <tbody>
+              <tr>
+                <td>
+                  {periode.fom} - {periode.tom}
+                </td>
+                <td>{periode.vedtaksperiodeType}</td>
+                <td>{periode.antallMåneder}</td>
+                <td>{periode.antallMånederUtenBeløp}</td>
+              </tr>
+            </tbody>
+          );
+        })}
       </table>
     );
   };

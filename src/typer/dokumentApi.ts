@@ -10,6 +10,28 @@ export interface IBehandling {
   årsak: EBehandlingÅrsak;
   stønadstype: EStønadType;
   årsakRevurdering?: IÅrsakRevurdering;
+  tidligereVedtaksperioder?: ITidligereVedtaksperioder;
+}
+
+export interface ITidligereVedtaksperioder {
+  infotrygd: ITidligereInnvilgetVedtak;
+  sak: ITidligereInnvilgetVedtak;
+  historiskPensjon: boolean;
+}
+
+interface ITidligereInnvilgetVedtak {
+  harTidligereOvergangsstønad: boolean;
+  harTidligereBarnetilsyn: boolean;
+  harTidligereSkolepenger: boolean;
+  periodeHistorikkOvergangsstønad?: IGrunnlagsdataPeriodeHistorikk[];
+}
+
+interface IGrunnlagsdataPeriodeHistorikk {
+  vedtaksperiodeType: EPeriodetype;
+  fom: string;
+  tom: string;
+  antallMåneder: number;
+  antallMånederUtenBeløp: number;
 }
 
 export interface ISøknadsdatoer {
@@ -172,11 +194,23 @@ export interface IPeriodeBarnetilsyn {
 export enum EPeriodetype {
   PERIODE_FØR_FØDSEL = 'PERIODE_FØR_FØDSEL',
   HOVEDPERIODE = 'HOVEDPERIODE',
+  FORLENGELSE = 'FORLENGELSE',
+  MIDLERTIDIG_OPPHØR = 'MIDLERTIDIG_OPPHØR',
+  MIGRERING = 'MIGRERING',
+  SANKSJON = 'SANKSJON',
+  UTVIDELSE = 'UTVIDELSE',
+  NY_PERIODE_FOR_NYTT_BARN = 'NY_PERIODE_FOR_NYTT_BARN',
 }
 
 export const periodetypeTilTekst: Record<EPeriodetype, string> = {
   PERIODE_FØR_FØDSEL: 'Periode før fødsel',
   HOVEDPERIODE: 'Hovedperiode',
+  FORLENGELSE: 'Forlengelse',
+  MIDLERTIDIG_OPPHØR: 'Midlertidig opphør',
+  MIGRERING: 'Migrering',
+  SANKSJON: 'Sanksjon',
+  UTVIDELSE: 'Utvidelse',
+  NY_PERIODE_FOR_NYTT_BARN: 'Ny periode for nytt barn',
 };
 
 export enum EAktivitet {
