@@ -4,22 +4,13 @@ import {
   ITidligereVedtaksperioder,
   periodetypeTilTekst,
 } from '../../typer/dokumentApi';
+import { formaterIsoDato, formatterBooleanEllerUkjent } from '../utils/util';
 
 export const TidligereHistorikk: React.FC<{
   tidligereVedtaksperioder: ITidligereVedtaksperioder | undefined;
 }> = ({ tidligereVedtaksperioder }) => {
   const periodeHistorikkOvergangsstønad =
     tidligereVedtaksperioder?.sak.periodeHistorikkOvergangsstønad;
-  const tilDagMånedÅr = (dato: string) => {
-    const [år, måned, dag] = dato.split('-');
-    return `${dag}.${måned}.${år}`;
-  };
-
-  const mapTrueFalse = (bool?: boolean): string =>
-    bool === true ? 'Ja' : bool === false ? 'Nei' : '';
-
-  const formatterBooleanEllerUkjent = (bool?: boolean) =>
-    bool === undefined || bool === null ? 'Ukjent' : mapTrueFalse(bool);
 
   const TidligereHistorikkTabell: React.FC = () => {
     if (!periodeHistorikkOvergangsstønad || periodeHistorikkOvergangsstønad?.length < 1)
@@ -37,7 +28,7 @@ export const TidligereHistorikk: React.FC<{
           return (
             <tr>
               <td>
-                {tilDagMånedÅr(periode.fom)} - {tilDagMånedÅr(periode.tom)}
+                {formaterIsoDato(periode.fom)} - {formaterIsoDato(periode.tom)}
               </td>
               <td>{periodetypeTilTekst[periode.vedtaksperiodeType] || ''}</td>
               <td>{periode.antallMåneder}</td>
@@ -57,7 +48,7 @@ export const TidligereHistorikk: React.FC<{
   const TidligereHistorikk: React.FC = () => {
     return (
       <>
-        <h2>Har bruker tidligere vedtaksperioder i EF Sak eller Infotrygd</h2>
+        <p>Har bruker tidligere vedtaksperioder i EF Sak eller Infotrygd</p>
         <h3>Overgangsstønad</h3>
         <div>
           <strong>Historikk i EF Sak:</strong>{' '}
