@@ -123,7 +123,11 @@ function registergrunnlagForVilkår(
     case VilkårGruppe.NYTT_BARN_SAMME_PARTNER:
       return <NyttBarnSammePartner barnMedSamvær={grunnlag.barnMedSamvær} />;
     case VilkårGruppe.SAGT_OPP_ELLER_REDUSERT:
-      return <SagtOppEllerRedusertGrunnlag />;
+      return (
+        <SagtOppEllerRedusertGrunnlag
+          harAvsluttetArbeidsforhold={grunnlag.harAvsluttetArbeidsforhold}
+        />
+      );
     default:
       return <div />;
   }
