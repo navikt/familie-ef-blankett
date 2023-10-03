@@ -12,7 +12,7 @@ export const TidligereHistorikk: React.FC<{
   const periodeHistorikkOvergangsstønad =
     tidligereVedtaksperioder?.sak.periodeHistorikkOvergangsstønad;
 
-  const TidligereHistorikkTabell: React.FC = () => {
+  const TidligereHistorikkOvergangsstønadTabell: React.FC = () => {
     if (!periodeHistorikkOvergangsstønad || periodeHistorikkOvergangsstønad?.length < 1)
       return <></>;
 
@@ -60,7 +60,7 @@ export const TidligereHistorikk: React.FC<{
             tidligereVedtaksperioder?.infotrygd.harTidligereOvergangsstønad,
           )}
         </div>
-        <TidligereHistorikkTabell />
+        <TidligereHistorikkOvergangsstønadTabell />
         <h3>Barnetilsyn</h3>
         <div>
           <strong>Historikk i EF Sak:</strong>{' '}
