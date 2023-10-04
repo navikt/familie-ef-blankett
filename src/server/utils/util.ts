@@ -43,3 +43,8 @@ export const månedÅrTilDate = (årMåned: string): Date => {
 
 export const formaterBeløp = (verdi: number): string =>
   Number(verdi).toLocaleString('no-NO', { currency: 'NOK' }) + ' kr';
+
+const mapTrueFalse = (bool?: boolean): string => (bool ? 'Ja' : 'Nei');
+
+export const mapBooleanTilString = (bool?: boolean) =>
+  bool === undefined || bool === null ? 'Ukjent' : mapTrueFalse(bool);

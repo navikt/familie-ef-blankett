@@ -19,6 +19,7 @@ import NyttBarnSammePartner from './NyttBarnSammePartner';
 import SagtOppEllerRedusertGrunnlag from './SagtOppEllerRedusertGrunnlag';
 import { Vedtak } from './Vedtak';
 import AlderPåBarnGrunnlag from './AlderPåBarnGrunnlag';
+import { TidligereHistorikk } from './TidligereHistorikk';
 
 interface DokumentProps {
   dokumentData: IDokumentData;
@@ -66,35 +67,39 @@ function gjelderDetteVilkåret(vurdering: IVurdering, vilkårgruppe: string): bo
 }
 
 const Dokument = (dokumentProps: DokumentProps) => {
-  const erManuellGOmregning =
-    dokumentProps.dokumentData.behandling.årsak === EBehandlingÅrsak.G_OMREGNING;
+  const dokumentData = dokumentProps.dokumentData;
+  const erManuellGOmregning = dokumentData.behandling.årsak === EBehandlingÅrsak.G_OMREGNING;
   return (
     <div>
       {!erManuellGOmregning &&
         Object.keys(VilkårGruppe).map(vilkårgruppe => {
-          const vurderinger = dokumentProps.dokumentData.vilkår.vurderinger.filter(vurdering =>
+          const vurderinger = dokumentData.vilkår.vurderinger.filter(vurdering =>
             gjelderDetteVilkåret(vurdering, vilkårgruppe),
           );
           if (vurderinger.length === 0) {
             return null;
           }
-          const grunnlag = dokumentProps.dokumentData.vilkår.grunnlag;
+          const grunnlag = dokumentData.vilkår.grunnlag;
           return vurderinger.map(vurdering => {
             return (
               <div key={vurdering.id} className={'page-break'}>
                 <h2>{vilkårTypeTilTekst[vurdering.vilkårType]}</h2>
                 {registergrunnlagForVilkår(grunnlag, vilkårgruppe, vurdering.barnId)}
-
+                {vurdering.vilkårType === Vilkår.TIDLIGERE_VEDTAKSPERIODER && (
+                  <TidligereHistorikk
+                    tidligereVedtaksperioder={dokumentData.behandling.tidligereVedtaksperioder}
+                  />
+                )}
                 <Vilkårsvurdering vurdering={vurdering} />
               </div>
             );
           });
         })}
       <Vedtak
-        stønadstype={dokumentProps.dokumentData.behandling.stønadstype}
-        vedtak={dokumentProps.dokumentData.vedtak}
-        søknadsdatoer={dokumentProps.dokumentData.søknadsdatoer}
-        årsak={dokumentProps.dokumentData.behandling.årsak}
+        stønadstype={dokumentData.behandling.stønadstype}
+        vedtak={dokumentData.vedtak}
+        søknadsdatoer={dokumentData.søknadsdatoer}
+        årsak={dokumentData.behandling.årsak}
       />
     </div>
   );
