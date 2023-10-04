@@ -26,7 +26,7 @@ interface ITidligereInnvilgetVedtak {
   periodeHistorikkOvergangsstønad?: IGrunnlagsdataPeriodeHistorikk[];
 }
 
-interface IGrunnlagsdataPeriodeHistorikk {
+export interface IGrunnlagsdataPeriodeHistorikk {
   vedtaksperiodeType: EPeriodetype;
   fom: string;
   tom: string;
