@@ -42,6 +42,7 @@ export interface ISøknadsdatoer {
 export type IAvslåVedtak = {
   resultatType: EBehandlingResultat.AVSLÅ;
   avslåBegrunnelse: string;
+  avslåÅrsak: string;
 };
 
 export type IInnvilgeVedtakOvergangsstønad = {
