@@ -42,7 +42,7 @@ export interface ISøknadsdatoer {
 export type IAvslåVedtak = {
   resultatType: EBehandlingResultat.AVSLÅ;
   avslåBegrunnelse: string;
-  avslåÅrsak: string;
+  avslåÅrsak: EAvslagÅrsak;
 };
 
 export type IInnvilgeVedtakOvergangsstønad = {
@@ -806,4 +806,28 @@ export const opplysningskildeTilTekst: Record<Opplysningskilde, string> = {
   INNSENDT_DOKUMENTASJON: 'Innsendt dokumentasjon',
   BESKJED_ANNEN_ENHET: 'Beskjed fra annen enhet',
   OPPLYSNINGER_INTERNE_KONTROLLER: 'Opplysninger fra intern kontroll',
+};
+
+export enum EAvslagÅrsak {
+  BARN_OVER_ÅTTE_ÅR = 'BARN_OVER_ÅTTE_ÅR',
+  MANGLENDE_OPPLYSNINGER = 'MANGLENDE_OPPLYSNINGER',
+  STØNADSTID_OPPBRUKT = 'STØNADSTID_OPPBRUKT',
+  MINDRE_INNTEKTSENDRINGER = 'MINDRE_INNTEKTSENDRINGER',
+  KORTVARIG_AVBRUDD_JOBB = 'KORTVARIG_AVBRUDD_JOBB',
+}
+
+export const årsakerTilAvslag: EAvslagÅrsak[] = [
+  EAvslagÅrsak.BARN_OVER_ÅTTE_ÅR,
+  EAvslagÅrsak.MANGLENDE_OPPLYSNINGER,
+  EAvslagÅrsak.STØNADSTID_OPPBRUKT,
+  EAvslagÅrsak.MINDRE_INNTEKTSENDRINGER,
+  EAvslagÅrsak.KORTVARIG_AVBRUDD_JOBB,
+];
+
+export const avslagÅrsakTilTekst: Record<EAvslagÅrsak, string> = {
+  BARN_OVER_ÅTTE_ÅR: 'Barnet er over 8 år',
+  MANGLENDE_OPPLYSNINGER: 'Manglende opplysninger',
+  STØNADSTID_OPPBRUKT: 'Stønadstiden er brukt opp',
+  MINDRE_INNTEKTSENDRINGER: 'Ikke 10 % endring inntekt',
+  KORTVARIG_AVBRUDD_JOBB: 'Kortvarig avbrudd jobb',
 };
