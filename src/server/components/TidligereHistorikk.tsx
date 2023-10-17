@@ -47,6 +47,11 @@ export const TidligereHistorikk: React.FC<{
           <strong>Historikk i Infotrygd:</strong>{' '}
           {mapBooleanTilString(tidligereVedtaksperioder?.infotrygd.harTidligereSkolepenger)}
         </div>
+        <br />
+        <div>
+          <strong>Har bruker fått stønad før desember 2008 - Infotrygd (PE PP): </strong>
+          {mapBooleanTilString(tidligereVedtaksperioder?.historiskPensjon)}
+        </div>
       </>
     );
   };
