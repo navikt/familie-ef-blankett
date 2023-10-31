@@ -15,7 +15,7 @@ export interface IBehandling {
 
 export interface ITidligereVedtaksperioder {
   infotrygd: ITidligereInnvilgetVedtak;
-  sak: ITidligereInnvilgetVedtak;
+  sak?: ITidligereInnvilgetVedtak;
   historiskPensjon: boolean;
 }
 
