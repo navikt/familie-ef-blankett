@@ -39,7 +39,7 @@ export const TidligereHistorikk: React.FC<{
           {mapBooleanTilString(tidligereVedtaksperioder?.infotrygd.harTidligereBarnetilsyn)}
         </div>
         <TidligereHistorikkBarnetilsynTabell
-          periodeHistorikkOvergangsstønad={periodeHistorikkOvergangsstønad}
+          periodeHistorikkBarnetilsyn={periodeHistorikkOvergangsstønad}
         />
         <h3>Skolepenger</h3>
         <div>
@@ -102,16 +102,16 @@ const TidligereHistorikkOvergangsstønadTabell: React.FC<{
 };
 
 const TidligereHistorikkBarnetilsynTabell: React.FC<{
-  periodeHistorikkOvergangsstønad: IGrunnlagsdataPeriodeHistorikk[] | undefined;
-}> = ({ periodeHistorikkOvergangsstønad }) => {
-  if (!periodeHistorikkOvergangsstønad || periodeHistorikkOvergangsstønad?.length < 1) return <></>;
+  periodeHistorikkBarnetilsyn: IGrunnlagsdataPeriodeHistorikk[] | undefined;
+}> = ({ periodeHistorikkBarnetilsyn }) => {
+  if (!periodeHistorikkBarnetilsyn || periodeHistorikkBarnetilsyn?.length < 1) return <></>;
 
   return (
     <table>
       <tr>
         <th>Periode</th>
       </tr>
-      {periodeHistorikkOvergangsstønad?.map(periode => {
+      {periodeHistorikkBarnetilsyn?.map(periode => {
         return (
           <tr>
             <td>
