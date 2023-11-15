@@ -38,6 +38,9 @@ export const TidligereHistorikk: React.FC<{
           <strong>Historikk i Infotrygd:</strong>{' '}
           {mapBooleanTilString(tidligereVedtaksperioder?.infotrygd.harTidligereBarnetilsyn)}
         </div>
+        <TidligereHistorikkBarnetilsynTabell
+          periodeHistorikkOvergangsstønad={periodeHistorikkOvergangsstønad}
+        />
         <h3>Skolepenger</h3>
         <div>
           <strong>Historikk i EF Sak:</strong>{' '}
@@ -90,6 +93,29 @@ const TidligereHistorikkOvergangsstønadTabell: React.FC<{
               periode.vedtaksperiodeType !== EPeriodetype.SANKSJON
                 ? periode.antallMånederUtenBeløp
                 : '-'}
+            </td>
+          </tr>
+        );
+      })}
+    </table>
+  );
+};
+
+const TidligereHistorikkBarnetilsynTabell: React.FC<{
+  periodeHistorikkOvergangsstønad: IGrunnlagsdataPeriodeHistorikk[] | undefined;
+}> = ({ periodeHistorikkOvergangsstønad }) => {
+  if (!periodeHistorikkOvergangsstønad || periodeHistorikkOvergangsstønad?.length < 1) return <></>;
+
+  return (
+    <table>
+      <tr>
+        <th>Periode</th>
+      </tr>
+      {periodeHistorikkOvergangsstønad?.map(periode => {
+        return (
+          <tr>
+            <td>
+              {formaterIsoDato(periode.fom)} - {formaterIsoDato(periode.tom)}
             </td>
           </tr>
         );
