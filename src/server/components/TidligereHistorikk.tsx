@@ -1,9 +1,10 @@
 import React from 'react';
 import {
-    EPeriodetype, IGrunnlagsdataPeriodeHistorikkBarnetilsyn,
-    IGrunnlagsdataPeriodeHistorikkOvergangsstønad,
-    ITidligereVedtaksperioder,
-    periodetypeTilTekst,
+  EPeriodetype,
+  IGrunnlagsdataPeriodeHistorikkBarnetilsyn,
+  IGrunnlagsdataPeriodeHistorikkOvergangsstønad,
+  ITidligereVedtaksperioder,
+  periodetypeTilTekst,
 } from '../../typer/dokumentApi';
 import { formaterIsoDato, mapBooleanTilString } from '../utils/util';
 
@@ -12,8 +13,7 @@ export const TidligereHistorikk: React.FC<{
 }> = ({ tidligereVedtaksperioder }) => {
   const periodeHistorikkOvergangsstønad =
     tidligereVedtaksperioder?.sak?.periodeHistorikkOvergangsstønad;
-    const periodeHistorikkBarnetilsyn =
-        tidligereVedtaksperioder?.sak?.periodeHistorikkBarnetilsyn;
+  const periodeHistorikkBarnetilsyn = tidligereVedtaksperioder?.sak?.periodeHistorikkBarnetilsyn;
   const TidligereHistorikk: React.FC = () => {
     return (
       <>
