@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  EPeriodetype,
-  IGrunnlagsdataPeriodeHistorikk,
-  ITidligereVedtaksperioder,
-  periodetypeTilTekst,
+    EPeriodetype, IGrunnlagsdataPeriodeHistorikkBarnetilsyn,
+    IGrunnlagsdataPeriodeHistorikkOvergangsstønad,
+    ITidligereVedtaksperioder,
+    periodetypeTilTekst,
 } from '../../typer/dokumentApi';
 import { formaterIsoDato, mapBooleanTilString } from '../utils/util';
 
@@ -12,7 +12,8 @@ export const TidligereHistorikk: React.FC<{
 }> = ({ tidligereVedtaksperioder }) => {
   const periodeHistorikkOvergangsstønad =
     tidligereVedtaksperioder?.sak?.periodeHistorikkOvergangsstønad;
-
+    const periodeHistorikkBarnetilsyn =
+        tidligereVedtaksperioder?.sak?.periodeHistorikkBarnetilsyn;
   const TidligereHistorikk: React.FC = () => {
     return (
       <>
@@ -39,7 +40,7 @@ export const TidligereHistorikk: React.FC<{
           {mapBooleanTilString(tidligereVedtaksperioder?.infotrygd.harTidligereBarnetilsyn)}
         </div>
         <TidligereHistorikkBarnetilsynTabell
-          periodeHistorikkBarnetilsyn={periodeHistorikkOvergangsstønad}
+          periodeHistorikkBarnetilsyn={periodeHistorikkBarnetilsyn}
         />
         <h3>Skolepenger</h3>
         <div>
@@ -68,7 +69,7 @@ export const TidligereHistorikk: React.FC<{
 };
 
 const TidligereHistorikkOvergangsstønadTabell: React.FC<{
-  periodeHistorikkOvergangsstønad: IGrunnlagsdataPeriodeHistorikk[] | undefined;
+  periodeHistorikkOvergangsstønad: IGrunnlagsdataPeriodeHistorikkOvergangsstønad[] | undefined;
 }> = ({ periodeHistorikkOvergangsstønad }) => {
   if (!periodeHistorikkOvergangsstønad || periodeHistorikkOvergangsstønad?.length < 1) return <></>;
 
@@ -102,7 +103,7 @@ const TidligereHistorikkOvergangsstønadTabell: React.FC<{
 };
 
 const TidligereHistorikkBarnetilsynTabell: React.FC<{
-  periodeHistorikkBarnetilsyn: IGrunnlagsdataPeriodeHistorikk[] | undefined;
+  periodeHistorikkBarnetilsyn: IGrunnlagsdataPeriodeHistorikkBarnetilsyn[] | undefined;
 }> = ({ periodeHistorikkBarnetilsyn }) => {
   if (!periodeHistorikkBarnetilsyn || periodeHistorikkBarnetilsyn?.length < 1) return <></>;
 
