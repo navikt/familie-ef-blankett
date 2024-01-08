@@ -1,11 +1,16 @@
 # familie-ef-blankett
-====================
+
+## OBS, denne applikasjonen er ikke lenger i bruk
+Siden denne applikasjonen delte mye duplikat kode og dependencies med [familie-brev](https://github.com/navikt/familie-brev), har all blankett-relatert kode blitt flyttet over dit. 
+Denne applikasjonen er derfor arkivert og ikke lenger i bruk.
+
+## Om appen
 Saksbehandlingsblankett for EF-sak (midlertidig)
  
 Appen lager html fra data og lager pdf ved bruk av [familie-dokument](https://github.com/navikt/familie-dokument).
 Konsumenter kan få returnert html eller pdf/bytearray.
 
-# Kjør server lokalt
+### Kjør server lokalt
 * Opprett `.env` og sett
 ```
   REACT_APP_FAMILIE_DOKUMENT=http://localhost:8082
@@ -15,17 +20,17 @@ Konsumenter kan få returnert html eller pdf/bytearray.
 * Kjør `yarn build`
 * Kjør `yarn dev:server`
 
-# Bygg og deploy
+### Bygg og deploy
 Appen bygges med github actions og nais deployer appen på gcp. 
 
-# Henvendelser
+### Henvendelser
 
 Spørsmål knyttet til koden eller prosjektet kan rettes til:
 
 * Charlie Midtlyng, `charlie.midtlyng@nav.no`
 * Mattis Janitz `mattis.janitz@nav.no`
 
-## For NAV-ansatte
+### For NAV-ansatte
 
 Interne henvendelser kan sendes via Slack i kanalen #team-familie.
 
